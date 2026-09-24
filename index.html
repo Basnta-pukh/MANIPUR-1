@@ -197,6 +197,14 @@
 
 
   </main>
+<script>
+  const categories = document.querySelectorAll(".category");
 
+  categories.forEach(function(category) {
+    category.addEventListener("click", function() {
+      alert("You selected " + category.textContent.trim());
+    });
+  });
+</script>
 </body>
 </html>
