@@ -16,6 +16,7 @@
       font-family: Arial, sans-serif;
       background: #f4f6f3;
       color: #18352b;
+      padding-bottom: 80px;
     }
 
     header {
@@ -51,7 +52,7 @@
     .logo p {
       font-size: 13px;
       margin-top: 3px;
-      opacity: 0.85;
+      opacity: .85;
     }
 
     .search {
@@ -77,11 +78,6 @@
       overflow-x: auto;
       padding-bottom: 15px;
       margin-bottom: 30px;
-      scrollbar-width: none;
-    }
-
-    .categories::-webkit-scrollbar {
-      display: none;
     }
 
     .category {
@@ -89,18 +85,16 @@
       height: 155px;
       background: white;
       border-radius: 24px;
-
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
       text-align: center;
       border: 1px solid #e1e7e2;
-      box-shadow: 0 7px 20px rgba(0,0,0,0.07);
-
+      box-shadow: 0 7px 20px rgba(0,0,0,.07);
       font-size: 16px;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .icon {
@@ -108,137 +102,428 @@
       margin-bottom: 15px;
     }
 
-    .place {
+    .card {
       background: white;
       padding: 18px;
       border-radius: 18px;
       margin-bottom: 14px;
-      box-shadow: 0 5px 16px rgba(0,0,0,0.05);
+      box-shadow: 0 5px 16px rgba(0,0,0,.05);
     }
 
-    .place h3 {
+    .card h3 {
       margin-bottom: 8px;
     }
 
-    .place p {
+    .card p {
       color: #68766e;
       font-size: 14px;
       line-height: 1.5;
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    .back-button {
+      margin-top: 5px;
+      background: white;
+      color: #145c42;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: white;
+      border-top: 1px solid #e2e6e3;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -5px 20px rgba(0,0,0,.08);
+      z-index: 100;
+    }
+
+    .nav-item {
+      text-align: center;
+      color: #68766e;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .nav-icon {
+      font-size: 24px;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .nav-item.active {
+      color: #145c42;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
+  <!-- HOME -->
+  <div id="homeScreen" class="screen active">
 
-    <div class="logo">
-      <div class="logo-mark">1</div>
+    <header>
+      <div class="logo">
+        <div class="logo-mark">1</div>
 
-      <div>
-        <h1>Manipur 1</h1>
-        <p>One app. One Manipur.</p>
+        <div>
+          <h1>Manipur 1</h1>
+          <p>One app. One Manipur.</p>
+        </div>
       </div>
+
+      <input
+        class="search"
+        type="search"
+        placeholder="Search Manipur..."
+      >
+    </header>
+
+    <main>
+
+      <h2>Explore Manipur</h2>
+
+      <div class="categories">
+
+        <div class="category" id="tourismButton">
+          <div class="icon">🏔️</div>
+          Tourism
+        </div>
+
+        <div class="category" id="foodButton">
+          <div class="icon">🍽️</div>
+          Food
+        </div>
+
+        <div class="category">
+          <div class="icon">🚗</div>
+          Transport
+        </div>
+
+        <div class="category">
+          <div class="icon">🏢</div>
+          Businesses
+        </div>
+
+        <div class="category">
+          <div class="icon">🎓</div>
+          Student Hub
+        </div>
+
+        <div class="category">
+          <div class="icon">💼</div>
+          Jobs
+        </div>
+
+      </div>
+
+      <h2>Discover Manipur</h2>
+
+      <div class="card">
+        <h3>Explore Places</h3>
+        <p>
+          Discover beautiful places, culture and experiences across Manipur.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Local Food</h3>
+        <p>
+          Discover local food and restaurants.
+        </p>
+      </div>
+
+    </main>
+  </div>
+
+
+  <!-- TOURISM -->
+  <div id="tourismScreen" class="screen">
+
+    <header>
+      <div class="logo">
+
+        <div class="logo-mark">1</div>
+
+        <div>
+          <h1>Tourism</h1>
+          <p>Discover Manipur</p>
+        </div>
+
+      </div>
+
+      <button class="back-button" id="tourismBack">
+        ← Back
+      </button>
+    </header>
+
+    <main>
+
+      <h2>Explore Manipur 🏔️</h2>
+
+      <div class="card">
+        <h3>Loktak Lake</h3>
+        <p>
+          Explore one of Manipur's well-known natural landmarks.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Kangla</h3>
+        <p>
+          Discover the history and heritage of this important site.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Keibul Lamjao</h3>
+        <p>
+          Discover Manipur's famous floating national park.
+        </p>
+      </div>
+
+    </main>
+  </div>
+
+
+  <!-- FOOD -->
+  <div id="foodScreen" class="screen">
+
+    <header>
+      <div class="logo">
+
+        <div class="logo-mark">1</div>
+
+        <div>
+          <h1>Food</h1>
+          <p>Taste Manipur</p>
+        </div>
+
+      </div>
+
+      <button class="back-button" id="foodBack">
+        ← Back
+      </button>
+    </header>
+
+    <main>
+
+      <h2>Discover Manipur Food 🍜</h2>
+
+      <div class="card">
+        <h3>🍜 Local Food</h3>
+        <p>
+          Discover traditional food and dishes from Manipur.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🍽️ Restaurants</h3>
+        <p>
+          Find restaurants and places to eat.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>☕ Cafes</h3>
+        <p>
+          Discover cafes and places to relax.
+        </p>
+      </div>
+
+    </main>
+  </div>
+
+
+  <!-- EXPLORE -->
+  <div id="exploreScreen" class="screen">
+
+    <header>
+      <div class="logo">
+
+        <div class="logo-mark">1</div>
+
+        <div>
+          <h1>Explore</h1>
+          <p>Discover Manipur</p>
+        </div>
+
+      </div>
+    </header>
+
+    <main>
+
+      <h2>Discover Manipur</h2>
+
+      <div class="card">
+        <h3>🏔️ Places</h3>
+        <p>
+          Discover places and destinations across Manipur.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🍜 Food</h3>
+        <p>
+          Explore local food and restaurants.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎭 Culture</h3>
+        <p>
+          Learn about the culture and traditions of Manipur.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎉 Events</h3>
+        <p>
+          Find events and activities.
+        </p>
+      </div>
+
+    </main>
+  </div>
+
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+
+    <div class="nav-item active" data-page="home">
+      <span class="nav-icon">⌂</span>
+      Home
     </div>
 
-    <input
-      class="search"
-      type="search"
-      placeholder="Search Manipur..."
-    >
-
-  </header>
-
-  <main>
-
-    <h2>Explore Manipur</h2>
-
-    <div class="categories">
-
-    <div class="category" onclick="openTourism()">
-  <div class="icon">🏔️</div>
-  Tourism
-</div> 
-
-      <div class="category">
-        <div class="icon">🍽️</div>
-        Food
-      </div>
-
-      <div class="category">
-        <div class="icon">🚗</div>
-        Transport
-      </div>
-
-      <div class="category">
-        <div class="icon">🏢</div>
-        Businesses
-      </div>
-
-      <div class="category">
-        <div class="icon">🎓</div>
-        Student Hub
-      </div>
-
-      <div class="category">
-        <div class="icon">💼</div>
-        Jobs
-      </div>
-
+    <div class="nav-item" data-page="explore">
+      <span class="nav-icon">◉</span>
+      Explore
     </div>
 
-    <h2>Discover Manipur</h2>
-
-    <div class="place">
-      <h3>Explore Places</h3>
-      <p>Discover beautiful places, culture and experiences across Manipur.</p>
+    <div class="nav-item" data-page="map">
+      <span class="nav-icon">⌖</span>
+      Map
     </div>
 
-    <div class="place">
-      <h3>Local Food</h3>
-      <p>Discover local food and restaurants.</p>
+    <div class="nav-item" data-page="services">
+      <span class="nav-icon">▦</span>
+      Services
     </div>
 
-  </main>
+    <div class="nav-item" data-page="profile">
+      <span class="nav-icon">○</span>
+      Profile
+    </div>
 
-<script>
-  const categories = document.querySelectorAll(".category");
+  </nav>
 
-  categories.forEach(function(category) {
 
-    category.addEventListener("click", function() {
+  <script>
 
-      alert("You selected " + category.innerText.trim());
+    const homeScreen = document.getElementById("homeScreen");
+    const tourismScreen = document.getElementById("tourismScreen");
+    const foodScreen = document.getElementById("foodScreen");
+    const exploreScreen = document.getElementById("exploreScreen");
+
+
+    function showScreen(screen) {
+
+      homeScreen.classList.remove("active");
+      tourismScreen.classList.remove("active");
+      foodScreen.classList.remove("active");
+      exploreScreen.classList.remove("active");
+
+      screen.classList.add("active");
+
+    }
+
+
+    document.getElementById("tourismButton").addEventListener("click", function() {
+
+      showScreen(tourismScreen);
 
     });
 
-  });
-</script>
-<script>
-  function openTourism() {
 
-  document.getElementById("homeScreen").style.display = "none";
+    document.getElementById("foodButton").addEventListener("click", function() {
 
-  document.getElementById("exploreScreen").style.display = "none";
+      showScreen(foodScreen);
 
-  document.getElementById("tourismScreen").style.display = "block";
+    });
 
-}
-  const navItems = document.querySelectorAll(".nav-item");
 
-  navItems.forEach(function(item) {
-    item.addEventListener("click", function() {
+    document.getElementById("tourismBack").addEventListener("click", function() {
 
-      navItems.forEach(function(nav) {
-        nav.classList.remove("active");
+      showScreen(homeScreen);
+
+    });
+
+
+    document.getElementById("foodBack").addEventListener("click", function() {
+
+      showScreen(homeScreen);
+
+    });
+
+
+    const navItems = document.querySelectorAll(".nav-item");
+
+
+    navItems.forEach(function(item) {
+
+      item.addEventListener("click", function() {
+
+        const page = item.dataset.page;
+
+
+        navItems.forEach(function(nav) {
+          nav.classList.remove("active");
+        });
+
+
+        item.classList.add("active");
+
+
+        if (page === "home") {
+
+          showScreen(homeScreen);
+
+        }
+
+        else if (page === "explore") {
+
+          showScreen(exploreScreen);
+
+        }
+
+        else {
+
+          alert(page.toUpperCase() + " page coming next!");
+
+        }
+
       });
 
-      item.classList.add("active");
-
-      alert("Opening " + item.innerText.trim());
     });
-  });
-</script>
-  
+
+  </script>
+
 </body>
-</html>  
+</html>
