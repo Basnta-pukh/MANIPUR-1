@@ -508,6 +508,8 @@
   <script>
 
     const homeScreen = document.getElementById("homeScreen");
+    const loktakScreen =
+  document.getElementById("loktakScreen");
     const tourismScreen = document.getElementById("tourismScreen");
     const foodScreen = document.getElementById("foodScreen");
     const exploreScreen = document.getElementById("exploreScreen");
@@ -515,14 +517,15 @@
 
     function showScreen(screen) {
 
-      homeScreen.classList.remove("active");
-      tourismScreen.classList.remove("active");
-      foodScreen.classList.remove("active");
-      exploreScreen.classList.remove("active");
+  homeScreen.classList.remove("active");
+  tourismScreen.classList.remove("active");
+  foodScreen.classList.remove("active");
+  exploreScreen.classList.remove("active");
+  loktakScreen.classList.remove("active");
 
-      screen.classList.add("active");
+  screen.classList.add("active");
 
-    }
+}
 
 
     document.getElementById("tourismButton").addEventListener("click", function() {
@@ -551,7 +554,18 @@
       showScreen(homeScreen);
 
     });
+document.getElementById("loktakCard").addEventListener("click", function() {
 
+  showScreen(loktakScreen);
+
+});
+
+
+document.getElementById("loktakBack").addEventListener("click", function() {
+
+  showScreen(tourismScreen);
+
+});
 
     const navItems = document.querySelectorAll(".nav-item");
 
