@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Manipur One</title>
+  <title>Manipur 1</title>
 
   <style>
     * {
@@ -22,17 +21,37 @@
     header {
       background: #145c42;
       color: white;
-      padding: 28px 18px;
+      padding: 25px 18px;
       border-radius: 0 0 28px 28px;
     }
 
-    header h1 {
-      font-size: 30px;
-      margin-bottom: 7px;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    header p {
-      font-size: 15px;
+    .logo-mark {
+      width: 55px;
+      height: 55px;
+      border-radius: 17px;
+      background: white;
+      color: #145c42;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .logo h1 {
+      font-size: 27px;
+    }
+
+    .logo p {
+      font-size: 13px;
+      margin-top: 3px;
+      opacity: 0.85;
     }
 
     .search {
@@ -45,15 +64,12 @@
     }
 
     main {
-      padding: 24px 16px;
+      padding: 25px 16px;
     }
 
     h2 {
-      font-size: 21px;
       margin-bottom: 16px;
     }
-
-    /* SIDE-SCROLLING OPTIONS */
 
     .categories {
       display: flex;
@@ -81,7 +97,6 @@
 
       text-align: center;
       border: 1px solid #e1e7e2;
-
       box-shadow: 0 7px 20px rgba(0,0,0,0.07);
 
       font-size: 16px;
@@ -98,7 +113,6 @@
       padding: 18px;
       border-radius: 18px;
       margin-bottom: 14px;
-
       box-shadow: 0 5px 16px rgba(0,0,0,0.05);
     }
 
@@ -118,9 +132,14 @@
 
   <header>
 
-    <h1>Manipur One</h1>
+    <div class="logo">
+      <div class="logo-mark">1</div>
 
-    <p>One app. One Manipur.</p>
+      <div>
+        <h1>Manipur 1</h1>
+        <p>One app. One Manipur.</p>
+      </div>
+    </div>
 
     <input
       class="search"
@@ -130,11 +149,9 @@
 
   </header>
 
-
   <main>
 
     <h2>Explore Manipur</h2>
-
 
     <div class="categories">
 
@@ -170,41 +187,19 @@
 
     </div>
 
-
     <h2>Discover Manipur</h2>
 
-
     <div class="place">
-
       <h3>Explore Places</h3>
-
-      <p>
-        Discover beautiful places, culture and experiences across Manipur.
-      </p>
-
+      <p>Discover beautiful places, culture and experiences across Manipur.</p>
     </div>
-
 
     <div class="place">
-
       <h3>Local Food</h3>
-
-      <p>
-        Discover local food and restaurants.
-      </p>
-
+      <p>Discover local food and restaurants.</p>
     </div>
-
 
   </main>
-<script>
-  const categories = document.querySelectorAll(".category");
 
-  categories.forEach(function(category) {
-    category.addEventListener("click", function() {
-      alert("You selected " + category.textContent.trim());
-    });
-  });
-</script>
 </body>
 </html>
