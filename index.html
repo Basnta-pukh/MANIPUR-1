@@ -292,14 +292,22 @@
   <p style="margin-top:10px; color:#145c42; font-weight:bold;">
     View details →
   </p>
-</div>
+<div class="card" id="kanglaCard">
 
-      <div class="card">
-        <h3>Kangla</h3>
-        <p>
-          Discover the history and heritage of this important site.
-        </p>
-      </div>
+  <h3>
+    Kangla
+  </h3>
+
+  <p>
+    Discover the history and
+    heritage of this important site.
+  </p>
+
+  <p class="view-more">
+    View details →
+  </p>
+
+</div>
 
       <div class="card">
         <h3>Keibul Lamjao</h3>
@@ -367,6 +375,73 @@
         information can be added here later.
       </p>
 
+    </div>
+
+  </main>
+
+</div>
+  /* KANGLA */
+
+document
+  .getElementById("kanglaCard")
+  .addEventListener("click", function() {
+    showScreen(kanglaScreen);
+  });
+
+/* BACK FROM KANGLA */
+
+document
+  .getElementById("kanglaBack")
+  .addEventListener("click", function() {
+    showScreen(tourismScreen);
+  });
+  <!-- KANGLA DETAILS -->
+
+<div id="kanglaScreen" class="screen">
+
+  <header>
+
+    <div class="logo">
+
+      <div class="logo-mark">1</div>
+
+      <div>
+        <h1>Kangla</h1>
+        <p>Manipur 1 Tourism</p>
+      </div>
+
+    </div>
+
+    <button class="back-button" id="kanglaBack">
+      ← Back
+    </button>
+
+  </header>
+
+  <main>
+
+    <h2>Explore Kangla 🏛️</h2>
+
+    <div class="card">
+      <h3>About</h3>
+      <p>
+        Kangla is a historic site in Imphal,
+        Manipur, with deep cultural and
+        historical importance.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Location</h3>
+      <p>Imphal, Manipur, India</p>
+    </div>
+
+    <div class="card">
+      <h3>Explore</h3>
+      <p>
+        Photos, maps and visitor information
+        can be added here later.
+      </p>
     </div>
 
   </main>
@@ -510,6 +585,8 @@
     const homeScreen = document.getElementById("homeScreen");
     const loktakScreen =
   document.getElementById("loktakScreen");
+    const kanglaScreen =
+  document.getElementById("kanglaScreen");
     const tourismScreen = document.getElementById("tourismScreen");
     const foodScreen = document.getElementById("foodScreen");
     const exploreScreen = document.getElementById("exploreScreen");
@@ -522,6 +599,7 @@
   foodScreen.classList.remove("active");
   exploreScreen.classList.remove("active");
   loktakScreen.classList.remove("active");
+  kanglaScreen.classList.remove("active");    
 
   screen.classList.add("active");
 
