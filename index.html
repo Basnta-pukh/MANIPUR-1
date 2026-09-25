@@ -1,691 +1,248 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manipur 1</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manipur 1</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f3;
-      color: #18352b;
-      padding-bottom: 80px;
-    }
-
-    header {
-      background: #145c42;
-      color: white;
-      padding: 25px 18px;
-      border-radius: 0 0 28px 28px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-mark {
-      width: 55px;
-      height: 55px;
-      border-radius: 17px;
-      background: white;
-      color: #145c42;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      font-weight: bold;
-    }
-
-    .logo h1 {
-      font-size: 27px;
-    }
-
-    .logo p {
-      font-size: 13px;
-      margin-top: 3px;
-      opacity: .85;
-    }
-
-    .search {
-      width: 100%;
-      margin-top: 20px;
-      padding: 15px;
-      border: none;
-      border-radius: 14px;
-      font-size: 16px;
-    }
-
-    main {
-      padding: 25px 16px;
-    }
-
-    h2 {
-      margin-bottom: 16px;
-    }
-
-    .categories {
-      display: flex;
-      gap: 14px;
-      overflow-x: auto;
-      padding-bottom: 15px;
-      margin-bottom: 30px;
-    }
-
-    .category {
-      flex: 0 0 155px;
-      height: 155px;
-      background: white;
-      border-radius: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border: 1px solid #e1e7e2;
-      box-shadow: 0 7px 20px rgba(0,0,0,.07);
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .icon {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .card {
-      background: white;
-      padding: 18px;
-      border-radius: 18px;
-      margin-bottom: 14px;
-      box-shadow: 0 5px 16px rgba(0,0,0,.05);
-    }
-
-    .card h3 {
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: #68766e;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .screen {
-      display: none;
-    }
-
-    .screen.active {
-      display: block;
-    }
-
-    .back-button {
-      margin-top: 5px;
-      background: white;
-      color: #145c42;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      background: white;
-      border-top: 1px solid #e2e6e3;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      box-shadow: 0 -5px 20px rgba(0,0,0,.08);
-      z-index: 100;
-    }
-
-    .nav-item {
-      text-align: center;
-      color: #68766e;
-      font-size: 11px;
-      cursor: pointer;
-    }
-
-    .nav-icon {
-      font-size: 24px;
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .nav-item.active {
-      color: #145c42;
-      font-weight: bold;
-    }
-  </style>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f6f3;color:#18352b;padding-bottom:80px}
+header{background:#145c42;color:white;padding:25px 18px;border-radius:0 0 28px 28px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:55px;height:55px;border-radius:17px;background:white;color:#145c42;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:bold}
+.logo h1{font-size:27px}
+.logo p{font-size:13px;margin-top:3px;opacity:.85}
+.search{width:100%;margin-top:20px;padding:15px;border:none;border-radius:14px;font-size:16px}
+main{padding:25px 16px}
+h2{margin-bottom:16px}
+.categories{display:flex;gap:14px;overflow-x:auto;padding-bottom:15px;margin-bottom:30px;scrollbar-width:none}
+.categories::-webkit-scrollbar{display:none}
+.category{flex:0 0 145px;height:145px;background:white;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid #e1e7e2;box-shadow:0 7px 20px #00000012;font-size:16px;font-weight:bold;cursor:pointer}
+.icon{font-size:42px;margin-bottom:15px}
+.card{background:white;padding:18px;border-radius:18px;margin-bottom:14px;box-shadow:0 5px 16px #0000000d;cursor:pointer}
+.card h3{margin-bottom:8px}
+.card p{color:#68766e;font-size:14px;line-height:1.5}
+.view-more{margin-top:10px;color:#145c42;font-weight:bold}
+.screen{display:none}
+.screen.active{display:block}
+.back-button{margin-top:15px;background:white;color:#145c42;border:none;padding:10px 15px;border-radius:10px;font-weight:bold;cursor:pointer}
+.bottom-nav{position:fixed;bottom:0;left:0;width:100%;height:70px;background:white;border-top:1px solid #e2e6e3;display:flex;justify-content:space-around;align-items:center;box-shadow:0 -5px 20px #00000012;z-index:100}
+.nav-item{text-align:center;color:#68766e;font-size:11px;cursor:pointer}
+.nav-icon{font-size:24px;display:block;margin-bottom:3px}
+.nav-item.active{color:#145c42;font-weight:bold}
+.map-frame{width:100%;height:420px;border:0;border-radius:18px}
+.map-link{display:block;text-align:center;background:#145c42;color:white;padding:15px;border-radius:12px;text-decoration:none;margin-top:15px}
+</style>
 </head>
-
 <body>
 
-  <!-- HOME -->
-  <div id="homeScreen" class="screen active">
-
-    <header>
-      <div class="logo">
-        <div class="logo-mark">1</div>
-
-        <div>
-          <h1>Manipur 1</h1>
-          <p>One app. One Manipur.</p>
-        </div>
-      </div>
-
-      <input
-        class="search"
-        type="search"
-        placeholder="Search Manipur..."
-      >
-    </header>
-
-    <main>
-
-      <h2>Explore Manipur</h2>
-
-      <div class="categories">
-
-        <div class="category" id="tourismButton">
-          <div class="icon">🏔️</div>
-          Tourism
-        </div>
-
-        <div class="category" id="foodButton">
-          <div class="icon">🍽️</div>
-          Food
-        </div>
-
-        <div class="category">
-          <div class="icon">🚗</div>
-          Transport
-        </div>
-
-        <div class="category">
-          <div class="icon">🏢</div>
-          Businesses
-        </div>
-
-        <div class="category">
-          <div class="icon">🎓</div>
-          Student Hub
-        </div>
-
-        <div class="category">
-          <div class="icon">💼</div>
-          Jobs
-        </div>
-
-      </div>
-
-      <h2>Discover Manipur</h2>
-
-      <div class="card">
-        <h3>Explore Places</h3>
-        <p>
-          Discover beautiful places, culture and experiences across Manipur.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Local Food</h3>
-        <p>
-          Discover local food and restaurants.
-        </p>
-      </div>
-
-    </main>
-  </div>
-
-
-  <!-- TOURISM -->
-  <div id="tourismScreen" class="screen">
-
-    <header>
-      <div class="logo">
-
-        <div class="logo-mark">1</div>
-
-        <div>
-          <h1>Tourism</h1>
-          <p>Discover Manipur</p>
-        </div>
-
-      </div>
-
-      <button class="back-button" id="tourismBack">
-        ← Back
-      </button>
-    </header>
-
-    <main>
-
-      <h2>Explore Manipur 🏔️</h2>
-
-      <div
-  class="card"
-  id="loktakCard"
-  style="cursor:pointer;"
->
-  <h3>Loktak Lake</h3>
-
-  <p>
-    Explore one of Manipur's well-known natural landmarks.
-  </p>
-
-  <p style="margin-top:10px; color:#145c42; font-weight:bold;">
-    View details →
-  </p>
-<div class="card" id="kanglaCard">
-
-  <h3>
-    Kangla
-  </h3>
-
-  <p>
-    Discover the history and
-    heritage of this important site.
-  </p>
-
-  <p class="view-more">
-    View details →
-  </p>
-
+<!-- HOME -->
+<div id="homeScreen" class="screen active">
+<header>
+<div class="logo">
+<div class="logo-mark">1</div>
+<div><h1>Manipur 1</h1><p>One app. One Manipur.</p></div>
+</div>
+<input id="searchInput" class="search" type="search" placeholder="Search Manipur...">
+</header>
+<main>
+<h2>Explore Manipur</h2>
+<div class="categories">
+<div class="category" data-open="tourism"><div class="icon">🏔️</div>Tourism</div>
+<div class="category" data-open="food"><div class="icon">🍽️</div>Food</div>
+<div class="category" data-open="transport"><div class="icon">🚗</div>Transport</div>
+<div class="category" data-open="business"><div class="icon">🏢</div>Businesses</div>
+<div class="category" data-open="student"><div class="icon">🎓</div>Student Hub</div>
+<div class="category" data-open="jobs"><div class="icon">💼</div>Jobs</div>
+</div>
+<h2>Discover Manipur</h2>
+<div class="card" data-open="tourism"><h3>Explore Places</h3><p>Discover beautiful places, culture and experiences across Manipur.</p></div>
+<div class="card" data-open="food"><h3>Local Food</h3><p>Discover local food and restaurants.</p></div>
+<div class="card" data-open="map"><h3>🗺️ Explore Map</h3><p>Find places across Manipur.</p></div>
+</main>
 </div>
 
-      <div class="card">
-        <h3>Keibul Lamjao</h3>
-        <p>
-          Discover Manipur's famous floating national park.
-        </p>
-      </div>
+<!-- TOURISM -->
+<div id="tourismScreen" class="screen">
+<header><div class="logo"><div class="logo-mark">1</div><div><h1>Tourism</h1><p>Discover Manipur</p></div></div><button class="back-button" data-back>← Back</button></header>
+<main>
+<h2>Explore Manipur 🏔️</h2>
+<div class="card" data-open="loktak"><h3>Loktak Lake</h3><p>Explore one of Manipur's well-known natural landmarks.</p><p class="view-more">View details →</p></div>
+<div class="card" data-open="kangla"><h3>Kangla</h3><p>Discover the history and heritage of this important site.</p><p class="view-more">View details →</p></div>
+<div class="card" data-open="keibul"><h3>Keibul Lamjao</h3><p>Discover Manipur's famous floating national park.</p><p class="view-more">View details →</p></div>
+<div class="card" data-open="map"><h3>🗺️ View on Map</h3><p>Open the Manipur map.</p></div>
+</main>
+</div>
 
-    </main>
-  </div>
-<!-- LOKTAK DETAILS -->
-
+<!-- PLACE DETAILS -->
 <div id="loktakScreen" class="screen">
-
-  <header>
-
-    <div class="logo">
-
-      <div class="logo-mark">1</div>
-
-      <div>
-        <h1>Loktak Lake</h1>
-        <p>Manipur 1 Tourism</p>
-      </div>
-
-    </div>
-
-    <button class="back-button" id="loktakBack">
-      ← Back
-    </button>
-
-  </header>
-
-  <main>
-
-    <h2>Loktak Lake 🏞️</h2>
-
-    <div class="card">
-
-      <h3>About</h3>
-
-      <p>
-        Loktak Lake is one of the well-known natural landmarks
-        of Manipur.
-      </p>
-
-    </div>
-
-    <div class="card">
-
-      <h3>Location</h3>
-
-      <p>
-        Manipur, India
-      </p>
-
-    </div>
-
-    <div class="card">
-
-      <h3>Explore</h3>
-
-      <p>
-        More verified information, photos, maps and visitor
-        information can be added here later.
-      </p>
-
-    </div>
-
-  </main>
-
+<header><div class="logo"><div class="logo-mark">1</div><div><h1>Loktak Lake</h1><p>Manipur 1 Tourism</p></div></div><button class="back-button" data-back="tourism">← Back</button></header>
+<main>
+<h2>Loktak Lake 🏞️</h2>
+<div class="card"><h3>About</h3><p>Loktak Lake is one of the well-known natural landmarks of Manipur.</p></div>
+<div class="card"><h3>Location</h3><p>Manipur, India</p></div>
+<div class="card"><h3>Explore</h3><p>Photos and visitor information can be added later.</p></div>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Loktak+Lake+Manipur" target="_blank" rel="noopener">📍 Find Loktak Lake on Google Maps</a>
+</main>
 </div>
-  /* KANGLA */
-
-document
-  .getElementById("kanglaCard")
-  .addEventListener("click", function() {
-    showScreen(kanglaScreen);
-  });
-
-/* BACK FROM KANGLA */
-
-document
-  .getElementById("kanglaBack")
-  .addEventListener("click", function() {
-    showScreen(tourismScreen);
-  });
-  <!-- KANGLA DETAILS -->
 
 <div id="kanglaScreen" class="screen">
-
-  <header>
-
-    <div class="logo">
-
-      <div class="logo-mark">1</div>
-
-      <div>
-        <h1>Kangla</h1>
-        <p>Manipur 1 Tourism</p>
-      </div>
-
-    </div>
-
-    <button class="back-button" id="kanglaBack">
-      ← Back
-    </button>
-
-  </header>
-
-  <main>
-
-    <h2>Explore Kangla 🏛️</h2>
-
-    <div class="card">
-      <h3>About</h3>
-      <p>
-        Kangla is a historic site in Imphal,
-        Manipur, with deep cultural and
-        historical importance.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Location</h3>
-      <p>Imphal, Manipur, India</p>
-    </div>
-
-    <div class="card">
-      <h3>Explore</h3>
-      <p>
-        Photos, maps and visitor information
-        can be added here later.
-      </p>
-    </div>
-
-  </main>
-
+<header><div class="logo"><div class="logo-mark">1</div><div><h1>Kangla</h1><p>Manipur 1 Tourism</p></div></div><button class="back-button" data-back="tourism">← Back</button></header>
+<main>
+<h2>Explore Kangla 🏛️</h2>
+<div class="card"><h3>About</h3><p>Kangla is a historic site in Imphal, Manipur, with deep cultural and historical importance.</p></div>
+<div class="card"><h3>Location</h3><p>Imphal, Manipur, India</p></div>
+<div class="card"><h3>Explore</h3><p>Photos and visitor information can be added later.</p></div>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Kangla+Fort+Imphal" target="_blank" rel="noopener">📍 Find Kangla on Google Maps</a>
+</main>
 </div>
 
-  <!-- FOOD -->
-  <div id="foodScreen" class="screen">
+<div id="keibulScreen" class="screen">
+<header><div class="logo"><div class="logo-mark">1</div><div><h1>Keibul Lamjao</h1><p>Manipur 1 Tourism</p></div></div><button class="back-button" data-back="tourism">← Back</button></header>
+<main>
+<h2>Keibul Lamjao 🌿</h2>
+<div class="card"><h3>About</h3><p>Keibul Lamjao is a national park in Manipur, known for its floating vegetation and natural environment.</p></div>
+<div class="card"><h3>Location</h3><p>Manipur, India</p></div>
+<div class="card"><h3>Explore</h3><p>Photos and visitor information can be added later.</p></div>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Keibul+Lamjao+National+Park" target="_blank" rel="noopener">📍 Find Keibul Lamjao on Google Maps</a>
+</main>
+</div>
 
-    <header>
-      <div class="logo">
+<!-- FOOD -->
+<div id="foodScreen" class="screen">
+<header><div class="logo"><div class="logo-mark">1</div><div><h1>Food</h1><p>Taste Manipur</p></div></div><button class="back-button" data-back>← Back</button></header>
+<main>
+<h2>Discover Manipur Food 🍜</h2>
+<div class="card"><h3>🍜 Local Food</h3><p>Discover traditional food and dishes from Manipur.</p></div>
+<div class="card"><h3>🍽️ Restaurants</h3><p>Find restaurants and places to eat.</p></div>
+<div class="card"><h3>☕ Cafes</h3><p>Discover cafes and places to relax.</p></div>
+</main>
+</div>
 
-        <div class="logo-mark">1</div>
+<!-- EXPLORE -->
+<div id="exploreScreen" class="screen">
+<header><div class="logo"><div class="logo-mark">1</div><div><h1>Explore</h1><p>Discover Manipur</p></div></div></header>
+<main>
+<h2>Discover Manipur</h2>
+<div class="card" data-open="tourism"><h3>🏔️ Places</h3><p>Discover destinations across Manipur.</p></div>
+<div class="card" data-open="food"><h3>🍜 Food</h3><p>Explore local food and restaurants.</p></div>
+<div class="card"><h3>🎭 Culture</h3><p>Learn about culture and traditions.</p></div>
+<div class="card"><h3>🎉 Events</h3><p>Find events and activities.</p></div>
+</main>
+</div>
 
-        <div>
-          <h1>Food</h1>
-          <p>Taste Manipur</p>
-        </div>
+<!-- MAP -->
+<div id="mapScreen" class="screen">
+<header>
+<div class="logo"><div class="logo-mark">1</div><div><h1>Manipur Map</h1><p>Explore places around Manipur</p></div></div>
+<button class="back-button" data-back>← Back</button>
+</header>
+<main>
+<h2>Explore Manipur 🗺️</h2>
+<div class="card">
+<h3>Map of Manipur</h3>
+<p>Explore the area using the map below. Tap the map to open Google Maps.</p>
+</div>
+<iframe class="map-frame" title="Map of Manipur" loading="lazy" src="https://maps.google.com/maps?q=Manipur%2C%20India&t=&z=8&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Manipur+India" target="_blank" rel="noopener">Open Google Maps ↗</a>
+<h2 style="margin-top:25px">Popular Places</h2>
+<div class="card" data-map="Loktak Lake, Manipur"><h3>🏞️ Loktak Lake</h3><p>Find this place on Google Maps →</p></div>
+<div class="card" data-map="Kangla Fort, Imphal"><h3>🏛️ Kangla</h3><p>Find this place on Google Maps →</p></div>
+<div class="card" data-map="Keibul Lamjao National Park"><h3>🌿 Keibul Lamjao</h3><p>Find this place on Google Maps →</p></div>
+</main>
+</div>
 
-      </div>
+<!-- COMING SOON -->
+<div id="comingScreen" class="screen">
+<header><div class="logo"><div class="logo-mark">1</div><div><h1 id="comingTitle">Services</h1><p>Manipur 1</p></div></div><button class="back-button" data-back>← Back</button></header>
+<main><h2 id="comingHeading">Coming soon</h2><div class="card"><h3>Coming soon</h3><p>This section will be developed in a future step.</p></div></main>
+</div>
 
-      <button class="back-button" id="foodBack">
-        ← Back
-      </button>
-    </header>
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+<div class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Home</div>
+<div class="nav-item" data-page="explore"><span class="nav-icon">◉</span>Explore</div>
+<div class="nav-item" data-page="map"><span class="nav-icon">⌖</span>Map</div>
+<div class="nav-item" data-page="services"><span class="nav-icon">▦</span>Services</div>
+<div class="nav-item" data-page="profile"><span class="nav-icon">○</span>Profile</div>
+</nav>
 
-    <main>
+<script>
+const screens = {};
+document.querySelectorAll(".screen").forEach(screen => {
+  screens[screen.id.replace("Screen","")] = screen;
+});
 
-      <h2>Discover Manipur Food 🍜</h2>
+const navItems = document.querySelectorAll(".nav-item");
 
-      <div class="card">
-        <h3>🍜 Local Food</h3>
-        <p>
-          Discover traditional food and dishes from Manipur.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🍽️ Restaurants</h3>
-        <p>
-          Find restaurants and places to eat.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>☕ Cafes</h3>
-        <p>
-          Discover cafes and places to relax.
-        </p>
-      </div>
-
-    </main>
-  </div>
-
-
-  <!-- EXPLORE -->
-  <div id="exploreScreen" class="screen">
-
-    <header>
-      <div class="logo">
-
-        <div class="logo-mark">1</div>
-
-        <div>
-          <h1>Explore</h1>
-          <p>Discover Manipur</p>
-        </div>
-
-      </div>
-    </header>
-
-    <main>
-
-      <h2>Discover Manipur</h2>
-
-      <div class="card">
-        <h3>🏔️ Places</h3>
-        <p>
-          Discover places and destinations across Manipur.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🍜 Food</h3>
-        <p>
-          Explore local food and restaurants.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🎭 Culture</h3>
-        <p>
-          Learn about the culture and traditions of Manipur.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🎉 Events</h3>
-        <p>
-          Find events and activities.
-        </p>
-      </div>
-
-    </main>
-  </div>
-
-
-  <!-- BOTTOM NAV -->
-  <nav class="bottom-nav">
-
-    <div class="nav-item active" data-page="home">
-      <span class="nav-icon">⌂</span>
-      Home
-    </div>
-
-    <div class="nav-item" data-page="explore">
-      <span class="nav-icon">◉</span>
-      Explore
-    </div>
-
-    <div class="nav-item" data-page="map">
-      <span class="nav-icon">⌖</span>
-      Map
-    </div>
-
-    <div class="nav-item" data-page="services">
-      <span class="nav-icon">▦</span>
-      Services
-    </div>
-
-    <div class="nav-item" data-page="profile">
-      <span class="nav-icon">○</span>
-      Profile
-    </div>
-
-  </nav>
-
-
-  <script>
-
-    const homeScreen = document.getElementById("homeScreen");
-    const loktakScreen =
-  document.getElementById("loktakScreen");
-    const kanglaScreen =
-  document.getElementById("kanglaScreen");
-    const tourismScreen = document.getElementById("tourismScreen");
-    const foodScreen = document.getElementById("foodScreen");
-    const exploreScreen = document.getElementById("exploreScreen");
-
-
-    function showScreen(screen) {
-
-  homeScreen.classList.remove("active");
-  tourismScreen.classList.remove("active");
-  foodScreen.classList.remove("active");
-  exploreScreen.classList.remove("active");
-  loktakScreen.classList.remove("active");
-  kanglaScreen.classList.remove("active");    
-
-  screen.classList.add("active");
-
+function showScreen(name) {
+  Object.values(screens).forEach(screen => screen.classList.remove("active"));
+  if (screens[name]) screens[name].classList.add("active");
+  window.scrollTo(0,0);
 }
 
+function setNav(page) {
+  navItems.forEach(item => item.classList.toggle("active",item.dataset.page===page));
+}
 
-    document.getElementById("tourismButton").addEventListener("click", function() {
+function openComing(title) {
+  document.getElementById("comingTitle").textContent=title;
+  document.getElementById("comingHeading").textContent=title+" — Coming soon";
+  showScreen("coming");
+}
 
-      showScreen(tourismScreen);
-
-    });
-
-
-    document.getElementById("foodButton").addEventListener("click", function() {
-
-      showScreen(foodScreen);
-
-    });
-
-
-    document.getElementById("tourismBack").addEventListener("click", function() {
-
-      showScreen(homeScreen);
-
-    });
-
-
-    document.getElementById("foodBack").addEventListener("click", function() {
-
-      showScreen(homeScreen);
-
-    });
-document.getElementById("loktakCard").addEventListener("click", function() {
-
-  showScreen(loktakScreen);
-
+document.querySelectorAll("[data-open]").forEach(item => {
+  item.addEventListener("click",()=> {
+    const page=item.dataset.open;
+    if(["transport","business","student","jobs"].includes(page)) {
+      openComing(({transport:"Transport",business:"Businesses",student:"Student Hub",jobs:"Jobs"})[page]);
+    } else {
+      showScreen(page);
+    }
+  });
 });
 
-
-document.getElementById("loktakBack").addEventListener("click", function() {
-
-  showScreen(tourismScreen);
-
+document.querySelectorAll("[data-back]").forEach(button => {
+  button.addEventListener("click",()=>showScreen(button.dataset.back || "home"));
 });
 
-    const navItems = document.querySelectorAll(".nav-item");
+document.querySelectorAll("[data-map]").forEach(card => {
+  card.addEventListener("click",()=> {
+    const url="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(card.dataset.map);
+    window.open(url,"_blank");
+  });
+});
 
+navItems.forEach(item => {
+  item.addEventListener("click",()=> {
+    const page=item.dataset.page;
+    setNav(page);
+    if(page==="home" || page==="explore" || page==="map") {
+      showScreen(page);
+    } else {
+      openComing(page==="services"?"Services":"Profile");
+    }
+  });
+});
 
-    navItems.forEach(function(item) {
-
-      item.addEventListener("click", function() {
-
-        const page = item.dataset.page;
-
-
-        navItems.forEach(function(nav) {
-          nav.classList.remove("active");
-        });
-
-
-        item.classList.add("active");
-
-
-        if (page === "home") {
-
-          showScreen(homeScreen);
-
-        }
-
-        else if (page === "explore") {
-
-          showScreen(exploreScreen);
-
-        }
-
-        else {
-
-          alert(page.toUpperCase() + " page coming next!");
-
-        }
-
-      });
-
-    });
-
-  </script>
-
+document.getElementById("searchInput").addEventListener("keydown",event=>{
+  if(event.key==="Enter"){
+    const q=event.target.value.trim().toLowerCase();
+    if(q.includes("loktak")) showScreen("loktak");
+    else if(q.includes("kangla")) showScreen("kangla");
+    else if(q.includes("keibul")) showScreen("keibul");
+    else if(q.includes("map")) showScreen("map");
+    else if(q.includes("tourism")||q.includes("place")) showScreen("tourism");
+    else if(q.includes("food")||q.includes("restaurant")) showScreen("food");
+    else if(q.includes("transport")) openComing("Transport");
+    else if(q.includes("business")) openComing("Businesses");
+    else if(q.includes("student")) openComing("Student Hub");
+    else if(q.includes("job")) openComing("Jobs");
+    else alert("No matching section found. Try another word.");
+  }
+});
+</script>
 </body>
 </html>
