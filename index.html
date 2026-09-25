@@ -562,11 +562,13 @@ function escapeHTML(value) {
 }
 
 function cardHTML(item) {
-  const [name, desc, page] = item;
+  const [page, name, desc] = item;
   const icon = icons[page] || icons.explore;
+
   return `<button class="card" onclick="showScreen('${page}')">
     <div class="card-icon">${icon}</div>
-    <h3>${escapeHTML(name)}</h3><p>${escapeHTML(desc)}</p>
+    <h3>${escapeHTML(name)}</h3>
+    <p>${escapeHTML(desc)}</p>
   </button>`;
 }
 
