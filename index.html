@@ -55,7 +55,8 @@ header{
   opacity:.85;
 }
 
-.search{
+.search,
+.student-search{
   width:100%;
   margin-top:20px;
   padding:15px;
@@ -202,15 +203,6 @@ h2{
   margin-top:12px;
 }
 
-.business-search{
-  width:100%;
-  padding:14px;
-  border:1px solid #dce4df;
-  border-radius:12px;
-  margin-bottom:15px;
-  font-size:15px;
-}
-
 .small-note{
   background:#eef6f1;
   padding:15px;
@@ -220,23 +212,86 @@ h2{
   line-height:1.5;
   margin-bottom:18px;
 }
+
+.student-search{
+  margin-top:0;
+  margin-bottom:18px;
+  border:1px solid #dce4df;
+}
+
+.student-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.student-card{
+  background:white;
+  padding:20px 12px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 5px 16px #0000000d;
+  cursor:pointer;
+}
+
+.student-card .big-icon{
+  font-size:35px;
+  margin-bottom:8px;
+}
+
+.student-card h3{
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.student-card p{
+  font-size:12px;
+  color:#68766e;
+  line-height:1.4;
+}
+
+.section-title{
+  margin-top:25px;
+}
+
+.info-box{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 5px 16px #0000000d;
+}
+
+.info-box h3{
+  margin-bottom:7px;
+}
+
+.info-box p{
+  color:#68766e;
+  font-size:14px;
+  line-height:1.5;
+}
 </style>
 </head>
 
 <body>
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
+
 <div id="homeScreen" class="screen active">
 
 <header>
 
 <div class="logo">
+
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Manipur 1</h1>
 <p>One app. One Manipur.</p>
 </div>
+
 </div>
 
 <input
@@ -313,11 +368,16 @@ Jobs
 <p>Find shops, hotels, services and other businesses.</p>
 </div>
 
+<div class="card" data-open="student">
+<h3>🎓 Student Hub</h3>
+<p>Study resources and useful student information.</p>
+</div>
+
 </main>
 </div>
 
 
-<!-- TOURISM -->
+<!-- ================= TOURISM ================= -->
 
 <div id="tourismScreen" class="screen">
 
@@ -369,7 +429,7 @@ Jobs
 </div>
 
 
-<!-- LOKTAK -->
+<!-- ================= LOKTAK ================= -->
 
 <div id="loktakScreen" class="screen">
 
@@ -419,7 +479,7 @@ rel="noopener"
 </div>
 
 
-<!-- KANGLA -->
+<!-- ================= KANGLA ================= -->
 
 <div id="kanglaScreen" class="screen">
 
@@ -470,7 +530,7 @@ rel="noopener"
 </div>
 
 
-<!-- KEIBUL -->
+<!-- ================= KEIBUL ================= -->
 
 <div id="keibulScreen" class="screen">
 
@@ -521,7 +581,7 @@ rel="noopener"
 </div>
 
 
-<!-- FOOD -->
+<!-- ================= FOOD ================= -->
 
 <div id="foodScreen" class="screen">
 
@@ -565,7 +625,7 @@ rel="noopener"
 </div>
 
 
-<!-- MAP -->
+<!-- ================= MAP ================= -->
 
 <div id="mapScreen" class="screen">
 
@@ -629,19 +689,21 @@ Popular Places
 </div>
 
 
-<!-- TRANSPORT -->
+<!-- ================= TRANSPORT ================= -->
 
 <div id="transportScreen" class="screen">
 
 <header>
 
 <div class="logo">
+
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Transport</h1>
 <p>Travel around Manipur</p>
 </div>
+
 </div>
 
 <button class="back-button" data-back>
@@ -735,7 +797,7 @@ Find airport on Google Maps ↗
 </div>
 
 
-<!-- BUSINESS -->
+<!-- ================= BUSINESS ================= -->
 
 <div id="businessScreen" class="screen">
 
@@ -766,13 +828,6 @@ Find airport on Google Maps ↗
 Search for businesses around Manipur using Google Maps.
 Business names, addresses and opening hours will be added later after verification.
 </div>
-
-<input
-id="businessSearch"
-class="business-search"
-type="text"
-placeholder="Search a business..."
->
 
 <div class="card" data-business="Shops in Imphal">
 <h3>🛍️ Shops</h3>
@@ -808,19 +863,183 @@ placeholder="Search a business..."
 </div>
 
 
-<!-- EXPLORE -->
+<!-- ================= STUDENT HUB ================= -->
+
+<div id="studentScreen" class="screen">
+
+<header>
+
+<div class="logo">
+
+<div class="logo-mark">1</div>
+
+<div>
+<h1>Student Hub</h1>
+<p>Learn. Prepare. Grow.</p>
+</div>
+
+</div>
+
+<button class="back-button" data-back>
+← Back
+</button>
+
+</header>
+
+<main>
+
+<h2>Student Hub 🎓</h2>
+
+<div class="small-note">
+A place for students to find study resources and useful education information.
+Current exam dates, scholarships and notices should always be checked with official sources.
+</div>
+
+<input
+id="studentSearch"
+class="student-search"
+type="search"
+placeholder="Search student resources..."
+>
+
+<div class="student-grid">
+
+<div class="student-card" data-student="Class 10 study resources">
+
+<div class="big-icon">📚</div>
+
+<h3>Study</h3>
+
+<p>
+Study resources and learning materials.
+</p>
+
+</div>
+
+
+<div class="student-card" data-student="Class 10 notes">
+
+<div class="big-icon">📝</div>
+
+<h3>Notes</h3>
+
+<p>
+Find notes and revision resources.
+</p>
+
+</div>
+
+
+<div class="student-card" data-student="Scholarships for students in Manipur">
+
+<div class="big-icon">🎓</div>
+
+<h3>Scholarships</h3>
+
+<p>
+Search for scholarship information.
+</p>
+
+</div>
+
+
+<div class="student-card" data-student="Manipur board exam">
+
+<div class="big-icon">📅</div>
+
+<h3>Exams</h3>
+
+<p>
+Search for current exam information.
+</p>
+
+</div>
+
+
+<div class="student-card" data-student="Schools in Manipur">
+
+<div class="big-icon">🏫</div>
+
+<h3>Schools</h3>
+
+<p>
+Find schools and education information.
+</p>
+
+</div>
+
+
+<div class="student-card" data-student="Colleges in Manipur">
+
+<div class="big-icon">🎓</div>
+
+<h3>Colleges</h3>
+
+<p>
+Find colleges and higher education information.
+</p>
+
+</div>
+
+</div>
+
+
+<h2 class="section-title">
+Useful Student Resources
+</h2>
+
+<div class="info-box">
+
+<h3>📖 Learn Basics</h3>
+
+<p>
+Build your foundation in subjects like Maths,
+Science and English.
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>🧠 Revision</h3>
+
+<p>
+Use short revision sessions and practice questions
+to improve your learning.
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>🔎 Official Information</h3>
+
+<p>
+For important exam dates, results and scholarships,
+check the official education authority website.
+</p>
+
+</div>
+
+</main>
+</div>
+
+
+<!-- ================= EXPLORE ================= -->
 
 <div id="exploreScreen" class="screen">
 
 <header>
 
 <div class="logo">
+
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Explore</h1>
 <p>Discover Manipur</p>
 </div>
+
 </div>
 
 </header>
@@ -849,6 +1068,11 @@ placeholder="Search a business..."
 <p>Explore transport options.</p>
 </div>
 
+<div class="card" data-open="student">
+<h3>🎓 Student Hub</h3>
+<p>Study resources and education information.</p>
+</div>
+
 <div class="card">
 <h3>🎭 Culture</h3>
 <p>Learn about culture and traditions.</p>
@@ -863,7 +1087,7 @@ placeholder="Search a business..."
 </div>
 
 
-<!-- COMING SOON -->
+<!-- ================= COMING SOON ================= -->
 
 <div id="comingScreen" class="screen">
 
@@ -903,11 +1127,10 @@ This section will be developed in a future step.
 </div>
 
 </main>
-
 </div>
 
 
-<!-- BOTTOM NAV -->
+<!-- ================= NAV ================= -->
 
 <nav class="bottom-nav">
 
@@ -988,19 +1211,17 @@ function openComing(title){
 }
 
 
+/* OPEN PAGES */
+
 document.querySelectorAll("[data-open]").forEach(item=>{
 
   item.addEventListener("click",()=>{
 
     const page=item.dataset.open;
 
-    if(["student","jobs"].includes(page)){
+    if(["jobs"].includes(page)){
 
-      openComing(
-        page==="student"
-        ? "Student Hub"
-        : "Jobs"
-      );
+      openComing("Jobs");
 
     }else{
 
@@ -1012,6 +1233,8 @@ document.querySelectorAll("[data-open]").forEach(item=>{
 
 });
 
+
+/* BACK */
 
 document.querySelectorAll("[data-back]").forEach(button=>{
 
@@ -1025,6 +1248,8 @@ document.querySelectorAll("[data-back]").forEach(button=>{
 
 });
 
+
+/* MAP */
 
 document.querySelectorAll("[data-map]").forEach(card=>{
 
@@ -1041,17 +1266,15 @@ document.querySelectorAll("[data-map]").forEach(card=>{
 });
 
 
-/* BUSINESS MAP SEARCH */
+/* BUSINESS */
 
 document.querySelectorAll("[data-business]").forEach(card=>{
 
   card.addEventListener("click",()=>{
 
-    const search=card.dataset.business;
-
     window.open(
       "https://www.google.com/maps/search/?api=1&query="
-      +encodeURIComponent(search),
+      +encodeURIComponent(card.dataset.business),
       "_blank"
     );
 
@@ -1060,9 +1283,9 @@ document.querySelectorAll("[data-business]").forEach(card=>{
 });
 
 
-/* BUSINESS SEARCH BOX */
+/* STUDENT SEARCH */
 
-document.getElementById("businessSearch")
+document.getElementById("studentSearch")
 .addEventListener("keydown",event=>{
 
   if(event.key==="Enter"){
@@ -1075,12 +1298,30 @@ document.getElementById("businessSearch")
     }
 
     window.open(
-      "https://www.google.com/maps/search/?api=1&query="
-      +encodeURIComponent(search+" Manipur"),
+      "https://www.google.com/search?q="
+      +encodeURIComponent(search+" Manipur student"),
       "_blank"
     );
 
   }
+
+});
+
+
+/* STUDENT CARDS */
+
+document.querySelectorAll("[data-student]")
+.forEach(card=>{
+
+  card.addEventListener("click",()=>{
+
+    window.open(
+      "https://www.google.com/search?q="
+      +encodeURIComponent(card.dataset.student),
+      "_blank"
+    );
+
+  });
 
 });
 
@@ -1196,9 +1437,16 @@ document.getElementById("searchInput")
 
     }
 
-    else if(q.includes("student")){
+    else if(
+      q.includes("student") ||
+      q.includes("study") ||
+      q.includes("scholarship") ||
+      q.includes("exam") ||
+      q.includes("school") ||
+      q.includes("college")
+    ){
 
-      openComing("Student Hub");
+      showScreen("student");
 
     }
 
