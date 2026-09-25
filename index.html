@@ -8,8 +8,6 @@
 
 <style>
 
-/* ================= BASIC ================= */
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -17,14 +15,13 @@
 }
 
 body{
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   background:#f4f7f4;
   color:#17231a;
   padding-bottom:75px;
 }
 
-button,
-input{
+button,input{
   font:inherit;
 }
 
@@ -41,7 +38,7 @@ button{
   display:block;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
   background:white;
@@ -92,7 +89,7 @@ header{
   border-radius:10px;
 }
 
-/* ================= MAIN ================= */
+/* MAIN */
 
 main{
   padding:18px;
@@ -114,9 +111,10 @@ main{
   line-height:1.5;
 }
 
-/* ================= SEARCH ================= */
+/* SEARCH */
 
-.search{
+.search,
+.student-search{
   width:100%;
   padding:15px;
   border:1px solid #dce3dd;
@@ -131,7 +129,7 @@ main{
   border-color:#16833a;
 }
 
-/* ================= CATEGORY GRID ================= */
+/* GRID */
 
 .category-grid{
   display:grid;
@@ -144,11 +142,6 @@ main{
   padding:18px;
   border-radius:16px;
   border:1px solid #e4e9e4;
-  transition:.2s;
-}
-
-.category:active{
-  transform:scale(.97);
 }
 
 .category .icon{
@@ -166,8 +159,6 @@ main{
   color:#737b75;
   line-height:1.4;
 }
-
-/* ================= CARDS ================= */
 
 .card-grid{
   display:grid;
@@ -200,8 +191,6 @@ main{
   padding:10px 14px;
   border-radius:10px;
 }
-
-/* ================= SECTIONS ================= */
 
 .section-title{
   margin-top:28px;
@@ -236,7 +225,7 @@ main{
   line-height:1.5;
 }
 
-/* ================= MAP ================= */
+/* MAP */
 
 .map-box{
   background:white;
@@ -262,17 +251,7 @@ main{
   border-radius:12px;
 }
 
-/* ================= STUDENT ================= */
-
-.student-search{
-  width:100%;
-  padding:14px;
-  border:1px solid #dce3dd;
-  border-radius:13px;
-  background:white;
-  outline:none;
-  margin:8px 0 18px;
-}
+/* STUDENT */
 
 .student-grid{
   display:grid;
@@ -303,7 +282,37 @@ main{
   line-height:1.4;
 }
 
-/* ================= BOTTOM NAV ================= */
+/* SERVICES */
+
+.service-card{
+  background:white;
+  border:1px solid #e2e7e2;
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:12px;
+  cursor:pointer;
+}
+
+.service-card:active{
+  transform:scale(.98);
+}
+
+.service-icon{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.service-card h3{
+  margin-bottom:6px;
+}
+
+.service-card p{
+  color:#68716b;
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* BOTTOM NAV */
 
 .bottom-nav{
   position:fixed;
@@ -336,8 +345,6 @@ main{
   font-weight:bold;
 }
 
-/* ================= MOBILE ================= */
-
 @media(max-width:430px){
 
   main{
@@ -348,23 +355,15 @@ main{
     font-size:27px;
   }
 
-  .category-grid,
-  .student-grid{
-    gap:10px;
-  }
-
 }
 
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =====================================================
-HOME
-===================================================== -->
+<!-- ================= HOME ================= -->
 
 <div id="homeScreen" class="screen active">
 
@@ -383,7 +382,6 @@ HOME
 
 </header>
 
-
 <main>
 
 <section class="hero">
@@ -396,7 +394,6 @@ Tourism, food, transport, businesses, students, jobs and useful services — all
 
 </section>
 
-
 <input
 id="homeSearch"
 class="search"
@@ -404,345 +401,233 @@ type="search"
 placeholder="Search Manipur 1..."
 >
 
-
 <div class="category-grid">
 
-
 <div class="category" data-open="tourism">
-
 <div class="icon">🏞️</div>
-
 <h3>Tourism</h3>
-
-<p>Places, attractions and things to explore.</p>
-
+<p>Places and attractions.</p>
 </div>
-
 
 <div class="category" data-open="food">
-
 <div class="icon">🍛</div>
-
 <h3>Food</h3>
-
-<p>Local food, restaurants and cafes.</p>
-
+<p>Food, restaurants and cafes.</p>
 </div>
-
 
 <div class="category" data-open="transport">
-
 <div class="icon">🚌</div>
-
 <h3>Transport</h3>
-
 <p>Taxi, bus, railway and airport.</p>
-
 </div>
-
 
 <div class="category" data-open="business">
-
 <div class="icon">🏪</div>
-
 <h3>Businesses</h3>
-
-<p>Shops, hotels, hospitals and services.</p>
-
+<p>Shops, hotels and services.</p>
 </div>
-
 
 <div class="category" data-open="student">
-
 <div class="icon">🎓</div>
-
 <h3>Student Hub</h3>
-
-<p>Study, exams, scholarships and colleges.</p>
-
+<p>Study and education.</p>
 </div>
-
 
 <div class="category" data-open="jobs">
-
 <div class="icon">💼</div>
-
 <h3>Jobs</h3>
-
-<p>Jobs, internships and career resources.</p>
-
+<p>Jobs and career resources.</p>
 </div>
 
 </div>
-
 
 <h2 class="section-title">Quick Explore</h2>
-
 
 <div class="card-grid">
 
 <div class="card" data-open="map">
-
 <h3>🗺️ Explore Map</h3>
-
-<p>
-Find places around Manipur using Google Maps.
-</p>
-
+<p>Find places around Manipur.</p>
 </div>
 
-
-<div class="card" data-open="student">
-
-<h3>🎓 Student Hub</h3>
-
-<p>
-Study resources and useful education searches.
-</p>
-
+<div class="card" data-open="services">
+<h3>🛠️ Services</h3>
+<p>Find useful public and local services.</p>
 </div>
-
 
 <div class="card" data-open="jobs">
-
 <h3>💼 Jobs</h3>
-
-<p>
-Search current job and internship opportunities.
-</p>
-
+<p>Search jobs and internships.</p>
 </div>
 
 </div>
 
 </main>
-
 </div>
 
 
-
-<!-- =====================================================
-TOURISM
-===================================================== -->
+<!-- ================= TOURISM ================= -->
 
 <div id="tourismScreen" class="screen">
 
 <header>
 
 <div class="logo">
-
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Tourism</h1>
 <p>Discover Manipur</p>
 </div>
-
 </div>
 
-<button class="back-button" data-back>
-← Back
-</button>
+<button class="back-button" data-back>← Back</button>
 
 </header>
-
 
 <main>
 
 <h2>Places to Explore 🏞️</h2>
 
-
 <div class="card-grid">
-
 
 <div class="card">
 
 <h3>🌊 Loktak Lake</h3>
 
-<p>
-The famous freshwater lake of Manipur.
-</p>
+<p>The famous freshwater lake of Manipur.</p>
 
-<button
-class="card-button"
-data-map="Loktak Lake Manipur"
->
+<button class="card-button"
+data-map="Loktak Lake Manipur">
 Open Map
 </button>
 
 </div>
-
 
 <div class="card">
 
 <h3>🏯 Kangla</h3>
 
-<p>
-A historically important place in Imphal.
-</p>
+<p>A historically important place in Imphal.</p>
 
-<button
-class="card-button"
-data-map="Kangla Fort Imphal"
->
+<button class="card-button"
+data-map="Kangla Fort Imphal">
 Open Map
 </button>
 
 </div>
-
 
 <div class="card">
 
 <h3>🌿 Keibul Lamjao</h3>
 
-<p>
-Known for its unique floating park ecosystem.
-</p>
+<p>Known for its unique floating park ecosystem.</p>
 
-<button
-class="card-button"
-data-map="Keibul Lamjao National Park"
->
+<button class="card-button"
+data-map="Keibul Lamjao National Park">
 Open Map
 </button>
 
 </div>
 
-
 </div>
 
 </main>
-
 </div>
 
 
-
-<!-- =====================================================
-FOOD
-===================================================== -->
+<!-- ================= FOOD ================= -->
 
 <div id="foodScreen" class="screen">
 
 <header>
 
 <div class="logo">
-
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Food</h1>
 <p>Eat & explore</p>
 </div>
-
 </div>
 
-<button class="back-button" data-back>
-← Back
-</button>
+<button class="back-button" data-back>← Back</button>
 
 </header>
-
 
 <main>
 
 <h2>Food in Manipur 🍛</h2>
 
-
 <div class="card-grid">
-
 
 <div class="card">
 
 <h3>🍚 Local Food</h3>
 
-<p>
-Explore traditional Manipuri food and local dishes.
-</p>
+<p>Explore traditional Manipuri food.</p>
 
-<button
-class="card-button"
-data-business="Manipuri food near me"
->
+<button class="card-button"
+data-business="Manipuri food near me">
 Find Food
 </button>
 
 </div>
 
-
 <div class="card">
 
 <h3>🍽️ Restaurants</h3>
 
-<p>
-Search restaurants around your location.
-</p>
+<p>Search restaurants.</p>
 
-<button
-class="card-button"
-data-business="restaurants in Manipur"
->
+<button class="card-button"
+data-business="restaurants in Manipur">
 Find Restaurants
 </button>
 
 </div>
 
-
 <div class="card">
 
 <h3>☕ Cafes</h3>
 
-<p>
-Find cafes and places to relax.
-</p>
+<p>Find cafes.</p>
 
-<button
-class="card-button"
-data-business="cafes in Manipur"
->
+<button class="card-button"
+data-business="cafes in Manipur">
 Find Cafes
 </button>
 
 </div>
 
-
 </div>
 
 </main>
-
 </div>
 
 
-
-<!-- =====================================================
-MAP
-===================================================== -->
+<!-- ================= MAP ================= -->
 
 <div id="mapScreen" class="screen">
 
 <header>
 
 <div class="logo">
-
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Map</h1>
 <p>Explore Manipur</p>
 </div>
-
 </div>
 
-<button class="back-button" data-back>
-← Back
-</button>
+<button class="back-button" data-back>← Back</button>
 
 </header>
-
 
 <main>
 
 <h2>Manipur Map 🗺️</h2>
-
 
 <div class="map-box">
 
@@ -753,327 +638,206 @@ loading="lazy">
 
 </div>
 
-
 <a
 class="map-link"
 href="https://www.google.com/maps/search/Manipur"
-target="_blank"
->
+target="_blank">
 Open Google Maps
 </a>
 
-
 <div class="card-grid">
 
-
 <div class="card" data-map="Loktak Lake Manipur">
-
 <h3>🌊 Loktak Lake</h3>
-
-<p>Open location in Google Maps.</p>
-
+<p>Open location.</p>
 </div>
-
 
 <div class="card" data-map="Kangla Fort Imphal">
-
 <h3>🏯 Kangla</h3>
-
-<p>Open location in Google Maps.</p>
-
+<p>Open location.</p>
 </div>
-
 
 <div class="card" data-map="Keibul Lamjao National Park">
-
 <h3>🌿 Keibul Lamjao</h3>
-
-<p>Open location in Google Maps.</p>
-
+<p>Open location.</p>
 </div>
-
 
 </div>
 
 </main>
-
 </div>
 
 
-
-<!-- =====================================================
-TRANSPORT
-===================================================== -->
+<!-- ================= TRANSPORT ================= -->
 
 <div id="transportScreen" class="screen">
 
 <header>
 
 <div class="logo">
-
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Transport</h1>
 <p>Travel around Manipur</p>
 </div>
-
 </div>
 
-<button class="back-button" data-back>
-← Back
-</button>
+<button class="back-button" data-back>← Back</button>
 
 </header>
-
 
 <main>
 
 <h2>Transportation 🚌</h2>
 
-
 <div class="small-note">
 
-Schedules, fares and availability are not connected to a live transport system yet. Check the latest information before travelling.
+Schedules, fares and availability are not connected to a live transport system yet.
 
 </div>
-
 
 <div class="card-grid">
 
-
 <div class="card">
-
 <h3>🚕 Taxi & Cab</h3>
-
-<p>
-Find taxi and cab services.
-</p>
-
-<button
-class="card-button"
-data-business="taxi cab services Manipur"
->
+<p>Find taxi and cab services.</p>
+<button class="card-button"
+data-business="taxi cab services Manipur">
 Search
 </button>
-
 </div>
 
-
 <div class="card">
-
 <h3>🚌 Bus Services</h3>
-
-<p>
-Search bus services and routes.
-</p>
-
-<button
-class="card-button"
-data-business="bus services Manipur"
->
+<p>Search bus services.</p>
+<button class="card-button"
+data-business="bus services Manipur">
 Search
 </button>
-
 </div>
 
-
 <div class="card">
-
 <h3>🚆 Railway</h3>
-
-<p>
-Find railway stations and train information.
-</p>
-
-<button
-class="card-button"
-data-business="railway station Manipur"
->
+<p>Find railway information.</p>
+<button class="card-button"
+data-business="railway station Manipur">
 Search
 </button>
-
 </div>
-
 
 <div class="card">
-
 <h3>✈️ Airport</h3>
-
-<p>
-Find airport information.
-</p>
-
-<button
-class="card-button"
-data-business="Imphal airport Manipur"
->
+<p>Find airport information.</p>
+<button class="card-button"
+data-business="Imphal airport Manipur">
 Search
 </button>
-
 </div>
-
 
 </div>
 
 </main>
-
 </div>
 
 
-
-<!-- =====================================================
-BUSINESSES
-===================================================== -->
+<!-- ================= BUSINESS ================= -->
 
 <div id="businessScreen" class="screen">
 
 <header>
 
 <div class="logo">
-
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Businesses</h1>
 <p>Find local services</p>
 </div>
-
 </div>
 
-<button class="back-button" data-back>
-← Back
-</button>
+<button class="back-button" data-back>← Back</button>
 
 </header>
-
 
 <main>
 
 <h2>Find Businesses 🏪</h2>
 
-
 <div class="small-note">
-
-Business listings are currently opened through Google Maps. Manipur 1 does not create or verify business listings yet.
-
+Business listings are currently opened through Google search or Maps.
 </div>
-
 
 <div class="student-grid">
 
-
 <div class="student-card" data-business="shops in Manipur">
-
 <div class="big-icon">🛍️</div>
-
 <h3>Shops</h3>
-
 <p>Find local shops.</p>
-
 </div>
-
 
 <div class="student-card" data-business="hotels in Manipur">
-
 <div class="big-icon">🏨</div>
-
 <h3>Hotels</h3>
-
 <p>Find hotels.</p>
-
 </div>
-
 
 <div class="student-card" data-business="hospitals in Manipur">
-
 <div class="big-icon">🏥</div>
-
 <h3>Hospitals</h3>
-
 <p>Find hospitals.</p>
-
 </div>
-
 
 <div class="student-card" data-business="services in Manipur">
-
 <div class="big-icon">🔧</div>
-
 <h3>Services</h3>
-
-<p>Find useful services.</p>
-
+<p>Find services.</p>
 </div>
-
 
 <div class="student-card" data-business="restaurants in Manipur">
-
 <div class="big-icon">🍽️</div>
-
 <h3>Restaurants</h3>
-
 <p>Find restaurants.</p>
-
 </div>
-
 
 <div class="student-card" data-business="cafes in Manipur">
-
 <div class="big-icon">☕</div>
-
 <h3>Cafes</h3>
-
 <p>Find cafes.</p>
-
 </div>
-
 
 </div>
 
 </main>
-
 </div>
 
 
-
-<!-- =====================================================
-STUDENT HUB
-===================================================== -->
+<!-- ================= STUDENT ================= -->
 
 <div id="studentScreen" class="screen">
 
 <header>
 
 <div class="logo">
-
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Student Hub</h1>
 <p>Learn & prepare</p>
 </div>
-
 </div>
 
-<button class="back-button" data-back>
-← Back
-</button>
+<button class="back-button" data-back>← Back</button>
 
 </header>
-
 
 <main>
 
 <h2>Student Hub 🎓</h2>
 
-
 <p style="color:#69736c;line-height:1.5;margin-top:8px;">
-
 Study resources, exams, scholarships, schools and colleges.
-
 </p>
-
 
 <input
 id="studentSearch"
@@ -1082,177 +846,88 @@ type="search"
 placeholder="Search study topics..."
 >
 
-
 <div class="student-grid">
 
-
-<div
-class="student-card"
-data-student="Class 10 study materials"
->
-
+<div class="student-card" data-student="Class 10 study materials">
 <div class="big-icon">📚</div>
-
 <h3>Study</h3>
-
-<p>Search study materials.</p>
-
+<p>Study materials.</p>
 </div>
 
-
-<div
-class="student-card"
-data-student="Class 10 notes"
->
-
+<div class="student-card" data-student="Class 10 notes">
 <div class="big-icon">📝</div>
-
 <h3>Notes</h3>
-
-<p>Search notes and explanations.</p>
-
+<p>Notes and explanations.</p>
 </div>
 
-
-<div
-class="student-card"
-data-student="scholarships India students"
->
-
+<div class="student-card" data-student="scholarships India students">
 <div class="big-icon">🎓</div>
-
 <h3>Scholarships</h3>
-
-<p>Search scholarship information.</p>
-
+<p>Scholarship information.</p>
 </div>
 
-
-<div
-class="student-card"
-data-student="Class 10 board exams India"
->
-
+<div class="student-card" data-student="Class 10 board exams India">
 <div class="big-icon">📖</div>
-
 <h3>Exams</h3>
-
-<p>Find exam information.</p>
-
+<p>Exam information.</p>
 </div>
 
-
-<div
-class="student-card"
-data-student="schools Manipur"
->
-
+<div class="student-card" data-student="schools Manipur">
 <div class="big-icon">🏫</div>
-
 <h3>Schools</h3>
-
-<p>Find school information.</p>
-
+<p>School information.</p>
 </div>
 
-
-<div
-class="student-card"
-data-student="colleges Manipur"
->
-
+<div class="student-card" data-student="colleges Manipur">
 <div class="big-icon">🎓</div>
-
 <h3>Colleges</h3>
-
-<p>Find college information.</p>
+<p>College information.</p>
+</div>
 
 </div>
 
-
-</div>
-
-
-<h2 class="section-title">
-Study Tips
-</h2>
-
+<h2 class="section-title">Study Tips</h2>
 
 <div class="info-box">
-
 <h3>📅 Study Regularly</h3>
-
-<p>
-Small daily study sessions can help you remember lessons better.
-</p>
-
+<p>Small daily study sessions can help with learning.</p>
 </div>
 
-
 <div class="info-box">
-
 <h3>🔁 Revise</h3>
-
-<p>
-Review old topics regularly instead of studying everything only once.
-</p>
-
-</div>
-
-
-<div class="info-box">
-
-<h3>🔎 Verify Information</h3>
-
-<p>
-For exams and scholarships, check the official source for the latest information.
-</p>
-
+<p>Review old topics regularly.</p>
 </div>
 
 </main>
-
 </div>
 
 
-
-<!-- =====================================================
-JOBS
-===================================================== -->
+<!-- ================= JOBS ================= -->
 
 <div id="jobsScreen" class="screen">
 
 <header>
 
 <div class="logo">
-
 <div class="logo-mark">1</div>
 
 <div>
 <h1>Jobs</h1>
 <p>Work & career opportunities</p>
 </div>
-
 </div>
 
-<button class="back-button" data-back>
-← Back
-</button>
+<button class="back-button" data-back>← Back</button>
 
 </header>
-
 
 <main>
 
 <h2>Find Jobs 💼</h2>
 
-
 <div class="small-note">
-
-Search for current opportunities. Always check the original employer or official website before applying.
-
+Always check the original employer or official website before applying.
 </div>
-
 
 <input
 id="jobSearch"
@@ -1261,256 +936,74 @@ type="search"
 placeholder="Search jobs..."
 >
 
-
 <div class="student-grid">
 
-
-<div
-class="student-card"
-data-job="official government jobs India Manipur"
->
-
+<div class="student-card"
+data-job="official government jobs India Manipur">
 <div class="big-icon">🏛️</div>
-
 <h3>Government</h3>
-
-<p>
-Search government job opportunities.
-</p>
-
+<p>Government jobs.</p>
 </div>
 
-
-<div
-class="student-card"
-data-job="private jobs Manipur India"
->
-
+<div class="student-card"
+data-job="private jobs Manipur India">
 <div class="big-icon">🏢</div>
-
 <h3>Private Jobs</h3>
-
-<p>
-Search private-sector jobs.
-</p>
-
+<p>Private jobs.</p>
 </div>
 
-
-<div
-class="student-card"
-data-job="internships Manipur India"
->
-
+<div class="student-card"
+data-job="internships Manipur India">
 <div class="big-icon">🎓</div>
-
 <h3>Internships</h3>
-
-<p>
-Search internship opportunities.
-</p>
-
+<p>Internships.</p>
 </div>
 
-
-<div
-class="student-card"
-data-job="part time jobs Manipur India"
->
-
+<div class="student-card"
+data-job="part time jobs Manipur India">
 <div class="big-icon">⏰</div>
-
 <h3>Part-time</h3>
-
-<p>
-Search part-time opportunities.
-</p>
-
+<p>Part-time jobs.</p>
 </div>
 
-
-<div
-class="student-card"
-data-job="jobs in Imphal Manipur"
->
-
+<div class="student-card"
+data-job="jobs in Imphal Manipur">
 <div class="big-icon">📍</div>
-
 <h3>Imphal Jobs</h3>
-
-<p>
-Search jobs around Imphal.
-</p>
-
+<p>Jobs around Imphal.</p>
 </div>
 
-
-<div
-class="student-card"
-data-job="career skills training Manipur"
->
-
+<div class="student-card"
+data-job="career skills training Manipur">
 <div class="big-icon">🛠️</div>
-
 <h3>Skills</h3>
-
-<p>
-Explore career skills and training.
-</p>
+<p>Career skills.</p>
+</div>
 
 </div>
 
-
-</div>
-
-
-<h2 class="section-title">
-Career Resources
-</h2>
-
+<h2 class="section-title">Career Resources</h2>
 
 <div class="info-box">
-
 <h3>📄 Resume</h3>
-
-<p>
-Learn how to prepare a simple resume for applications.
-</p>
-
+<p>Learn how to prepare a resume.</p>
 </div>
 
-
 <div class="info-box">
-
 <h3>🎤 Interview</h3>
-
-<p>
-Learn basic interview preparation and communication skills.
-</p>
-
+<p>Learn interview preparation.</p>
 </div>
-
 
 <div class="info-box">
-
 <h3>⚠️ Stay Safe</h3>
-
-<p>
-Never pay money just because someone promises you a job. Check the employer and job posting before sharing personal information.
-</p>
-
+<p>Do not pay money just because someone promises you a job.</p>
 </div>
 
 </main>
-
 </div>
 
 
-
-<!-- =====================================================
-EXPLORE
-===================================================== -->
-
-<div id="exploreScreen" class="screen">
-
-<header>
-
-<div class="logo">
-
-<div class="logo-mark">1</div>
-
-<div>
-<h1>Explore</h1>
-<p>Discover Manipur</p>
-</div>
-
-</div>
-
-</header>
-
-
-<main>
-
-<h2>Explore Manipur 🌏</h2>
-
-
-<div class="card-grid">
-
-
-<div class="card" data-open="tourism">
-
-<h3>🏞️ Places</h3>
-
-<p>Discover tourist places.</p>
-
-</div>
-
-
-<div class="card" data-open="food">
-
-<h3>🍛 Food</h3>
-
-<p>Explore food and restaurants.</p>
-
-</div>
-
-
-<div class="card" data-open="business">
-
-<h3>🏪 Businesses</h3>
-
-<p>Find local businesses.</p>
-
-</div>
-
-
-<div class="card" data-open="transport">
-
-<h3>🚌 Transport</h3>
-
-<p>Explore transport options.</p>
-
-</div>
-
-
-<div class="card" data-open="student">
-
-<h3>🎓 Student Hub</h3>
-
-<p>Study and education resources.</p>
-
-</div>
-
-
-<div class="card" data-open="jobs">
-
-<h3>💼 Jobs</h3>
-
-<p>Find job and career resources.</p>
-
-</div>
-
-
-<div class="card" data-business="Manipur culture events">
-
-<h3>🎭 Culture & Events</h3>
-
-<p>Search cultural activities and events.</p>
-
-</div>
-
-
-</div>
-
-</main>
-
-</div>
-
-
-
-<!-- =====================================================
-SERVICES
-===================================================== -->
+<!-- ================= SERVICES ================= -->
 
 <div id="servicesScreen" class="screen">
 
@@ -1536,33 +1029,35 @@ SERVICES
 
 <main>
 
-<h2>Services 🛠️</h2>
-
+<h2>Useful Services 🛠️</h2>
 
 <div class="small-note">
 
-More services will be added step by step. Current buttons open search results rather than providing unverified information.
+These buttons currently open search results. Later we can connect verified official services directly.
 
 </div>
 
 
-<div class="card-grid">
+<div class="service-card"
+data-business="emergency services Manipur India">
 
+<div class="service-icon">🚨</div>
 
-<div class="card" data-business="government services Manipur">
-
-<h3>🏛️ Government Services</h3>
+<h3>Emergency</h3>
 
 <p>
-Find government service information.
+Find emergency service information.
 </p>
 
 </div>
 
 
-<div class="card" data-business="hospitals Manipur">
+<div class="service-card"
+data-business="hospitals in Manipur India">
 
-<h3>🏥 Health Services</h3>
+<div class="service-icon">🏥</div>
+
+<h3>Hospitals & Health</h3>
 
 <p>
 Find hospitals and health services.
@@ -1571,9 +1066,12 @@ Find hospitals and health services.
 </div>
 
 
-<div class="card" data-business="police stations Manipur">
+<div class="service-card"
+data-business="police stations Manipur India">
 
-<h3>🚓 Police</h3>
+<div class="service-icon">🚓</div>
+
+<h3>Police</h3>
 
 <p>
 Find police stations and official information.
@@ -1582,16 +1080,72 @@ Find police stations and official information.
 </div>
 
 
-<div class="card" data-business="emergency services Manipur">
+<div class="service-card"
+data-business="Manipur government services official">
 
-<h3>🚨 Emergency</h3>
+<div class="service-icon">🏛️</div>
+
+<h3>Government Services</h3>
 
 <p>
-Search emergency service information.
+Search government services and information.
 </p>
 
 </div>
 
+
+<div class="service-card"
+data-business="documents certificates Manipur government">
+
+<div class="service-icon">📄</div>
+
+<h3>Documents</h3>
+
+<p>
+Find information about certificates and documents.
+</p>
+
+</div>
+
+
+<div class="service-card"
+data-business="electricity services Manipur">
+
+<div class="service-icon">💡</div>
+
+<h3>Electricity</h3>
+
+<p>
+Search electricity-related services.
+</p>
+
+</div>
+
+
+<div class="service-card"
+data-business="water supply services Manipur">
+
+<div class="service-icon">💧</div>
+
+<h3>Water</h3>
+
+<p>
+Search water supply information.
+</p>
+
+</div>
+
+
+<div class="service-card"
+data-business="public services Manipur India">
+
+<div class="service-icon">📞</div>
+
+<h3>Other Services</h3>
+
+<p>
+Find other useful public services.
+</p>
 
 </div>
 
@@ -1600,10 +1154,80 @@ Search emergency service information.
 </div>
 
 
+<!-- ================= EXPLORE ================= -->
 
-<!-- =====================================================
-PROFILE / COMING SOON
-===================================================== -->
+<div id="exploreScreen" class="screen">
+
+<header>
+
+<div class="logo">
+
+<div class="logo-mark">1</div>
+
+<div>
+<h1>Explore</h1>
+<p>Discover Manipur</p>
+</div>
+
+</div>
+
+</header>
+
+
+<main>
+
+<h2>Explore Manipur 🌏</h2>
+
+<div class="card-grid">
+
+<div class="card" data-open="tourism">
+<h3>🏞️ Places</h3>
+<p>Discover tourist places.</p>
+</div>
+
+<div class="card" data-open="food">
+<h3>🍛 Food</h3>
+<p>Explore food and restaurants.</p>
+</div>
+
+<div class="card" data-open="business">
+<h3>🏪 Businesses</h3>
+<p>Find local businesses.</p>
+</div>
+
+<div class="card" data-open="transport">
+<h3>🚌 Transport</h3>
+<p>Explore transport.</p>
+</div>
+
+<div class="card" data-open="student">
+<h3>🎓 Student Hub</h3>
+<p>Education resources.</p>
+</div>
+
+<div class="card" data-open="jobs">
+<h3>💼 Jobs</h3>
+<p>Jobs and careers.</p>
+</div>
+
+<div class="card" data-open="services">
+<h3>🛠️ Services</h3>
+<p>Useful services.</p>
+</div>
+
+<div class="card"
+data-business="Manipur culture events">
+<h3>🎭 Culture & Events</h3>
+<p>Search cultural activities.</p>
+</div>
+
+</div>
+
+</main>
+</div>
+
+
+<!-- ================= PROFILE ================= -->
 
 <div id="comingScreen" class="screen">
 
@@ -1614,7 +1238,7 @@ PROFILE / COMING SOON
 <div class="logo-mark">1</div>
 
 <div>
-<h1 id="comingTitle">Coming Soon</h1>
+<h1>Profile</h1>
 <p>Manipur 1</p>
 </div>
 
@@ -1631,16 +1255,16 @@ PROFILE / COMING SOON
 
 <div class="card" style="margin-top:30px;text-align:center;">
 
-<div style="font-size:55px;margin-bottom:15px;">
-🚧
+<div style="font-size:55px;">
+👤
 </div>
 
-<h2 id="comingHeading">
-Coming Soon
+<h2 style="margin-top:15px;">
+Profile Coming Soon
 </h2>
 
-<p id="comingText" style="margin-top:10px;">
-This section will be developed step by step.
+<p style="margin-top:10px;">
+Accounts and personal features will be developed later.
 </p>
 
 </div>
@@ -1650,53 +1274,31 @@ This section will be developed step by step.
 </div>
 
 
-
-<!-- =====================================================
-BOTTOM NAV
-===================================================== -->
+<!-- ================= BOTTOM NAV ================= -->
 
 <nav class="bottom-nav">
 
-<button
-class="nav-button active"
-data-nav="home"
->
+<button class="nav-button active" data-nav="home">
 <span>🏠</span>
 Home
 </button>
 
-
-<button
-class="nav-button"
-data-nav="explore"
->
+<button class="nav-button" data-nav="explore">
 <span>🧭</span>
 Explore
 </button>
 
-
-<button
-class="nav-button"
-data-nav="map"
->
+<button class="nav-button" data-nav="map">
 <span>🗺️</span>
 Map
 </button>
 
-
-<button
-class="nav-button"
-data-nav="services"
->
+<button class="nav-button" data-nav="services">
 <span>🛠️</span>
 Services
 </button>
 
-
-<button
-class="nav-button"
-data-nav="coming"
->
+<button class="nav-button" data-nav="coming">
 <span>👤</span>
 Profile
 </button>
@@ -1704,38 +1306,33 @@ Profile
 </nav>
 
 
-
-<!-- =====================================================
-JAVASCRIPT
-===================================================== -->
-
 <script>
 
 /* ================= SCREENS ================= */
 
-const screens = {
+const screens={
 
-home: document.getElementById("homeScreen"),
+home:document.getElementById("homeScreen"),
 
-tourism: document.getElementById("tourismScreen"),
+tourism:document.getElementById("tourismScreen"),
 
-food: document.getElementById("foodScreen"),
+food:document.getElementById("foodScreen"),
 
-map: document.getElementById("mapScreen"),
+map:document.getElementById("mapScreen"),
 
-transport: document.getElementById("transportScreen"),
+transport:document.getElementById("transportScreen"),
 
-business: document.getElementById("businessScreen"),
+business:document.getElementById("businessScreen"),
 
-student: document.getElementById("studentScreen"),
+student:document.getElementById("studentScreen"),
 
-jobs: document.getElementById("jobsScreen"),
+jobs:document.getElementById("jobsScreen"),
 
-explore: document.getElementById("exploreScreen"),
+services:document.getElementById("servicesScreen"),
 
-services: document.getElementById("servicesScreen"),
+explore:document.getElementById("exploreScreen"),
 
-coming: document.getElementById("comingScreen")
+coming:document.getElementById("comingScreen")
 
 };
 
@@ -1762,7 +1359,7 @@ behavior:"smooth"
 }
 
 
-/* ================= NAVIGATION ================= */
+/* ================= NAV ================= */
 
 function setNav(page){
 
@@ -1771,8 +1368,7 @@ document.querySelectorAll(".nav-button")
 button.classList.remove("active");
 });
 
-const button =
-document.querySelector(
+const button=document.querySelector(
 '.nav-button[data-nav="'+page+'"]'
 );
 
@@ -1783,26 +1379,7 @@ button.classList.add("active");
 }
 
 
-/* ================= OPEN COMING ================= */
-
-function openComing(title){
-
-document.getElementById("comingTitle")
-.textContent=title;
-
-document.getElementById("comingHeading")
-.textContent=title;
-
-document.getElementById("comingText")
-.textContent=
-title+" is being developed step by step.";
-
-showScreen("coming");
-
-}
-
-
-/* ================= DATA OPEN ================= */
+/* ================= OPEN ================= */
 
 document.querySelectorAll("[data-open]")
 .forEach(element=>{
@@ -1820,7 +1397,7 @@ setNav(page);
 });
 
 
-/* ================= BACK BUTTON ================= */
+/* ================= BACK ================= */
 
 document.querySelectorAll("[data-back]")
 .forEach(button=>{
@@ -1836,7 +1413,7 @@ setNav("home");
 });
 
 
-/* ================= BOTTOM NAV ================= */
+/* ================= NAV BUTTONS ================= */
 
 document.querySelectorAll("[data-nav]")
 .forEach(button=>{
@@ -1854,7 +1431,7 @@ setNav(page);
 });
 
 
-/* ================= MAP SEARCH ================= */
+/* ================= MAP ================= */
 
 document.querySelectorAll("[data-map]")
 .forEach(element=>{
@@ -1874,7 +1451,7 @@ window.open(
 });
 
 
-/* ================= BUSINESS SEARCH ================= */
+/* ================= BUSINESS / SERVICE SEARCH ================= */
 
 document.querySelectorAll("[data-business]")
 .forEach(element=>{
@@ -1894,18 +1471,16 @@ window.open(
 });
 
 
-/* ================= STUDENT SEARCH ================= */
+/* ================= STUDENT ================= */
 
 document.querySelectorAll("[data-student]")
 .forEach(element=>{
 
 element.addEventListener("click",()=>{
 
-const query=element.dataset.student;
-
 window.open(
 "https://www.google.com/search?q="
-+encodeURIComponent(query),
++encodeURIComponent(element.dataset.student),
 "_blank"
 );
 
@@ -1913,20 +1488,15 @@ window.open(
 
 });
 
-
-/* ================= STUDENT SEARCH BOX ================= */
 
 document.getElementById("studentSearch")
 .addEventListener("keydown",event=>{
 
 if(event.key==="Enter"){
 
-const query=
-event.target.value.trim();
+const query=event.target.value.trim();
 
-if(query===""){
-return;
-}
+if(query==="") return;
 
 window.open(
 "https://www.google.com/search?q="
@@ -1939,19 +1509,32 @@ window.open(
 });
 
 
-/* ================= JOB SEARCH ================= */
+/* ================= JOBS ================= */
+
+document.querySelectorAll("[data-job]")
+.forEach(element=>{
+
+element.addEventListener("click",()=>{
+
+window.open(
+"https://www.google.com/search?q="
++encodeURIComponent(element.dataset.job),
+"_blank"
+);
+
+});
+
+});
+
 
 document.getElementById("jobSearch")
 .addEventListener("keydown",event=>{
 
 if(event.key==="Enter"){
 
-const query=
-event.target.value.trim();
+const query=event.target.value.trim();
 
-if(query===""){
-return;
-}
+if(query==="") return;
 
 window.open(
 "https://www.google.com/search?q="
@@ -1964,50 +1547,23 @@ window.open(
 });
 
 
-/* ================= JOB CATEGORY ================= */
-
-document.querySelectorAll("[data-job]")
-.forEach(element=>{
-
-element.addEventListener("click",()=>{
-
-const query=element.dataset.job;
-
-window.open(
-"https://www.google.com/search?q="
-+encodeURIComponent(query),
-"_blank"
-);
-
-});
-
-});
-
-
 /* ================= HOME SEARCH ================= */
 
 document.getElementById("homeSearch")
 .addEventListener("keydown",event=>{
 
-if(event.key!=="Enter"){
-return;
-}
+if(event.key!=="Enter") return;
 
-const q=
-event.target.value
-.trim()
-.toLowerCase();
+const q=event.target.value.trim().toLowerCase();
 
+if(q==="") return;
 
-if(q===""){
-return;
-}
-
-
-/* TOURISM */
 
 if(
-q.includes("loktak")
+q.includes("loktak") ||
+q.includes("kangla") ||
+q.includes("keibul") ||
+q.includes("tourism")
 ){
 
 showScreen("tourism");
@@ -2015,29 +1571,6 @@ showScreen("tourism");
 setNav("home");
 
 }
-
-else if(
-q.includes("kangla")
-){
-
-showScreen("tourism");
-
-setNav("home");
-
-}
-
-else if(
-q.includes("keibul")
-){
-
-showScreen("tourism");
-
-setNav("home");
-
-}
-
-
-/* MAP */
 
 else if(
 q.includes("map")
@@ -2048,9 +1581,6 @@ showScreen("map");
 setNav("map");
 
 }
-
-
-/* FOOD */
 
 else if(
 q.includes("food") ||
@@ -2063,9 +1593,6 @@ showScreen("food");
 setNav("home");
 
 }
-
-
-/* TRANSPORT */
 
 else if(
 q.includes("transport") ||
@@ -2082,15 +1609,11 @@ setNav("home");
 
 }
 
-
-/* BUSINESS */
-
 else if(
 q.includes("business") ||
 q.includes("shop") ||
 q.includes("hotel") ||
-q.includes("hospital") ||
-q.includes("service")
+q.includes("hospital")
 ){
 
 showScreen("business");
@@ -2098,9 +1621,6 @@ showScreen("business");
 setNav("home");
 
 }
-
-
-/* STUDENT */
 
 else if(
 q.includes("student") ||
@@ -2117,9 +1637,6 @@ setNav("home");
 
 }
 
-
-/* JOBS */
-
 else if(
 q.includes("job") ||
 q.includes("career") ||
@@ -2133,8 +1650,19 @@ setNav("home");
 
 }
 
+else if(
+q.includes("service") ||
+q.includes("emergency") ||
+q.includes("police") ||
+q.includes("electricity") ||
+q.includes("water")
+){
 
-/* DEFAULT GOOGLE SEARCH */
+showScreen("services");
+
+setNav("services");
+
+}
 
 else{
 
