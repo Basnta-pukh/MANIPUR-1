@@ -1,11 +1,10 @@
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manipur 1</title>
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;background:#f4f6f3;color:#18352b;padding-bottom:80px}
@@ -32,8 +31,8 @@ h2{margin-bottom:16px}
 .nav-item{text-align:center;color:#68766e;font-size:11px;cursor:pointer}
 .nav-icon{font-size:24px;display:block;margin-bottom:3px}
 .nav-item.active{color:#145c42;font-weight:bold}
-.map-frame{width:100%;height:420px;border:0;border-radius:18px}
-.map-link{display:block;text-align:center;background:#145c42;color:white;padding:15px;border-radius:12px;text-decoration:none;margin-top:15px}
+.map-frame{width:100%;height:350px;border:0;border-radius:18px}
+.map-link{display:block;text-align:center;background:#145c42;color:white;padding:15px;border-radius:12px;text-decoration:none;margin-top:12px}
 </style>
 </head>
 <body>
@@ -41,10 +40,7 @@ h2{margin-bottom:16px}
 <!-- HOME -->
 <div id="homeScreen" class="screen active">
 <header>
-<div class="logo">
-<div class="logo-mark">1</div>
-<div><h1>Manipur 1</h1><p>One app. One Manipur.</p></div>
-</div>
+<div class="logo"><div class="logo-mark">1</div><div><h1>Manipur 1</h1><p>One app. One Manipur.</p></div></div>
 <input id="searchInput" class="search" type="search" placeholder="Search Manipur...">
 </header>
 <main>
@@ -58,9 +54,10 @@ h2{margin-bottom:16px}
 <div class="category" data-open="jobs"><div class="icon">💼</div>Jobs</div>
 </div>
 <h2>Discover Manipur</h2>
-<div class="card" data-open="tourism"><h3>Explore Places</h3><p>Discover beautiful places, culture and experiences across Manipur.</p></div>
+<div class="card" data-open="tourism"><h3>Explore Places</h3><p>Discover beautiful places and experiences across Manipur.</p></div>
 <div class="card" data-open="food"><h3>Local Food</h3><p>Discover local food and restaurants.</p></div>
 <div class="card" data-open="map"><h3>🗺️ Explore Map</h3><p>Find places across Manipur.</p></div>
+<div class="card" data-open="transport"><h3>🚗 Transport</h3><p>Explore transport options in Manipur.</p></div>
 </main>
 </div>
 
@@ -72,40 +69,39 @@ h2{margin-bottom:16px}
 <div class="card" data-open="loktak"><h3>Loktak Lake</h3><p>Explore one of Manipur's well-known natural landmarks.</p><p class="view-more">View details →</p></div>
 <div class="card" data-open="kangla"><h3>Kangla</h3><p>Discover the history and heritage of this important site.</p><p class="view-more">View details →</p></div>
 <div class="card" data-open="keibul"><h3>Keibul Lamjao</h3><p>Discover Manipur's famous floating national park.</p><p class="view-more">View details →</p></div>
-<div class="card" data-open="map"><h3>🗺️ View on Map</h3><p>Open the Manipur map.</p></div>
+<div class="card" data-open="map"><h3>🗺️ View Map</h3><p>Explore places on the map.</p></div>
 </main>
 </div>
 
-<!-- PLACE DETAILS -->
+<!-- LOKTAK -->
 <div id="loktakScreen" class="screen">
 <header><div class="logo"><div class="logo-mark">1</div><div><h1>Loktak Lake</h1><p>Manipur 1 Tourism</p></div></div><button class="back-button" data-back="tourism">← Back</button></header>
 <main>
 <h2>Loktak Lake 🏞️</h2>
 <div class="card"><h3>About</h3><p>Loktak Lake is one of the well-known natural landmarks of Manipur.</p></div>
 <div class="card"><h3>Location</h3><p>Manipur, India</p></div>
-<div class="card"><h3>Explore</h3><p>Photos and visitor information can be added later.</p></div>
 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Loktak+Lake+Manipur" target="_blank" rel="noopener">📍 Find Loktak Lake on Google Maps</a>
 </main>
 </div>
 
+<!-- KANGLA -->
 <div id="kanglaScreen" class="screen">
 <header><div class="logo"><div class="logo-mark">1</div><div><h1>Kangla</h1><p>Manipur 1 Tourism</p></div></div><button class="back-button" data-back="tourism">← Back</button></header>
 <main>
 <h2>Explore Kangla 🏛️</h2>
-<div class="card"><h3>About</h3><p>Kangla is a historic site in Imphal, Manipur, with deep cultural and historical importance.</p></div>
+<div class="card"><h3>About</h3><p>Kangla is a historic site in Imphal, Manipur, with cultural and historical importance.</p></div>
 <div class="card"><h3>Location</h3><p>Imphal, Manipur, India</p></div>
-<div class="card"><h3>Explore</h3><p>Photos and visitor information can be added later.</p></div>
 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Kangla+Fort+Imphal" target="_blank" rel="noopener">📍 Find Kangla on Google Maps</a>
 </main>
 </div>
 
+<!-- KEIBUL LAMJAO -->
 <div id="keibulScreen" class="screen">
 <header><div class="logo"><div class="logo-mark">1</div><div><h1>Keibul Lamjao</h1><p>Manipur 1 Tourism</p></div></div><button class="back-button" data-back="tourism">← Back</button></header>
 <main>
 <h2>Keibul Lamjao 🌿</h2>
-<div class="card"><h3>About</h3><p>Keibul Lamjao is a national park in Manipur, known for its floating vegetation and natural environment.</p></div>
+<div class="card"><h3>About</h3><p>Keibul Lamjao is a national park in Manipur, known for its floating vegetation.</p></div>
 <div class="card"><h3>Location</h3><p>Manipur, India</p></div>
-<div class="card"><h3>Explore</h3><p>Photos and visitor information can be added later.</p></div>
 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Keibul+Lamjao+National+Park" target="_blank" rel="noopener">📍 Find Keibul Lamjao on Google Maps</a>
 </main>
 </div>
@@ -121,6 +117,33 @@ h2{margin-bottom:16px}
 </main>
 </div>
 
+<!-- MAP -->
+<div id="mapScreen" class="screen">
+<header><div class="logo"><div class="logo-mark">1</div><div><h1>Manipur Map</h1><p>Explore places around Manipur</p></div></div><button class="back-button" data-back>← Back</button></header>
+<main>
+<h2>Explore Manipur 🗺️</h2>
+<iframe class="map-frame" title="Map of Manipur" loading="lazy" src="https://maps.google.com/maps?q=Manipur%2C%20India&z=8&output=embed"></iframe>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Manipur+India" target="_blank" rel="noopener">Open Google Maps ↗</a>
+<h2 style="margin-top:25px">Popular Places</h2>
+<div class="card" data-map="Loktak Lake, Manipur"><h3>🏞️ Loktak Lake</h3><p>Find on Google Maps →</p></div>
+<div class="card" data-map="Kangla Fort, Imphal"><h3>🏛️ Kangla</h3><p>Find on Google Maps →</p></div>
+<div class="card" data-map="Keibul Lamjao National Park"><h3>🌿 Keibul Lamjao</h3><p>Find on Google Maps →</p></div>
+</main>
+</div>
+
+<!-- TRANSPORT -->
+<div id="transportScreen" class="screen">
+<header><div class="logo"><div class="logo-mark">1</div><div><h1>Transport</h1><p>Travel around Manipur</p></div></div><button class="back-button" data-back>← Back</button></header>
+<main>
+<h2>Transport in Manipur 🚗</h2>
+<div class="card"><h3>🚕 Taxi & Cab</h3><p>Find taxi and cab locations. Live availability and fares are not yet connected.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Taxi+service+Imphal" target="_blank" rel="noopener">Find taxis on Google Maps ↗</a></div>
+<div class="card"><h3>🚌 Bus Services</h3><p>Bus routes, schedules and fares are not yet verified.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Bus+station+Imphal" target="_blank" rel="noopener">Find bus stations ↗</a></div>
+<div class="card"><h3>🚆 Railway</h3><p>Find railway station information and directions.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Railway+station+Manipur" target="_blank" rel="noopener">Find railway stations ↗</a></div>
+<div class="card"><h3>✈️ Airport</h3><p>Find airport locations and directions.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Imphal+International+Airport" target="_blank" rel="noopener">Find airport on Google Maps ↗</a></div>
+<div class="card"><h3>📍 Travel Map</h3><p>Explore transport locations around Manipur.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Transport+Manipur" target="_blank" rel="noopener">Open transport map ↗</a></div>
+</main>
+</div>
+
 <!-- EXPLORE -->
 <div id="exploreScreen" class="screen">
 <header><div class="logo"><div class="logo-mark">1</div><div><h1>Explore</h1><p>Discover Manipur</p></div></div></header>
@@ -130,27 +153,7 @@ h2{margin-bottom:16px}
 <div class="card" data-open="food"><h3>🍜 Food</h3><p>Explore local food and restaurants.</p></div>
 <div class="card"><h3>🎭 Culture</h3><p>Learn about culture and traditions.</p></div>
 <div class="card"><h3>🎉 Events</h3><p>Find events and activities.</p></div>
-</main>
-</div>
-
-<!-- MAP -->
-<div id="mapScreen" class="screen">
-<header>
-<div class="logo"><div class="logo-mark">1</div><div><h1>Manipur Map</h1><p>Explore places around Manipur</p></div></div>
-<button class="back-button" data-back>← Back</button>
-</header>
-<main>
-<h2>Explore Manipur 🗺️</h2>
-<div class="card">
-<h3>Map of Manipur</h3>
-<p>Explore the area using the map below. Tap the map to open Google Maps.</p>
-</div>
-<iframe class="map-frame" title="Map of Manipur" loading="lazy" src="https://maps.google.com/maps?q=Manipur%2C%20India&t=&z=8&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Manipur+India" target="_blank" rel="noopener">Open Google Maps ↗</a>
-<h2 style="margin-top:25px">Popular Places</h2>
-<div class="card" data-map="Loktak Lake, Manipur"><h3>🏞️ Loktak Lake</h3><p>Find this place on Google Maps →</p></div>
-<div class="card" data-map="Kangla Fort, Imphal"><h3>🏛️ Kangla</h3><p>Find this place on Google Maps →</p></div>
-<div class="card" data-map="Keibul Lamjao National Park"><h3>🌿 Keibul Lamjao</h3><p>Find this place on Google Maps →</p></div>
+<div class="card" data-open="transport"><h3>🚗 Transport</h3><p>Explore transport options.</p></div>
 </main>
 </div>
 
@@ -160,7 +163,7 @@ h2{margin-bottom:16px}
 <main><h2 id="comingHeading">Coming soon</h2><div class="card"><h3>Coming soon</h3><p>This section will be developed in a future step.</p></div></main>
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- NAVIGATION -->
 <nav class="bottom-nav">
 <div class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Home</div>
 <div class="nav-item" data-page="explore"><span class="nav-icon">◉</span>Explore</div>
@@ -170,58 +173,52 @@ h2{margin-bottom:16px}
 </nav>
 
 <script>
-const screens = {};
-document.querySelectorAll(".screen").forEach(screen => {
-  screens[screen.id.replace("Screen","")] = screen;
-});
+const screens={};
+document.querySelectorAll(".screen").forEach(s=>screens[s.id.replace("Screen","")]=s);
+const navItems=document.querySelectorAll(".nav-item");
 
-const navItems = document.querySelectorAll(".nav-item");
-
-function showScreen(name) {
-  Object.values(screens).forEach(screen => screen.classList.remove("active"));
-  if (screens[name]) screens[name].classList.add("active");
+function showScreen(name){
+  Object.values(screens).forEach(s=>s.classList.remove("active"));
+  if(screens[name])screens[name].classList.add("active");
   window.scrollTo(0,0);
 }
-
-function setNav(page) {
-  navItems.forEach(item => item.classList.toggle("active",item.dataset.page===page));
+function setNav(page){
+  navItems.forEach(n=>n.classList.toggle("active",n.dataset.page===page));
 }
-
-function openComing(title) {
+function openComing(title){
   document.getElementById("comingTitle").textContent=title;
   document.getElementById("comingHeading").textContent=title+" — Coming soon";
   showScreen("coming");
 }
 
-document.querySelectorAll("[data-open]").forEach(item => {
-  item.addEventListener("click",()=> {
+document.querySelectorAll("[data-open]").forEach(item=>{
+  item.addEventListener("click",()=>{
     const page=item.dataset.open;
-    if(["transport","business","student","jobs"].includes(page)) {
-      openComing(({transport:"Transport",business:"Businesses",student:"Student Hub",jobs:"Jobs"})[page]);
-    } else {
+    if(["business","student","jobs"].includes(page)){
+      openComing(({business:"Businesses",student:"Student Hub",jobs:"Jobs"})[page]);
+    }else{
       showScreen(page);
     }
   });
 });
 
-document.querySelectorAll("[data-back]").forEach(button => {
-  button.addEventListener("click",()=>showScreen(button.dataset.back || "home"));
+document.querySelectorAll("[data-back]").forEach(button=>{
+  button.addEventListener("click",()=>showScreen(button.dataset.back||"home"));
 });
 
-document.querySelectorAll("[data-map]").forEach(card => {
-  card.addEventListener("click",()=> {
-    const url="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(card.dataset.map);
-    window.open(url,"_blank");
+document.querySelectorAll("[data-map]").forEach(card=>{
+  card.addEventListener("click",()=>{
+    window.open("https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(card.dataset.map),"_blank");
   });
 });
 
-navItems.forEach(item => {
-  item.addEventListener("click",()=> {
+navItems.forEach(item=>{
+  item.addEventListener("click",()=>{
     const page=item.dataset.page;
     setNav(page);
-    if(page==="home" || page==="explore" || page==="map") {
+    if(["home","explore","map"].includes(page)){
       showScreen(page);
-    } else {
+    }else{
       openComing(page==="services"?"Services":"Profile");
     }
   });
@@ -230,19 +227,20 @@ navItems.forEach(item => {
 document.getElementById("searchInput").addEventListener("keydown",event=>{
   if(event.key==="Enter"){
     const q=event.target.value.trim().toLowerCase();
-    if(q.includes("loktak")) showScreen("loktak");
-    else if(q.includes("kangla")) showScreen("kangla");
-    else if(q.includes("keibul")) showScreen("keibul");
-    else if(q.includes("map")) showScreen("map");
-    else if(q.includes("tourism")||q.includes("place")) showScreen("tourism");
-    else if(q.includes("food")||q.includes("restaurant")) showScreen("food");
-    else if(q.includes("transport")) openComing("Transport");
-    else if(q.includes("business")) openComing("Businesses");
-    else if(q.includes("student")) openComing("Student Hub");
-    else if(q.includes("job")) openComing("Jobs");
+    if(q.includes("loktak"))showScreen("loktak");
+    else if(q.includes("kangla"))showScreen("kangla");
+    else if(q.includes("keibul"))showScreen("keibul");
+    else if(q.includes("map"))showScreen("map");
+    else if(q.includes("tourism")||q.includes("place"))showScreen("tourism");
+    else if(q.includes("food")||q.includes("restaurant"))showScreen("food");
+    else if(q.includes("transport")||q.includes("taxi")||q.includes("bus")||q.includes("airport")||q.includes("railway"))showScreen("transport");
+    else if(q.includes("business"))openComing("Businesses");
+    else if(q.includes("student"))openComing("Student Hub");
+    else if(q.includes("job"))openComing("Jobs");
     else alert("No matching section found. Try another word.");
   }
 });
 </script>
 </body>
 </html>
+ 
