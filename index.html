@@ -304,6 +304,119 @@ main { padding: 22px 17px; }
   body { background: #e9eee9; }
   .app { background: var(--bg); box-shadow: 0 0 40px #1a392012; }
 }
+.tourism-hero {
+  background: linear-gradient(135deg, #174b39, #4f8b69);
+  color: white;
+  border-radius: 26px;
+  padding: 25px 21px;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tourism-hero::after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  right: -80px;
+  bottom: -100px;
+  border: 28px solid #ffffff20;
+  border-radius: 50%;
+}
+
+.tourism-hero-label {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  font-weight: 800;
+  opacity: .75;
+}
+
+.tourism-hero h1 {
+  font-size: 27px;
+  line-height: 1.15;
+  margin: 17px 0 10px;
+}
+
+.tourism-hero p {
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 280px;
+  opacity: .85;
+}
+
+.tourism-feature-grid {
+  display: grid;
+  gap: 13px;
+}
+
+.tourism-place {
+  min-height: 190px;
+  border: 0;
+  border-radius: 24px;
+  padding: 20px;
+  text-align: left;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.tourism-place::after {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  right: -65px;
+  bottom: -80px;
+  border: 22px solid #ffffff20;
+  border-radius: 50%;
+}
+
+.tourism-place-content {
+  position: relative;
+  z-index: 1;
+  max-width: 280px;
+}
+
+.tourism-place span {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  font-weight: 800;
+  opacity: .8;
+}
+
+.tourism-place h3 {
+  font-size: 24px;
+  margin: 14px 0 7px;
+}
+
+.tourism-place p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: .85;
+}
+
+.tourism-place strong {
+  display: inline-block;
+  margin-top: 15px;
+  background: #ffffff20;
+  padding: 8px 12px;
+  border-radius: 18px;
+  font-size: 11px;
+}
+
+.tourism-place.loktak {
+  background: linear-gradient(135deg, #15556a, #62a7a5);
+}
+
+.tourism-place.kangla {
+  background: linear-gradient(135deg, #5b4c2d, #a88c5b);
+}
+
+.tourism-place.keibul {
+  background: linear-gradient(135deg, #174b39, #6b9864);
+}  
 </style>
 </head>
 
@@ -367,9 +480,56 @@ main { padding: 22px 17px; }
 
 <section class="screen" id="tourism">
   <button class="back" onclick="showScreen('home')">← Back</button>
-  <h1 class="page-title">Tourism & Nature</h1>
-  <p class="page-desc">Discover the natural beauty and cultural heritage of Manipur.</p>
-  <div id="tourismList"></div>
+
+  <div class="tourism-hero">
+    <div class="tourism-hero-label">DISCOVER MANIPUR</div>
+    <h1>Beautiful places.<br>Unforgettable moments.</h1>
+    <p>Explore nature, heritage and culture across Manipur.</p>
+  </div>
+
+  <div class="section-head" style="margin-top:24px">
+    <h2>Featured places</h2>
+    <small>Explore →</small>
+  </div>
+
+  <div class="tourism-feature-grid">
+
+    <button class="tourism-place loktak"
+      onclick="searchMaps('Loktak Lake Manipur')">
+      <div class="tourism-place-content">
+        <span>LAKE & NATURE</span>
+        <h3>Loktak Lake</h3>
+        <p>Explore Manipur's famous floating lake.</p>
+        <strong>Open Map ↗</strong>
+      </div>
+    </button>
+
+    <button class="tourism-place kangla"
+      onclick="searchMaps('Kangla Fort Imphal')">
+      <div class="tourism-place-content">
+        <span>HERITAGE</span>
+        <h3>Kangla</h3>
+        <p>Discover an important historic site.</p>
+        <strong>Open Map ↗</strong>
+      </div>
+    </button>
+
+    <button class="tourism-place keibul"
+      onclick="searchMaps('Keibul Lamjao National Park')">
+      <div class="tourism-place-content">
+        <span>NATURE & WILDLIFE</span>
+        <h3>Keibul Lamjao</h3>
+        <p>Explore the unique national park.</p>
+        <strong>Open Map ↗</strong>
+      </div>
+    </button>
+
+  </div>
+
+  <div class="notice">
+    More destinations can be added here later with verified information,
+    photos, opening details, directions and other useful information.
+  </div>
 </section>
 
 <section class="screen" id="food">
