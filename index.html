@@ -1206,7 +1206,30 @@ button {
   </div>
 
 </section>
+  
+<!-- =========================
+     SEARCH RESULTS
+========================= -->
 
+<section id="searchResults" class="screen">
+
+  <div class="hero">
+    <small>MANIPUR 1 SEARCH</small>
+    <h2 id="searchResultTitle">Search results</h2>
+    <p>Find places, services and opportunities inside Manipur 1.</p>
+  </div>
+
+  <div
+    id="searchResultsContainer"
+    class="feature-grid">
+  </div>
+
+  <div class="note">
+    Search results come from the information currently available
+    inside Manipur 1.
+  </div>
+
+</section>
 <!-- =========================
      BOTTOM NAVIGATION
 ========================= -->
@@ -1330,18 +1353,99 @@ function performSearch() {
 
   const input = document.getElementById("searchInput");
 
-  if (!input) {
-    return;
-  }
+  if (!input) return;
 
-  const query = input.value.trim();
+  const query = input.value.trim().toLowerCase();
 
   if (!query) {
-    input.focus();
+    showScreen("home");
     return;
   }
 
-  searchGoogle(query + " Manipur");
+  const resultsScreen = document.getElementById("searchResults");
+
+  if (!resultsScreen) return;
+
+  const resultsContainer =
+    document.getElementById("searchResultsContainer");
+
+  if (!resultsContainer) return;
+
+  resultsContainer.innerHTML = "";
+
+  const screens = document.querySelectorAll(".screen:not(#searchResults)");
+
+  let found = 0;
+
+  screens.forEach(function(screen) {
+
+    const screenText = screen.innerText.toLowerCase();
+
+    /*
+      If the search matches the whole section,
+      show all useful cards from that section.
+    */
+    if (screenText.includes(query)) {
+
+      const title = screen.querySelector(".hero h2");
+
+      const cards = screen.querySelectorAll(".feature");
+
+      if (cards.length > 0) {
+
+        cards.forEach(function(card) {
+
+          const cardText = card.innerText.toLowerCase();
+
+          if (cardText.includes(query) || screenText.includes(query)) {
+
+            const clone = card.cloneNode(true);
+
+            resultsContainer.appendChild(clone);
+
+            found++;
+
+          }
+
+        });
+
+      }
+
+      /*
+        Home option cards
+      */
+      const options = screen.querySelectorAll(".option");
+
+      options.forEach(function(option) {
+
+        if (option.innerText.toLowerCase().includes(query)) {
+
+          const clone = option.cloneNode(true);
+
+          resultsContainer.appendChild(clone);
+
+          found++;
+
+        }
+
+      });
+
+    }
+
+  });
+
+  showScreen("searchResults");
+
+  const resultTitle =
+    document.getElementById("searchResultTitle");
+
+  if (resultTitle) {
+    resultTitle.textContent =
+      found > 0
+        ? "Results for \"" + input.value.trim() + "\""
+        : "No results found";
+  }
+
 }
 
 
