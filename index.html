@@ -530,6 +530,101 @@ main { padding: 22px 17px; }
 .food-feature.cafes {
   background: linear-gradient(135deg, #51402e, #9b8463);
 }  
+
+/* PREMIUM TRANSPORT PAGE */
+.transport-hero {
+  padding: 30px 24px;
+  border-radius: 24px;
+  color: white;
+  background: linear-gradient(135deg, #102f35, #167b72, #38a58a);
+  margin-bottom: 26px;
+}
+
+.transport-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.transport-hero h1 {
+  font-size: 32px;
+  line-height: 1.15;
+  margin: 18px 0 12px;
+  font-weight: 800;
+}
+
+.transport-hero p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.transport-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.transport-feature {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(120, 140, 140, 0.18);
+  border-radius: 20px;
+  padding: 18px 14px;
+  min-width: 0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.transport-icon {
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+.transport-feature-content h3 {
+  font-size: 17px;
+  margin: 0 0 8px;
+}
+
+.transport-feature-content p {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.75;
+  min-height: 40px;
+}
+
+.transport-feature-content button {
+  width: 100%;
+  margin-top: 12px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 8px;
+  background: #167b72;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.transport-notice {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(22, 123, 114, 0.09);
+  margin-top: 22px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.transport-notice p {
+  margin: 8px 0 0;
+}
+
+@media (max-width: 360px) {
+  .transport-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  
 </style>
 </head>
 
@@ -698,13 +793,73 @@ main { padding: 22px 17px; }
   </div>
 </section>
 
+
 <section class="screen" id="transport">
-  <button class="back" onclick="showScreen('home')">← Back</button>
-  <h1 class="page-title">Transport</h1>
-  <p class="page-desc">Explore ways to travel around Manipur.</p>
-  <div id="transportList"></div>
-  <div class="notice">Transport schedules, fares, and availability are not live or connected to this app. Confirm details with official providers.</div>
+  <div class="transport-hero">
+    <span class="transport-label">TRAVEL AROUND MANIPUR</span>
+    <h1>GET AROUND<br>MANIPUR</h1>
+    <p>Find your way. Explore more. Travel with ease.</p>
+  </div>
+
+  <div class="section-heading">
+    <h2>Transport Services</h2>
+    <p>Choose how you want to travel</p>
+  </div>
+
+  <div class="transport-feature-grid">
+
+    <div class="transport-feature">
+      <div class="transport-icon">🚕</div>
+      <div class="transport-feature-content">
+        <h3>Taxi & Cab</h3>
+        <p>Find taxi and cab services nearby.</p>
+        <button onclick="searchGoogle('Taxi and cab services in Manipur')">
+          Find a Taxi →
+        </button>
+      </div>
+    </div>
+
+    <div class="transport-feature">
+      <div class="transport-icon">🚌</div>
+      <div class="transport-feature-content">
+        <h3>Bus Services</h3>
+        <p>Search for bus routes and services.</p>
+        <button onclick="searchGoogle('Bus services and routes in Manipur')">
+          Find Buses →
+        </button>
+      </div>
+    </div>
+
+    <div class="transport-feature">
+      <div class="transport-icon">🚆</div>
+      <div class="transport-feature-content">
+        <h3>Railway</h3>
+        <p>Find railway stations and train information.</p>
+        <button onclick="searchGoogle('Railway stations and trains in Manipur')">
+          Find Trains →
+        </button>
+      </div>
+    </div>
+
+    <div class="transport-feature">
+      <div class="transport-icon">✈️</div>
+      <div class="transport-feature-content">
+        <h3>Airport</h3>
+        <p>Find airport information and flight services.</p>
+        <button onclick="searchGoogle('Imphal Airport flights and information')">
+          Airport Info →
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="transport-notice">
+    <strong>Travel information</strong>
+    <p>Schedules, fares, and availability are not live-verified in this prototype. Check details before travelling.</p>
+  </div>
 </section>
+
 
 <section class="screen" id="business">
   <button class="back" onclick="showScreen('home')">← Back</button>
