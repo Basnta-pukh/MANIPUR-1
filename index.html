@@ -624,6 +624,101 @@ main { padding: 22px 17px; }
     grid-template-columns: 1fr;
   }
 }
+
+/* PREMIUM BUSINESSES PAGE */
+.business-hero {
+  padding: 30px 24px;
+  border-radius: 24px;
+  color: white;
+  background: linear-gradient(135deg, #33264d, #65508e, #9b82b7);
+  margin-bottom: 26px;
+}
+
+.business-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.business-hero h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 18px 0 12px;
+  font-weight: 800;
+}
+
+.business-hero p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.business-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.business-feature {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(120, 140, 140, 0.18);
+  border-radius: 20px;
+  padding: 18px 14px;
+  min-width: 0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.business-icon {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.business-feature h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.business-feature p {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.75;
+  min-height: 40px;
+}
+
+.business-feature button {
+  width: 100%;
+  margin-top: 12px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 8px;
+  background: #65508e;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.business-notice {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(101, 80, 142, 0.09);
+  margin-top: 22px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.business-notice p {
+  margin: 8px 0 0;
+}
+
+@media (max-width: 360px) {
+  .business-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  
   
 </style>
 </head>
@@ -861,13 +956,83 @@ main { padding: 22px 17px; }
 </section>
 
 
-<section class="screen" id="business">
-  <button class="back" onclick="showScreen('home')">← Back</button>
-  <h1 class="page-title">Businesses</h1>
-  <p class="page-desc">Find shops, hotels, and local services through search.</p>
-  <div id="businessList"></div>
-  <div class="notice">Listings open external search results and are not verified by Manipur 1.</div>
+<section class="screen" id="businesses">
+  <div class="business-hero">
+    <span class="business-label">SUPPORT LOCAL</span>
+    <h1>DISCOVER<br>LOCAL BUSINESSES</h1>
+    <p>Explore shops, services, and local businesses across Manipur.</p>
+  </div>
+
+  <div class="section-heading">
+    <h2>Explore Businesses</h2>
+    <p>Find what you need near you</p>
+  </div>
+
+  <div class="business-feature-grid">
+
+    <div class="business-feature">
+      <div class="business-icon">🛍️</div>
+      <h3>Shops & Stores</h3>
+      <p>Discover local shops and shopping areas.</p>
+      <button onclick="searchGoogle('Local shops and stores in Manipur')">
+        Explore Shops →
+      </button>
+    </div>
+
+    <div class="business-feature">
+      <div class="business-icon">👗</div>
+      <h3>Fashion & Clothing</h3>
+      <p>Find clothing stores and fashion boutiques.</p>
+      <button onclick="searchGoogle('Fashion and clothing stores in Manipur')">
+        Find Fashion →
+      </button>
+    </div>
+
+    <div class="business-feature">
+      <div class="business-icon">💻</div>
+      <h3>Electronics</h3>
+      <p>Search for electronics and mobile shops.</p>
+      <button onclick="searchGoogle('Electronics and mobile shops in Manipur')">
+        Find Electronics →
+      </button>
+    </div>
+
+    <div class="business-feature">
+      <div class="business-icon">💇</div>
+      <h3>Beauty & Salons</h3>
+      <p>Discover salons and personal care services.</p>
+      <button onclick="searchGoogle('Beauty salons in Manipur')">
+        Find Salons →
+      </button>
+    </div>
+
+    <div class="business-feature">
+      <div class="business-icon">🏥</div>
+      <h3>Clinics & Healthcare</h3>
+      <p>Search for clinics and healthcare facilities.</p>
+      <button onclick="searchGoogle('Clinics and healthcare in Manipur')">
+        Find Clinics →
+      </button>
+    </div>
+
+    <div class="business-feature">
+      <div class="business-icon">🔧</div>
+      <h3>Repair Services</h3>
+      <p>Find repair shops and local service providers.</p>
+      <button onclick="searchGoogle('Repair services in Manipur')">
+        Find Services →
+      </button>
+    </div>
+
+  </div>
+
+  <div class="business-notice">
+    <strong>Local business directory</strong>
+    <p>This prototype opens Google Search. Business listings, contact details, and opening hours are not verified or managed inside the app yet.</p>
+  </div>
 </section>
+
+
 
 <section class="screen" id="student">
   <button class="back" onclick="showScreen('home')">← Back</button>
