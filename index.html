@@ -1000,6 +1000,100 @@ main { padding: 22px 17px; }
     grid-template-columns: 1fr;
   }
 }
+
+/* PREMIUM EXPLORE PAGE */
+.explore-hero {
+  padding: 30px 24px;
+  border-radius: 24px;
+  color: white;
+  background: linear-gradient(135deg, #3b285b, #7854a5, #b18ac5);
+  margin-bottom: 26px;
+}
+
+.explore-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.explore-hero h1 {
+  font-size: 32px;
+  line-height: 1.15;
+  margin: 18px 0 12px;
+  font-weight: 800;
+}
+
+.explore-hero p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.explore-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.explore-feature {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(120, 140, 140, 0.18);
+  border-radius: 20px;
+  padding: 18px 14px;
+  min-width: 0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.explore-icon {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.explore-feature h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.explore-feature p {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.75;
+  min-height: 40px;
+}
+
+.explore-feature button {
+  width: 100%;
+  margin-top: 12px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 8px;
+  background: #7854a5;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.explore-notice {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(120, 84, 165, 0.09);
+  margin-top: 22px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.explore-notice p {
+  margin: 8px 0 0;
+}
+
+@media (max-width: 360px) {
+  .explore-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
   
   
 </style>
@@ -1547,12 +1641,82 @@ main { padding: 22px 17px; }
 
 
 <section class="screen" id="explore">
-  <button class="back" onclick="showScreen('home')">← Back</button>
-  <h1 class="page-title">Explore</h1>
-  <p class="page-desc">Discover different parts of Manipur in one place.</p>
-  <div class="grid" id="exploreGrid"></div>
+  <div class="explore-hero">
+    <span class="explore-label">DISCOVER SOMETHING NEW</span>
+    <h1>EXPLORE<br>MANIPUR</h1>
+    <p>Your gateway to local discoveries, culture, food, and experiences.</p>
+  </div>
+
+  <div class="section-heading">
+    <h2>Discover More</h2>
+    <p>Explore what makes Manipur special</p>
+  </div>
+
+  <div class="explore-feature-grid">
+
+    <div class="explore-feature">
+      <div class="explore-icon">🏞️</div>
+      <h3>Nature & Adventure</h3>
+      <p>Discover beautiful landscapes, lakes, and outdoor experiences.</p>
+      <button onclick="searchGoogle('Nature and adventure places in Manipur')">
+        Explore Nature →
+      </button>
+    </div>
+
+    <div class="explore-feature">
+      <div class="explore-icon">🎭</div>
+      <h3>Culture & Heritage</h3>
+      <p>Learn about local traditions, arts, and cultural heritage.</p>
+      <button onclick="searchGoogle('Culture and heritage of Manipur')">
+        Discover Culture →
+      </button>
+    </div>
+
+    <div class="explore-feature">
+      <div class="explore-icon">🍜</div>
+      <h3>Local Experiences</h3>
+      <p>Explore local food, markets, and everyday experiences.</p>
+      <button onclick="searchGoogle('Local experiences and food in Manipur')">
+        Find Experiences →
+      </button>
+    </div>
+
+    <div class="explore-feature">
+      <div class="explore-icon">🎉</div>
+      <h3>Events & Festivals</h3>
+      <p>Discover festivals, cultural events, and celebrations.</p>
+      <button onclick="searchGoogle('Events and festivals in Manipur')">
+        Explore Events →
+      </button>
+    </div>
+
+    <div class="explore-feature">
+      <div class="explore-icon">📸</div>
+      <h3>Photo Spots</h3>
+      <p>Find scenic places and memorable photography locations.</p>
+      <button onclick="searchGoogle('Best photography spots in Manipur')">
+        Find Photo Spots →
+      </button>
+    </div>
+
+    <div class="explore-feature">
+      <div class="explore-icon">🧭</div>
+      <h3>Hidden Gems</h3>
+      <p>Search for lesser-known places and local discoveries.</p>
+      <button onclick="searchGoogle('Hidden gems and lesser known places in Manipur')">
+        Discover Gems →
+      </button>
+    </div>
+
+  </div>
+
+  <div class="explore-notice">
+    <strong>Explore Manipur</strong>
+    <p>This prototype opens Google Search. Event dates, opening hours, and destination details are not verified inside the app.</p>
+  </div>
 </section>
 
+  
 <section class="screen" id="map">
   <button class="back" onclick="showScreen('home')">← Back</button>
   <h1 class="page-title">Map of Manipur</h1>
