@@ -417,6 +417,119 @@ main { padding: 22px 17px; }
 .tourism-place.keibul {
   background: linear-gradient(135deg, #174b39, #6b9864);
 }  
+.food-hero {
+  background: linear-gradient(135deg, #643b25, #bd8154);
+  color: white;
+  border-radius: 26px;
+  padding: 25px 21px;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.food-hero::after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  right: -80px;
+  bottom: -100px;
+  border: 28px solid #ffffff20;
+  border-radius: 50%;
+}
+
+.food-hero-label {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  font-weight: 800;
+  opacity: .8;
+}
+
+.food-hero h1 {
+  font-size: 29px;
+  line-height: 1.15;
+  margin: 17px 0 10px;
+}
+
+.food-hero p {
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 280px;
+  opacity: .9;
+}
+
+.food-feature-grid {
+  display: grid;
+  gap: 13px;
+}
+
+.food-feature {
+  min-height: 185px;
+  border: 0;
+  border-radius: 24px;
+  padding: 20px;
+  text-align: left;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.food-feature::after {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  right: -65px;
+  bottom: -80px;
+  border: 22px solid #ffffff20;
+  border-radius: 50%;
+}
+
+.food-feature-content {
+  position: relative;
+  z-index: 1;
+  max-width: 280px;
+}
+
+.food-feature span {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  font-weight: 800;
+  opacity: .85;
+}
+
+.food-feature h3 {
+  font-size: 24px;
+  margin: 14px 0 7px;
+}
+
+.food-feature p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: .9;
+}
+
+.food-feature strong {
+  display: inline-block;
+  margin-top: 15px;
+  background: #ffffff25;
+  padding: 9px 13px;
+  border-radius: 18px;
+  font-size: 11px;
+}
+
+.food-feature.local-food {
+  background: linear-gradient(135deg, #684027, #b98552);
+}
+
+.food-feature.restaurants {
+  background: linear-gradient(135deg, #8a3c2c, #d7835b);
+}
+
+.food-feature.cafes {
+  background: linear-gradient(135deg, #51402e, #9b8463);
+}  
 </style>
 </head>
 
@@ -534,9 +647,55 @@ main { padding: 22px 17px; }
 
 <section class="screen" id="food">
   <button class="back" onclick="showScreen('home')">← Back</button>
-  <h1 class="page-title">Food & Dining</h1>
-  <p class="page-desc">Explore local dishes, restaurants, and cafes.</p>
-  <div id="foodList"></div>
+
+  <div class="food-hero">
+    <div class="food-hero-label">TASTE OF MANIPUR</div>
+    <h1>Discover.<br>Taste. Enjoy.</h1>
+    <p>Explore local food, restaurants, and cafes across Manipur.</p>
+  </div>
+
+  <div class="section-head" style="margin-top:24px">
+    <h2>Explore Food</h2>
+    <small>Discover more →</small>
+  </div>
+
+  <div class="food-feature-grid">
+
+    <button class="food-feature local-food"
+      onclick="searchGoogle('Manipuri traditional food')">
+      <div class="food-feature-content">
+        <span>LOCAL FLAVOURS</span>
+        <h3>Local Food</h3>
+        <p>Discover traditional Manipuri dishes.</p>
+        <strong>Explore Food ↗</strong>
+      </div>
+    </button>
+
+    <button class="food-feature restaurants"
+      onclick="searchGoogle('Restaurants in Manipur')">
+      <div class="food-feature-content">
+        <span>GOOD FOOD, GOOD TIMES</span>
+        <h3>Restaurants</h3>
+        <p>Find places to enjoy a meal.</p>
+        <strong>Find Restaurants ↗</strong>
+      </div>
+    </button>
+
+    <button class="food-feature cafes"
+      onclick="searchGoogle('Cafes in Manipur')">
+      <div class="food-feature-content">
+        <span>COFFEE & CONVERSATIONS</span>
+        <h3>Cafes</h3>
+        <p>Discover cafes and cozy places.</p>
+        <strong>Explore Cafes ↗</strong>
+      </div>
+    </button>
+
+  </div>
+
+  <div class="notice">
+    Restaurant listings, menus, prices, and opening hours are not verified by Manipur 1. Check details before visiting.
+  </div>
 </section>
 
 <section class="screen" id="transport">
