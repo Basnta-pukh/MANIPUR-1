@@ -439,6 +439,7 @@ button {
 @media (min-width: 700px) {
   body {
     max-width: 900px;
+
     margin: auto;
   }
 
@@ -450,6 +451,25 @@ button {
     grid-template-columns: repeat(2,1fr);
   }
 }
+ .tourism-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.tourism-buttons .primary-btn,
+.tourism-buttons .secondary-btn {
+  width: 100%;
+  padding: 10px 7px;
+  font-size: 12px;
+}
+
+@media (max-width: 380px) {
+  .tourism-buttons {
+    grid-template-columns: 1fr;
+  }
+} 
 </style>
 </head>
 
@@ -571,45 +591,152 @@ button {
 
   <div class="feature-grid">
 
+    <!-- LOKTAK LAKE -->
     <div class="feature">
-      <div class="feature-top"><div class="feature-icon">🌊</div></div>
+
+      <div class="feature-top">
+        <div class="feature-icon">🌊</div>
+      </div>
+
       <div class="feature-content">
         <h3>Loktak Lake</h3>
-        <p>Explore the famous floating islands and natural beauty of Manipur.</p>
-        <button class="primary-btn" onclick="openMaps('Loktak Lake Manipur')">Explore on Maps</button>
+
+        <p>
+          Discover Manipur's famous floating lake,
+          natural beauty and surrounding experiences.
+        </p>
+
+        <div class="tourism-buttons">
+
+          <button
+            class="primary-btn"
+            onclick="searchGoogle('Loktak Lake Manipur')">
+            🔎 Search
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Loktak Lake Manipur')">
+            🗺️ View on Map
+          </button>
+
+        </div>
       </div>
+
     </div>
 
+
+    <!-- KANGLA -->
     <div class="feature">
-      <div class="feature-top"><div class="feature-icon">🏯</div></div>
+
+      <div class="feature-top">
+        <div class="feature-icon">🏯</div>
+      </div>
+
       <div class="feature-content">
         <h3>Kangla</h3>
-        <p>Discover one of Manipur's important historical and cultural places.</p>
-        <button class="primary-btn" onclick="openMaps('Kangla Fort Imphal')">Explore on Maps</button>
+
+        <p>
+          Explore one of Manipur's important historical
+          and cultural places.
+        </p>
+
+        <div class="tourism-buttons">
+
+          <button
+            class="primary-btn"
+            onclick="searchGoogle('Kangla Fort Imphal Manipur')">
+            🔎 Search
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Kangla Fort Imphal Manipur')">
+            🗺️ View on Map
+          </button>
+
+        </div>
       </div>
+
     </div>
 
+
+    <!-- KEIBUL LAMJAO -->
     <div class="feature">
-      <div class="feature-top"><div class="feature-icon">🦌</div></div>
+
+      <div class="feature-top">
+        <div class="feature-icon">🦌</div>
+      </div>
+
       <div class="feature-content">
         <h3>Keibul Lamjao</h3>
-        <p>Discover the unique floating national park and Sangai habitat.</p>
-        <button class="primary-btn" onclick="openMaps('Keibul Lamjao National Park')">Explore on Maps</button>
+
+        <p>
+          Discover the unique floating national park
+          and the home of the Sangai.
+        </p>
+
+        <div class="tourism-buttons">
+
+          <button
+            class="primary-btn"
+            onclick="searchGoogle('Keibul Lamjao National Park Manipur')">
+            🔎 Search
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Keibul Lamjao National Park Manipur')">
+            🗺️ View on Map
+          </button>
+
+        </div>
       </div>
+
     </div>
 
+
+    <!-- NATURE & ADVENTURE -->
     <div class="feature">
-      <div class="feature-top"><div class="feature-icon">⛰️</div></div>
+
+      <div class="feature-top">
+        <div class="feature-icon">⛰️</div>
+      </div>
+
       <div class="feature-content">
         <h3>Nature & Adventure</h3>
-        <p>Find waterfalls, hills, trekking areas and outdoor experiences.</p>
-        <button class="primary-btn" onclick="searchGoogle('Manipur nature adventure tourist places')">Search Places</button>
+
+        <p>
+          Find waterfalls, hills, trekking areas
+          and outdoor experiences.
+        </p>
+
+        <div class="tourism-buttons">
+
+          <button
+            class="primary-btn"
+            onclick="searchGoogle('Manipur nature adventure tourist places')">
+            🔎 Search
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="openMaps('nature adventure places Manipur')">
+            🗺️ View on Map
+          </button>
+
+        </div>
       </div>
+
     </div>
 
   </div>
 
-  <div class="note">Tourism information is currently connected to Google Search and Maps. Opening hours and other details should be verified before visiting.</div>
+  <div class="note">
+    Tourism information is currently connected to Google Search
+    and Google Maps. Details such as opening hours should be
+    verified before visiting.
+  </div>
 
 </section>
 
