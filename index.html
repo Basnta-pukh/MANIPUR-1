@@ -1,2493 +1,1196 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#123c30">
 <title>Manipur 1 — One app. One Manipur.</title>
 
 <style>
-:root {
-  --green: #174b39;
-  --green2: #286c50;
-  --mint: #eaf4ed;
-  --bg: #f5f7f4;
-  --text: #182b22;
-  --muted: #718077;
-  --white: #fff;
-  --border: #e8eee8;
-  --radius: 22px;
-}
-* { box-sizing: border-box; }
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-button, input { font: inherit; }
-button { cursor: pointer; }
-.app {
-  max-width: 520px;
+  background: #f5f7fa;
+  color: #111827;
   min-height: 100vh;
-  margin: auto;
-  padding-bottom: 100px;
+  padding-bottom: 90px;
 }
-header {
-  background: var(--green);
-  color: white;
-  padding: 22px 20px 28px;
-  border-radius: 0 0 30px 30px;
+
+button,
+input {
+  font: inherit;
 }
-.topline {
+
+button {
+  cursor: pointer;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 14px 18px;
+}
+
+.brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 11px;
 }
+
 .logo {
-  width: 48px;
-  height: 48px;
-  background: #d9f1df;
-  color: var(--green);
-  display: grid;
-  place-items: center;
-  border-radius: 16px;
-  font-size: 27px;
-  font-weight: 900;
-}
-.brand { font-size: 22px; font-weight: 800; }
-.tagline { font-size: 12px; color: #c6dfce; margin-top: 4px; }
-.header-action {
-  margin-left: auto;
   width: 42px;
   height: 42px;
-  border-radius: 50%;
-  border: 1px solid #ffffff35;
-  background: #ffffff12;
+  border-radius: 13px;
+  background: linear-gradient(135deg,#111827,#374151);
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
   font-size: 19px;
+  box-shadow: 0 7px 20px rgba(0,0,0,.15);
 }
-.welcome { margin-top: 27px; }
-.welcome h1 { font-size: 27px; line-height: 1.2; margin: 0 0 8px; }
-.welcome p { color: #d0e1d5; font-size: 14px; margin: 0; }
-.search {
-  margin-top: 22px;
+
+.brand-text h1 {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.brand-text p {
+  color: #6b7280;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-wrap {
+  padding: 14px 18px 4px;
+}
+
+.search-box {
   display: flex;
-  gap: 10px;
-  background: white;
-  border-radius: 16px;
-  padding: 6px 8px 6px 15px;
   align-items: center;
+  gap: 9px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 15px;
+  padding: 11px 13px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.04);
 }
-.search span { color: #65776b; font-size: 20px; }
-.search input {
-  border: 0;
-  outline: 0;
+
+.search-box span {
+  font-size: 18px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
   width: 100%;
-  min-width: 0;
-  padding: 11px 0;
-  color: var(--text);
   background: transparent;
+  color: #111827;
 }
-.search button {
-  background: var(--green2);
+
+.search-box button {
+  border: none;
+  background: #111827;
   color: white;
-  border: 0;
-  border-radius: 12px;
-  padding: 11px 14px;
+  border-radius: 10px;
+  padding: 8px 12px;
 }
-main { padding: 22px 17px; }
-.screen { display: none; }
-.screen.active { display: block; }
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 2px 14px;
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen {
+  display: none;
+  padding: 14px 18px 25px;
+  animation: fadeIn .22s ease;
 }
-.section-head h2 { font-size: 19px; margin: 0; }
-.section-head small { color: var(--muted); }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+
+.screen.active {
+  display: block;
 }
-.card {
-  border: 1px solid var(--border);
-  background: white;
-  border-radius: var(--radius);
-  padding: 17px;
-  text-align: left;
-  color: var(--text);
-  min-width: 0;
-  transition: transform .15s;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.card:active { transform: scale(.98); }
-.card-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 17px;
-  background: var(--mint);
-  color: var(--green);
-  display: grid;
-  place-items: center;
-  margin-bottom: 14px;
-}
-.card-icon svg { width: 27px; height: 27px; }
-.card h3 { font-size: 15px; margin: 0 0 6px; }
-.card p { font-size: 12px; line-height: 1.5; color: var(--muted); margin: 0; }
-.featured {
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
   border-radius: 25px;
-  min-height: 175px;
+  padding: 28px 22px;
+  margin: 10px 0 20px;
   color: white;
-  padding: 20px;
-  margin-bottom: 12px;
-  position: relative;
+  min-height: 205px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
-  text-align: left;
-  border: 0;
-  width: 100%;
-  background: linear-gradient(135deg, #1c5843, #76a98a);
+  position: relative;
+  background:
+    linear-gradient(135deg, #111827, #374151 55%, #64748b);
+  box-shadow: 0 15px 35px rgba(17,24,39,.18);
 }
-.featured::after {
+
+.hero::after {
   content: "";
   position: absolute;
   width: 180px;
   height: 180px;
-  right: -50px;
-  bottom: -95px;
-  border: 25px solid #ffffff20;
+  right: -55px;
+  top: -55px;
   border-radius: 50%;
-}
-.featured.blue { background: linear-gradient(135deg, #174b61, #6caeae); }
-.featured.gold { background: linear-gradient(135deg, #5b5731, #b4a76c); }
-.featured .eyebrow {
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  opacity: .8;
-}
-.featured h3 { font-size: 25px; margin: 14px 0 7px; }
-.featured p { font-size: 13px; margin: 0; opacity: .85; }
-.featured .arrow {
-  display: inline-block;
-  margin-top: 17px;
-  background: #ffffff25;
-  padding: 9px 13px;
-  border-radius: 20px;
-  font-size: 12px;
-}
-.quick-row {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 2px 0 18px;
-  scrollbar-width: none;
-}
-.quick-row::-webkit-scrollbar { display: none; }
-.quick {
-  flex: 0 0 115px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 15px 12px;
-  color: var(--text);
-  text-align: left;
-}
-.quick .card-icon { width: 43px; height: 43px; margin-bottom: 11px; }
-.quick strong { font-size: 13px; display: block; }
-.quick small { color: var(--muted); font-size: 11px; display: block; margin-top: 5px; }
-.notice {
-  margin-top: 16px;
-  padding: 14px;
-  background: #fff8e7;
-  border: 1px solid #f2e6c6;
-  border-radius: 15px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #75633b;
-}
-.back {
-  background: var(--mint);
-  color: var(--green);
-  border: 0;
-  border-radius: 12px;
-  padding: 10px 14px;
-  margin-bottom: 17px;
-  font-weight: 700;
-}
-.page-title { font-size: 25px; margin: 0 0 8px; }
-.page-desc { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0 0 20px; }
-.list-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  width: 100%;
-  text-align: left;
-  padding: 16px;
-  border: 1px solid var(--border);
-  background: white;
-  border-radius: 18px;
-  margin-bottom: 11px;
-  color: var(--text);
-}
-.list-card .card-icon { margin: 0; flex-shrink: 0; width: 48px; height: 48px; }
-.list-card h3 { font-size: 15px; margin: 0 0 5px; }
-.list-card p { font-size: 12px; color: var(--muted); margin: 0; line-height: 1.5; }
-.list-card .chevron { margin-left: auto; color: #9aa79e; font-size: 22px; }
-.map-frame {
-  width: 100%;
-  height: 320px;
-  border: 0;
-  border-radius: 20px;
-  background: #e7eee8;
-}
-.primary-btn {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  border-radius: 15px;
-  border: 0;
-  background: var(--green);
-  color: white;
-  font-weight: 700;
-  margin: 14px 0;
-}
-.text-link {
-  display: block;
-  padding: 14px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  margin: 9px 0;
-  color: var(--green);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-}
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(100%, 520px);
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  background: #ffffffed;
-  backdrop-filter: blur(15px);
-  border-top: 1px solid var(--border);
-  padding: 9px 5px calc(9px + env(safe-area-inset-bottom));
-  z-index: 10;
-}
-.nav-btn {
-  border: 0;
-  background: transparent;
-  color: #829087;
-  font-size: 10px;
-  display: grid;
-  justify-items: center;
-  gap: 5px;
-  padding: 5px 0;
-}
-.nav-btn svg { width: 22px; height: 22px; }
-.nav-btn.active { color: var(--green); font-weight: 800; }
-.nav-btn.active svg { stroke-width: 2.5; }
-.empty {
-  background: white;
-  padding: 25px;
-  text-align: center;
-  border-radius: 20px;
-  color: var(--muted);
-}
-@media (min-width: 520px) {
-  body { background: #e9eee9; }
-  .app { background: var(--bg); box-shadow: 0 0 40px #1a392012; }
-}
-.tourism-hero {
-  background: linear-gradient(135deg, #174b39, #4f8b69);
-  color: white;
-  border-radius: 26px;
-  padding: 25px 21px;
-  min-height: 220px;
-  position: relative;
-  overflow: hidden;
+  background: rgba(255,255,255,.08);
 }
 
-.tourism-hero::after {
-  content: "";
-  position: absolute;
-  width: 210px;
-  height: 210px;
-  right: -80px;
-  bottom: -100px;
-  border: 28px solid #ffffff20;
-  border-radius: 50%;
-}
-
-.tourism-hero-label {
-  font-size: 10px;
-  letter-spacing: 1.8px;
-  font-weight: 800;
-  opacity: .75;
-}
-
-.tourism-hero h1 {
-  font-size: 27px;
-  line-height: 1.15;
-  margin: 17px 0 10px;
-}
-
-.tourism-hero p {
-  font-size: 13px;
-  line-height: 1.5;
-  max-width: 280px;
-  opacity: .85;
-}
-
-.tourism-feature-grid {
-  display: grid;
-  gap: 13px;
-}
-
-.tourism-place {
-  min-height: 190px;
-  border: 0;
-  border-radius: 24px;
-  padding: 20px;
-  text-align: left;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-.tourism-place::after {
-  content: "";
-  position: absolute;
-  width: 170px;
-  height: 170px;
-  right: -65px;
-  bottom: -80px;
-  border: 22px solid #ffffff20;
-  border-radius: 50%;
-}
-
-.tourism-place-content {
+.hero small {
   position: relative;
   z-index: 1;
-  max-width: 280px;
-}
-
-.tourism-place span {
-  font-size: 10px;
-  letter-spacing: 1.4px;
-  font-weight: 800;
+  letter-spacing: 2px;
+  font-weight: 700;
   opacity: .8;
 }
 
-.tourism-place h3 {
-  font-size: 24px;
-  margin: 14px 0 7px;
-}
-
-.tourism-place p {
-  font-size: 12px;
-  line-height: 1.5;
-  margin: 0;
-  opacity: .85;
-}
-
-.tourism-place strong {
-  display: inline-block;
-  margin-top: 15px;
-  background: #ffffff20;
-  padding: 8px 12px;
-  border-radius: 18px;
-  font-size: 11px;
-}
-
-.tourism-place.loktak {
-  background: linear-gradient(135deg, #15556a, #62a7a5);
-}
-
-.tourism-place.kangla {
-  background: linear-gradient(135deg, #5b4c2d, #a88c5b);
-}
-
-.tourism-place.keibul {
-  background: linear-gradient(135deg, #174b39, #6b9864);
-}  
-.food-hero {
-  background: linear-gradient(135deg, #643b25, #bd8154);
-  color: white;
-  border-radius: 26px;
-  padding: 25px 21px;
-  min-height: 220px;
-  position: relative;
-  overflow: hidden;
-}
-
-.food-hero::after {
-  content: "";
-  position: absolute;
-  width: 210px;
-  height: 210px;
-  right: -80px;
-  bottom: -100px;
-  border: 28px solid #ffffff20;
-  border-radius: 50%;
-}
-
-.food-hero-label {
-  font-size: 10px;
-  letter-spacing: 1.8px;
-  font-weight: 800;
-  opacity: .8;
-}
-
-.food-hero h1 {
-  font-size: 29px;
-  line-height: 1.15;
-  margin: 17px 0 10px;
-}
-
-.food-hero p {
-  font-size: 13px;
-  line-height: 1.5;
-  max-width: 280px;
-  opacity: .9;
-}
-
-.food-feature-grid {
-  display: grid;
-  gap: 13px;
-}
-
-.food-feature {
-  min-height: 185px;
-  border: 0;
-  border-radius: 24px;
-  padding: 20px;
-  text-align: left;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-.food-feature::after {
-  content: "";
-  position: absolute;
-  width: 170px;
-  height: 170px;
-  right: -65px;
-  bottom: -80px;
-  border: 22px solid #ffffff20;
-  border-radius: 50%;
-}
-
-.food-feature-content {
+.hero h2 {
   position: relative;
   z-index: 1;
-  max-width: 280px;
-}
-
-.food-feature span {
-  font-size: 10px;
-  letter-spacing: 1.4px;
-  font-weight: 800;
-  opacity: .85;
-}
-
-.food-feature h3 {
-  font-size: 24px;
-  margin: 14px 0 7px;
-}
-
-.food-feature p {
-  font-size: 12px;
-  line-height: 1.5;
-  margin: 0;
-  opacity: .9;
-}
-
-.food-feature strong {
-  display: inline-block;
-  margin-top: 15px;
-  background: #ffffff25;
-  padding: 9px 13px;
-  border-radius: 18px;
-  font-size: 11px;
-}
-
-.food-feature.local-food {
-  background: linear-gradient(135deg, #684027, #b98552);
-}
-
-.food-feature.restaurants {
-  background: linear-gradient(135deg, #8a3c2c, #d7835b);
-}
-
-.food-feature.cafes {
-  background: linear-gradient(135deg, #51402e, #9b8463);
-}  
-
-/* PREMIUM TRANSPORT PAGE */
-.transport-hero {
-  padding: 30px 24px;
-  border-radius: 24px;
-  color: white;
-  background: linear-gradient(135deg, #102f35, #167b72, #38a58a);
-  margin-bottom: 26px;
-}
-
-.transport-label {
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  opacity: 0.85;
-}
-
-.transport-hero h1 {
-  font-size: 32px;
-  line-height: 1.15;
-  margin: 18px 0 12px;
-  font-weight: 800;
-}
-
-.transport-hero p {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.transport-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 18px 0;
-}
-
-.transport-feature {
-  background: var(--card-bg, #fff);
-  border: 1px solid rgba(120, 140, 140, 0.18);
-  border-radius: 20px;
-  padding: 18px 14px;
-  min-width: 0;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
-}
-
-.transport-icon {
-  font-size: 32px;
-  margin-bottom: 14px;
-}
-
-.transport-feature-content h3 {
-  font-size: 17px;
-  margin: 0 0 8px;
-}
-
-.transport-feature-content p {
-  font-size: 12px;
-  line-height: 1.6;
-  opacity: 0.75;
-  min-height: 40px;
-}
-
-.transport-feature-content button {
-  width: 100%;
-  margin-top: 12px;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 8px;
-  background: #167b72;
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.transport-notice {
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(22, 123, 114, 0.09);
-  margin-top: 22px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.transport-notice p {
-  margin: 8px 0 0;
-}
-
-@media (max-width: 360px) {
-  .transport-feature-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* PREMIUM BUSINESSES PAGE */
-.business-hero {
-  padding: 30px 24px;
-  border-radius: 24px;
-  color: white;
-  background: linear-gradient(135deg, #33264d, #65508e, #9b82b7);
-  margin-bottom: 26px;
-}
-
-.business-label {
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  opacity: 0.85;
-}
-
-.business-hero h1 {
-  font-size: 30px;
-  line-height: 1.2;
-  margin: 18px 0 12px;
-  font-weight: 800;
-}
-
-.business-hero p {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.business-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 18px 0;
-}
-
-.business-feature {
-  background: var(--card-bg, #fff);
-  border: 1px solid rgba(120, 140, 140, 0.18);
-  border-radius: 20px;
-  padding: 18px 14px;
-  min-width: 0;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
-}
-
-.business-icon {
-  font-size: 30px;
-  margin-bottom: 14px;
-}
-
-.business-feature h3 {
-  font-size: 16px;
-  margin: 0 0 8px;
-}
-
-.business-feature p {
-  font-size: 12px;
-  line-height: 1.6;
-  opacity: 0.75;
-  min-height: 40px;
-}
-
-.business-feature button {
-  width: 100%;
-  margin-top: 12px;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 8px;
-  background: #65508e;
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.business-notice {
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(101, 80, 142, 0.09);
-  margin-top: 22px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.business-notice p {
-  margin: 8px 0 0;
-}
-
-@media (max-width: 360px) {
-  .business-feature-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* PREMIUM STUDENT HUB */
-.student-hero {
-  padding: 30px 24px;
-  border-radius: 24px;
-  color: white;
-  background: linear-gradient(135deg, #153c62, #286fa1, #66a8c9);
-  margin-bottom: 26px;
-}
-
-.student-label {
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  opacity: 0.85;
-}
-
-.student-hero h1 {
-  font-size: 32px;
-  line-height: 1.15;
-  margin: 18px 0 12px;
-  font-weight: 800;
-}
-
-.student-hero p {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.student-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 18px 0;
-}
-
-.student-feature {
-  background: var(--card-bg, #fff);
-  border: 1px solid rgba(120, 140, 140, 0.18);
-  border-radius: 20px;
-  padding: 18px 14px;
-  min-width: 0;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
-}
-
-.student-icon {
-  font-size: 30px;
-  margin-bottom: 14px;
-}
-
-.student-feature h3 {
-  font-size: 16px;
-  margin: 0 0 8px;
-}
-
-.student-feature p {
-  font-size: 12px;
-  line-height: 1.6;
-  opacity: 0.75;
-  min-height: 40px;
-}
-
-.student-feature button {
-  width: 100%;
-  margin-top: 12px;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 8px;
-  background: #286fa1;
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.student-notice {
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(40, 111, 161, 0.09);
-  margin-top: 22px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.student-notice p {
-  margin: 8px 0 0;
-}
-
-@media (max-width: 360px) {
-  .student-feature-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* PREMIUM JOBS PAGE */
-.jobs-hero {
-  padding: 30px 24px;
-  border-radius: 24px;
-  color: white;
-  background: linear-gradient(135deg, #26344f, #425c8a, #7b91b9);
-  margin-bottom: 26px;
-}
-
-.jobs-label {
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  opacity: 0.85;
-}
-
-.jobs-hero h1 {
-  font-size: 32px;
-  line-height: 1.15;
-  margin: 18px 0 12px;
-  font-weight: 800;
-}
-
-.jobs-hero p {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.jobs-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 18px 0;
-}
-
-.jobs-feature {
-  background: var(--card-bg, #fff);
-  border: 1px solid rgba(120, 140, 140, 0.18);
-  border-radius: 20px;
-  padding: 18px 14px;
-  min-width: 0;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
-}
-
-.jobs-icon {
-  font-size: 30px;
-  margin-bottom: 14px;
-}
-
-.jobs-feature h3 {
-  font-size: 16px;
-  margin: 0 0 8px;
-}
-
-.jobs-feature p {
-  font-size: 12px;
-  line-height: 1.6;
-  opacity: 0.75;
-  min-height: 40px;
-}
-
-.jobs-feature button {
-  width: 100%;
-  margin-top: 12px;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 8px;
-  background: #425c8a;
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.jobs-notice {
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(66, 92, 138, 0.09);
-  margin-top: 22px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.jobs-notice p {
-  margin: 8px 0 0;
-}
-
-@media (max-width: 360px) {
-  .jobs-feature-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* PREMIUM GOVERNMENT SERVICES PAGE */
-.services-hero {
-  padding: 30px 24px;
-  border-radius: 24px;
-  color: white;
-  background: linear-gradient(135deg, #173d45, #267b80, #69aaa5);
-  margin-bottom: 26px;
-}
-
-.services-label {
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  opacity: 0.85;
-}
-
-.services-hero h1 {
-  font-size: 30px;
-  line-height: 1.2;
-  margin: 18px 0 12px;
-  font-weight: 800;
-}
-
-.services-hero p {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.services-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 18px 0;
-}
-
-.services-feature {
-  background: var(--card-bg, #fff);
-  border: 1px solid rgba(120, 140, 140, 0.18);
-  border-radius: 20px;
-  padding: 18px 14px;
-  min-width: 0;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
-}
-
-.services-icon {
-  font-size: 30px;
-  margin-bottom: 14px;
-}
-
-.services-feature h3 {
-  font-size: 16px;
-  margin: 0 0 8px;
-}
-
-.services-feature p {
-  font-size: 12px;
-  line-height: 1.6;
-  opacity: 0.75;
-  min-height: 40px;
-}
-
-.services-feature button {
-  width: 100%;
-  margin-top: 12px;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 8px;
-  background: #267b80;
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.services-notice {
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(38, 123, 128, 0.09);
-  margin-top: 22px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.services-notice p {
-  margin: 8px 0 0;
-}
-
-@media (max-width: 360px) {
-  .services-feature-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* PREMIUM EXPLORE PAGE */
-.explore-hero {
-  padding: 30px 24px;
-  border-radius: 24px;
-  color: white;
-  background: linear-gradient(135deg, #3b285b, #7854a5, #b18ac5);
-  margin-bottom: 26px;
-}
-
-.explore-label {
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  opacity: 0.85;
-}
-
-.explore-hero h1 {
-  font-size: 32px;
-  line-height: 1.15;
-  margin: 18px 0 12px;
-  font-weight: 800;
-}
-
-.explore-hero p {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.explore-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 18px 0;
-}
-
-.explore-feature {
-  background: var(--card-bg, #fff);
-  border: 1px solid rgba(120, 140, 140, 0.18);
-  border-radius: 20px;
-  padding: 18px 14px;
-  min-width: 0;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
-}
-
-.explore-icon {
-  font-size: 30px;
-  margin-bottom: 14px;
-}
-
-.explore-feature h3 {
-  font-size: 16px;
-  margin: 0 0 8px;
-}
-
-.explore-feature p {
-  font-size: 12px;
-  line-height: 1.6;
-  opacity: 0.75;
-  min-height: 40px;
-}
-
-.explore-feature button {
-  width: 100%;
-  margin-top: 12px;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 8px;
-  background: #7854a5;
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.explore-notice {
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(120, 84, 165, 0.09);
-  margin-top: 22px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.explore-notice p {
-  margin: 8px 0 0;
-}
-
-@media (max-width: 360px) {
-  .explore-feature-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* PREMIUM PROFILE PAGE */
-
-.profile-hero {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 26px 22px;
-  border-radius: 24px;
-  color: white;
-  background: linear-gradient(135deg, #172f3b, #246878, #4d9b91);
-  margin-bottom: 26px;
-}
-
-.profile-avatar {
-  width: 68px;
-  height: 68px;
-  flex: 0 0 68px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  font-size: 21px;
-  font-weight: 800;
-}
-
-.profile-label {
-  font-size: 10px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  opacity: 0.8;
-}
-
-.profile-hero h1 {
-  font-size: 27px;
+  font-size: 31px;
+  line-height: 1.05;
   margin: 7px 0;
 }
 
-.profile-hero p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.5;
-  opacity: 0.88;
+.hero p {
+  position: relative;
+  z-index: 1;
+  color: rgba(255,255,255,.78);
+  font-size: 14px;
+  max-width: 500px;
 }
 
-.profile-feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 18px 0;
-}
-
-.profile-feature {
-  background: var(--card-bg, #fff);
-  border: 1px solid rgba(120, 140, 140, 0.18);
-  border-radius: 20px;
-  padding: 18px 14px;
-  min-width: 0;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
-}
-
-.profile-icon {
-  font-size: 28px;
-  margin-bottom: 13px;
-}
-
-.profile-feature h3 {
-  font-size: 16px;
-  margin: 0 0 8px;
-}
-
-.profile-feature p {
-  font-size: 12px;
-  line-height: 1.55;
-  opacity: 0.72;
-  min-height: 54px;
-}
-
-.profile-feature button {
-  width: 100%;
-  margin-top: 10px;
-  border: none;
-  border-radius: 12px;
-  padding: 11px 7px;
-  background: #246878;
-  color: white;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.profile-coming {
-  margin-top: 22px;
-  padding: 22px;
-  border-radius: 20px;
-  background: rgba(36, 104, 120, 0.08);
-  border: 1px solid rgba(36, 104, 120, 0.12);
-}
-
-.profile-coming span {
-  font-size: 10px;
-  letter-spacing: 1.8px;
-  font-weight: 800;
-  opacity: 0.65;
-}
-
-.profile-coming h2 {
-  font-size: 20px;
-  margin: 10px 0 8px;
-}
-
-.profile-coming p {
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0;
-  opacity: 0.72;
-}
-
-.profile-version {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  margin: 28px 0 10px;
-  text-align: center;
-  opacity: 0.6;
-}
-
-.profile-version strong {
-  font-size: 13px;
-}
-
-.profile-version span {
-  font-size: 11px;
-}
-
-@media (max-width: 360px) {
-  .profile-hero {
-    padding: 22px 16px;
-  }
-
-  .profile-avatar {
-    width: 58px;
-    height: 58px;
-    flex-basis: 58px;
-  }
-
-  .profile-feature-grid {
-    grid-template-columns: 1fr;
-  }
-} 
-/* PREMIUM HOME PAGE */
+/* =========================
+   HOME
+========================= */
 
 .home-hero {
-  padding: 28px 22px;
-  border-radius: 26px;
-  color: white;
+  min-height: 250px;
   background:
-    linear-gradient(135deg, #102f35, #176b68, #42a88f);
-  margin-bottom: 28px;
-  overflow: hidden;
+    linear-gradient(135deg,#0f172a,#1e293b 55%,#475569);
 }
 
-.home-hero-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+.home-hero h2 {
+  font-size: 35px;
 }
 
-.home-label {
-  font-size: 10px;
-  letter-spacing: 1.8px;
-  font-weight: 800;
-  opacity: 0.82;
+.section-title {
+  margin: 24px 2px 12px;
 }
 
-.home-badge {
-  padding: 7px 10px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.2);
-  font-size: 9px;
-  font-weight: 800;
+.section-title h3 {
+  font-size: 20px;
 }
 
-.home-hero h1 {
-  font-size: 38px;
-  line-height: 1.02;
-  letter-spacing: -1px;
-  margin: 28px 0 14px;
-  font-weight: 900;
-}
-
-.home-hero p {
-  max-width: 330px;
+.section-title p {
   font-size: 13px;
-  line-height: 1.65;
-  opacity: 0.88;
-  margin-bottom: 20px;
+  color: #6b7280;
+  margin-top: 4px;
 }
 
-.home-hero-actions {
-  display: flex;
-  gap: 9px;
-  flex-wrap: wrap;
-}
-
-.home-hero-actions button {
-  border: none;
-  border-radius: 13px;
-  padding: 12px 15px;
-  background: white;
-  color: #176b68;
-  font-size: 12px;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.home-hero-actions .home-secondary-btn {
-  background: rgba(255,255,255,0.13);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.25);
-}
-
-.home-section-title {
-  margin: 8px 2px 16px;
-}
-
-.home-section-title span {
-  font-size: 10px;
-  letter-spacing: 1.8px;
-  font-weight: 800;
-  opacity: 0.55;
-}
-
-.home-section-title h2 {
-  margin: 5px 0 0;
-  font-size: 22px;
-}
-
-.home-option-grid {
+.option-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 13px;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
 }
 
-.home-option {
-  padding: 18px 15px;
+.option {
+  border: none;
+  background: white;
   border-radius: 20px;
-  background: var(--card-bg, #fff);
-  border: 1px solid rgba(120,140,140,0.17);
-  box-shadow: 0 5px 18px rgba(0,0,0,0.04);
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  padding: 20px 15px;
+  min-height: 125px;
+  text-align: left;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 7px 20px rgba(0,0,0,.045);
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 
-.home-option:active {
-  transform: scale(0.97);
+.option:active {
+  transform: scale(.97);
 }
 
-.home-option-icon {
-  font-size: 29px;
+.option-icon {
+  font-size: 27px;
+  margin-bottom: 14px;
+}
+
+.option strong {
+  display: block;
+  font-size: 15px;
+}
+
+.option span {
+  display: block;
+  color: #6b7280;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.note {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 15px;
+  margin-top: 20px;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.feature-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.feature {
+  background: white;
+  border-radius: 22px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,.045);
+}
+
+.feature-top {
+  min-height: 125px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+}
+
+.feature:nth-child(1) .feature-top {
+  background: linear-gradient(135deg,#0f766e,#14b8a6);
+}
+
+.feature:nth-child(2) .feature-top {
+  background: linear-gradient(135deg,#1d4ed8,#60a5fa);
+}
+
+.feature:nth-child(3) .feature-top {
+  background: linear-gradient(135deg,#7c3aed,#a78bfa);
+}
+
+.feature:nth-child(4) .feature-top {
+  background: linear-gradient(135deg,#b45309,#f59e0b);
+}
+
+.feature:nth-child(5) .feature-top {
+  background: linear-gradient(135deg,#be123c,#fb7185);
+}
+
+.feature:nth-child(6) .feature-top {
+  background: linear-gradient(135deg,#334155,#64748b);
+}
+
+.feature-icon {
+  font-size: 35px;
+}
+
+.feature-content {
+  padding: 17px;
+}
+
+.feature-content h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.feature-content p {
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.45;
   margin-bottom: 13px;
 }
 
-.home-option h3 {
-  margin: 0 0 5px;
-  font-size: 16px;
-}
-
-.home-option p {
-  margin: 0 0 13px;
-  font-size: 11px;
-  line-height: 1.45;
-  opacity: 0.65;
-}
-
-.home-option span {
-  font-size: 11px;
-  font-weight: 800;
-  color: #19766f;
-}
-
-.home-feature {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  margin-top: 22px;
-  padding: 22px;
-  border-radius: 22px;
-  color: white;
-  background: linear-gradient(135deg, #263d4b, #426579);
-  overflow: hidden;
-}
-
-.home-feature-content {
-  min-width: 0;
-}
-
-.home-feature-content > span {
-  font-size: 9px;
-  letter-spacing: 1.7px;
-  font-weight: 800;
-  opacity: 0.7;
-}
-
-.home-feature h2 {
-  font-size: 21px;
-  line-height: 1.25;
-  margin: 9px 0;
-}
-
-.home-feature p {
-  font-size: 12px;
-  line-height: 1.55;
-  opacity: 0.78;
-}
-
-.home-feature button {
-  margin-top: 8px;
+.primary-btn {
+  width: 100%;
   border: none;
   border-radius: 12px;
-  padding: 11px 13px;
+  background: #111827;
+  color: white;
+  padding: 11px;
+  font-weight: 650;
+}
+
+.secondary-btn {
+  border: 1px solid #d1d5db;
   background: white;
-  color: #315466;
-  font-size: 11px;
+  color: #111827;
+  border-radius: 12px;
+  padding: 10px 13px;
+  font-weight: 600;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-hero {
+  text-align: center;
+  align-items: center;
+  min-height: 220px;
+}
+
+.profile-avatar {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: white;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
   font-weight: 800;
+  margin-bottom: 13px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
 }
 
-.home-feature-mark {
-  font-size: 58px;
-  font-weight: 900;
-  opacity: 0.12;
+.profile-hero h2 {
+  font-size: 26px;
 }
 
-.home-note {
-  margin: 20px 0 10px;
-  padding: 17px;
-  border-radius: 17px;
-  background: rgba(23,107,104,0.08);
-  font-size: 12px;
-  line-height: 1.55;
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2000;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(18px);
+  border: 1px solid #e5e7eb;
+  border-radius: 21px;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  padding: 7px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.14);
 }
 
-.home-note p {
-  margin: 7px 0 0;
-  opacity: 0.68;
+.nav-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 3px;
+  border-radius: 14px;
+  color: #6b7280;
+  font-size: 10px;
 }
 
-@media (max-width: 360px) {
-  .home-hero h1 {
-    font-size: 33px;
+.nav-btn span {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.nav-btn.active {
+  background: #111827;
+  color: white;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (min-width: 700px) {
+  body {
+    max-width: 900px;
+    margin: auto;
   }
 
-  .home-option-grid {
-    grid-template-columns: 1fr;
+  .option-grid {
+    grid-template-columns: repeat(4,1fr);
   }
 
-  .home-feature-mark {
-    display: none;
+  .feature-grid {
+    grid-template-columns: repeat(2,1fr);
   }
-}  
-  
+}
 </style>
 </head>
 
 <body>
-<div class="app">
-<header>
-  <div class="topline">
-    <div class="logo">1</div>
-    <div>
-      <div class="brand">Manipur 1</div>
-      <div class="tagline">One app. One Manipur.</div>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">M1</div>
+    <div class="brand-text">
+      <h1>Manipur 1</h1>
+      <p>One app. One Manipur.</p>
     </div>
-    <button class="header-action" aria-label="Profile" onclick="showScreen('profile')">○</button>
   </div>
-  <div class="welcome">
-    <h1>Discover Manipur.</h1>
-    <p>Your home for places, people, and possibilities.</p>
-  </div>
-  <form class="search" id="homeSearch">
-    <span>⌕</span>
-    <input id="searchInput" placeholder="Search places, food, jobs..." aria-label="Search Manipur">
-    <button type="submit">Search</button>
-  </form>
 </header>
 
-<main>
-<section class="screen" id="home">
+<!-- =========================
+     SEARCH
+========================= -->
 
-  <div class="home-hero">
-    <div class="home-hero-top">
-      <span class="home-label">ONE APP. ONE MANIPUR.</span>
-      <span class="home-badge">MANIPUR 1</span>
-    </div>
-
-    <h1>EXPLORE.<br>CONNECT.<br>GROW.</h1>
-
-    <p>
-      Your gateway to tourism, food, transport, businesses,
-      education, jobs and services across Manipur.
-    </p>
-
-    <div class="home-hero-actions">
-      <button onclick="showScreen('tourism')">
-        Explore Manipur →
-      </button>
-
-      <button class="home-secondary-btn" onclick="showScreen('explore')">
-        Discover More
-      </button>
-    </div>
+<div class="search-wrap">
+  <div class="search-box">
+    <span>⌕</span>
+    <input id="searchInput" type="text" placeholder="Search Manipur...">
+    <button onclick="performSearch()">Search</button>
   </div>
-
-  <div class="home-section-title">
-    <div>
-      <span>EXPLORE</span>
-      <h2>Everything in one place</h2>
-    </div>
-  </div>
-
-  <div class="home-option-grid">
-
-    <div class="home-option" onclick="showScreen('tourism')">
-      <div class="home-option-icon">🏞️</div>
-      <h3>Tourism</h3>
-      <p>Places & experiences</p>
-      <span>Explore →</span>
-    </div>
-
-    <div class="home-option" onclick="showScreen('food')">
-      <div class="home-option-icon">🍜</div>
-      <h3>Food</h3>
-      <p>Restaurants & cafes</p>
-      <span>Discover →</span>
-    </div>
-
-    <div class="home-option" onclick="showScreen('transport')">
-      <div class="home-option-icon">🚕</div>
-      <h3>Transport</h3>
-      <p>Travel around Manipur</p>
-      <span>Go →</span>
-    </div>
-
-    <div class="home-option" onclick="showScreen('businesses')">
-      <div class="home-option-icon">🏪</div>
-      <h3>Businesses</h3>
-      <p>Local shops & services</p>
-      <span>Explore →</span>
-    </div>
-
-    <div class="home-option" onclick="showScreen('students')">
-      <div class="home-option-icon">🎓</div>
-      <h3>Student Hub</h3>
-      <p>Learn & prepare</p>
-      <span>Study →</span>
-    </div>
-
-    <div class="home-option" onclick="showScreen('jobs')">
-      <div class="home-option-icon">💼</div>
-      <h3>Jobs</h3>
-      <p>Career opportunities</p>
-      <span>Find →</span>
-    </div>
-
-    <div class="home-option" onclick="showScreen('services')">
-      <div class="home-option-icon">🏛️</div>
-      <h3>Services</h3>
-      <p>Public services</p>
-      <span>Access →</span>
-    </div>
-
-    <div class="home-option" onclick="showScreen('map')">
-      <div class="home-option-icon">🗺️</div>
-      <h3>Map</h3>
-      <p>Find your way</p>
-      <span>Open →</span>
-    </div>
-
-  </div>
-
-  <div class="home-feature">
-    <div class="home-feature-content">
-      <span>DISCOVER MORE</span>
-      <h2>See what Manipur has to offer.</h2>
-      <p>
-        Explore nature, culture, food, events and hidden gems
-        from one simple place.
-      </p>
-
-      <button onclick="showScreen('explore')">
-        Start Exploring →
-      </button>
-    </div>
-
-    <div class="home-feature-mark">M1</div>
-  </div>
-
-  <div class="home-note">
-    <strong>Manipur 1 is growing.</strong>
-    <p>
-      This prototype currently connects you to useful searches
-      and maps. Verified local listings and live services can
-      be added in future versions.
-    </p>
-  </div>
-
-</section>
-
-  <div class="section-head"><h2>Quick access</h2></div>
-  <div class="quick-row">
-    <button class="quick" onclick="showScreen('map')">
-      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-      <strong>Map</strong><small>Find places</small>
-    </button>
-    <button class="quick" onclick="showScreen('food')">
-      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3v7M4 3v4a3 3 0 0 0 6 0V3M7 10v11M17 3v18M17 3c-4 4-4 8 0 9"/></svg></div>
-      <strong>Food</strong><small>Find local food</small>
-    </button>
-    <button class="quick" onclick="showScreen('transport')">
-      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14l1-8-2-5H6L4 9l1 8Z"/><path d="M4 12h16M7 17v3m10-3v3M7 9h10"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg></div>
-      <strong>Transport</strong><small>Get around</small>
-    </button>
-    <button class="quick" onclick="showScreen('jobs')">
-      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2"/></svg></div>
-      <strong>Jobs</strong><small>Explore careers</small>
-    </button>
-  </div>
-
-  <div class="section-head"><h2>Everything you need</h2></div>
-  <div class="grid" id="homeGrid"></div>
-
-  <div class="notice">Manipur 1 is a developing project. External search results are not verified by this app. Check official sources for important information.</div>
-</section>
-
-<section class="screen" id="tourism">
-  <button class="back" onclick="showScreen('home')">← Back</button>
-
-  <div class="tourism-hero">
-    <div class="tourism-hero-label">DISCOVER MANIPUR</div>
-    <h1>Beautiful places.<br>Unforgettable moments.</h1>
-    <p>Explore nature, heritage and culture across Manipur.</p>
-  </div>
-
-  <div class="section-head" style="margin-top:24px">
-    <h2>Featured places</h2>
-    <small>Explore →</small>
-  </div>
-
-  <div class="tourism-feature-grid">
-
-    <button class="tourism-place loktak"
-      onclick="searchMaps('Loktak Lake Manipur')">
-      <div class="tourism-place-content">
-        <span>LAKE & NATURE</span>
-        <h3>Loktak Lake</h3>
-        <p>Explore Manipur's famous floating lake.</p>
-        <strong>Open Map ↗</strong>
-      </div>
-    </button>
-
-    <button class="tourism-place kangla"
-      onclick="searchMaps('Kangla Fort Imphal')">
-      <div class="tourism-place-content">
-        <span>HERITAGE</span>
-        <h3>Kangla</h3>
-        <p>Discover an important historic site.</p>
-        <strong>Open Map ↗</strong>
-      </div>
-    </button>
-
-    <button class="tourism-place keibul"
-      onclick="searchMaps('Keibul Lamjao National Park')">
-      <div class="tourism-place-content">
-        <span>NATURE & WILDLIFE</span>
-        <h3>Keibul Lamjao</h3>
-        <p>Explore the unique national park.</p>
-        <strong>Open Map ↗</strong>
-      </div>
-    </button>
-
-  </div>
-
-  <div class="notice">
-    More destinations can be added here later with verified information,
-    photos, opening details, directions and other useful information.
-  </div>
-</section>
-
-<section class="screen" id="food">
-  <button class="back" onclick="showScreen('home')">← Back</button>
-
-  <div class="food-hero">
-    <div class="food-hero-label">TASTE OF MANIPUR</div>
-    <h1>Discover.<br>Taste. Enjoy.</h1>
-    <p>Explore local food, restaurants, and cafes across Manipur.</p>
-  </div>
-
-  <div class="section-head" style="margin-top:24px">
-    <h2>Explore Food</h2>
-    <small>Discover more →</small>
-  </div>
-
-  <div class="food-feature-grid">
-
-    <button class="food-feature local-food"
-      onclick="searchGoogle('Manipuri traditional food')">
-      <div class="food-feature-content">
-        <span>LOCAL FLAVOURS</span>
-        <h3>Local Food</h3>
-        <p>Discover traditional Manipuri dishes.</p>
-        <strong>Explore Food ↗</strong>
-      </div>
-    </button>
-
-    <button class="food-feature restaurants"
-      onclick="searchGoogle('Restaurants in Manipur')">
-      <div class="food-feature-content">
-        <span>GOOD FOOD, GOOD TIMES</span>
-        <h3>Restaurants</h3>
-        <p>Find places to enjoy a meal.</p>
-        <strong>Find Restaurants ↗</strong>
-      </div>
-    </button>
-
-    <button class="food-feature cafes"
-      onclick="searchGoogle('Cafes in Manipur')">
-      <div class="food-feature-content">
-        <span>COFFEE & CONVERSATIONS</span>
-        <h3>Cafes</h3>
-        <p>Discover cafes and cozy places.</p>
-        <strong>Explore Cafes ↗</strong>
-      </div>
-    </button>
-
-  </div>
-
-  <div class="notice">
-    Restaurant listings, menus, prices, and opening hours are not verified by Manipur 1. Check details before visiting.
-  </div>
-</section>
-
-
-<section class="screen" id="transport">
-  <div class="transport-hero">
-    <span class="transport-label">TRAVEL AROUND MANIPUR</span>
-    <h1>GET AROUND<br>MANIPUR</h1>
-    <p>Find your way. Explore more. Travel with ease.</p>
-  </div>
-
-  <div class="section-heading">
-    <h2>Transport Services</h2>
-    <p>Choose how you want to travel</p>
-  </div>
-
-  <div class="transport-feature-grid">
-
-    <div class="transport-feature">
-      <div class="transport-icon">🚕</div>
-      <div class="transport-feature-content">
-        <h3>Taxi & Cab</h3>
-        <p>Find taxi and cab services nearby.</p>
-        <button onclick="searchGoogle('Taxi and cab services in Manipur')">
-          Find a Taxi →
-        </button>
-      </div>
-    </div>
-
-    <div class="transport-feature">
-      <div class="transport-icon">🚌</div>
-      <div class="transport-feature-content">
-        <h3>Bus Services</h3>
-        <p>Search for bus routes and services.</p>
-        <button onclick="searchGoogle('Bus services and routes in Manipur')">
-          Find Buses →
-        </button>
-      </div>
-    </div>
-
-    <div class="transport-feature">
-      <div class="transport-icon">🚆</div>
-      <div class="transport-feature-content">
-        <h3>Railway</h3>
-        <p>Find railway stations and train information.</p>
-        <button onclick="searchGoogle('Railway stations and trains in Manipur')">
-          Find Trains →
-        </button>
-      </div>
-    </div>
-
-    <div class="transport-feature">
-      <div class="transport-icon">✈️</div>
-      <div class="transport-feature-content">
-        <h3>Airport</h3>
-        <p>Find airport information and flight services.</p>
-        <button onclick="searchGoogle('Imphal Airport flights and information')">
-          Airport Info →
-        </button>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="transport-notice">
-    <strong>Travel information</strong>
-    <p>Schedules, fares, and availability are not live-verified in this prototype. Check details before travelling.</p>
-  </div>
-</section>
-
-
-<section class="screen" id="businesses">
-  <div class="business-hero">
-    <span class="business-label">SUPPORT LOCAL</span>
-    <h1>DISCOVER<br>LOCAL BUSINESSES</h1>
-    <p>Explore shops, services, and local businesses across Manipur.</p>
-  </div>
-
-  <div class="section-heading">
-    <h2>Explore Businesses</h2>
-    <p>Find what you need near you</p>
-  </div>
-
-  <div class="business-feature-grid">
-
-    <div class="business-feature">
-      <div class="business-icon">🛍️</div>
-      <h3>Shops & Stores</h3>
-      <p>Discover local shops and shopping areas.</p>
-      <button onclick="searchGoogle('Local shops and stores in Manipur')">
-        Explore Shops →
-      </button>
-    </div>
-
-    <div class="business-feature">
-      <div class="business-icon">👗</div>
-      <h3>Fashion & Clothing</h3>
-      <p>Find clothing stores and fashion boutiques.</p>
-      <button onclick="searchGoogle('Fashion and clothing stores in Manipur')">
-        Find Fashion →
-      </button>
-    </div>
-
-    <div class="business-feature">
-      <div class="business-icon">💻</div>
-      <h3>Electronics</h3>
-      <p>Search for electronics and mobile shops.</p>
-      <button onclick="searchGoogle('Electronics and mobile shops in Manipur')">
-        Find Electronics →
-      </button>
-    </div>
-
-    <div class="business-feature">
-      <div class="business-icon">💇</div>
-      <h3>Beauty & Salons</h3>
-      <p>Discover salons and personal care services.</p>
-      <button onclick="searchGoogle('Beauty salons in Manipur')">
-        Find Salons →
-      </button>
-    </div>
-
-    <div class="business-feature">
-      <div class="business-icon">🏥</div>
-      <h3>Clinics & Healthcare</h3>
-      <p>Search for clinics and healthcare facilities.</p>
-      <button onclick="searchGoogle('Clinics and healthcare in Manipur')">
-        Find Clinics →
-      </button>
-    </div>
-
-    <div class="business-feature">
-      <div class="business-icon">🔧</div>
-      <h3>Repair Services</h3>
-      <p>Find repair shops and local service providers.</p>
-      <button onclick="searchGoogle('Repair services in Manipur')">
-        Find Services →
-      </button>
-    </div>
-
-  </div>
-
-  <div class="business-notice">
-    <strong>Local business directory</strong>
-    <p>This prototype opens Google Search. Business listings, contact details, and opening hours are not verified or managed inside the app yet.</p>
-  </div>
-</section>
-
-
-<section class="screen" id="students">
-  <div class="student-hero">
-    <span class="student-label">LEARN • GROW • SUCCEED</span>
-    <h1>YOUR STUDENT<br>HUB</h1>
-    <p>Discover learning resources, study tools, and opportunities for students in Manipur.</p>
-  </div>
-
-  <div class="section-heading">
-    <h2>Explore Student Resources</h2>
-    <p>Everything you need to support your learning</p>
-  </div>
-
-  <div class="student-feature-grid">
-
-    <div class="student-feature">
-      <div class="student-icon">📚</div>
-      <h3>Study Materials</h3>
-      <p>Find notes, study guides, and learning resources.</p>
-      <button onclick="searchGoogle('Study materials and notes for students in Manipur')">
-        Find Materials →
-      </button>
-    </div>
-
-    <div class="student-feature">
-      <div class="student-icon">📝</div>
-      <h3>Exam Preparation</h3>
-      <p>Explore exam resources and practice questions.</p>
-      <button onclick="searchGoogle('Class 10 exam preparation and previous year question papers Manipur')">
-        Prepare for Exams →
-      </button>
-    </div>
-
-    <div class="student-feature">
-      <div class="student-icon">🎓</div>
-      <h3>Scholarships</h3>
-      <p>Search for scholarships and financial support.</p>
-      <button onclick="searchGoogle('Scholarships for students in Manipur official')">
-        Find Scholarships →
-      </button>
-    </div>
-
-    <div class="student-feature">
-      <div class="student-icon">🏫</div>
-      <h3>Colleges & Schools</h3>
-      <p>Explore educational institutions in Manipur.</p>
-      <button onclick="searchGoogle('Schools and colleges in Manipur')">
-        Explore Institutions →
-      </button>
-    </div>
-
-    <div class="student-feature">
-      <div class="student-icon">💻</div>
-      <h3>Online Learning</h3>
-      <p>Discover online courses and learning platforms.</p>
-      <button onclick="searchGoogle('Free online learning courses for students India')">
-        Start Learning →
-      </button>
-    </div>
-
-    <div class="student-feature">
-      <div class="student-icon">💼</div>
-      <h3>Career Guidance</h3>
-      <p>Explore career paths, skills, and future opportunities.</p>
-      <button onclick="searchGoogle('Career guidance for students in Manipur')">
-        Explore Careers →
-      </button>
-    </div>
-
-  </div>
-
-  <div class="student-notice">
-    <strong>Student resources</strong>
-    <p>This prototype opens Google Search for learning resources. Scholarships, exam dates, and application details are not verified inside the app.</p>
-  </div>
-</section>
-
-
-<section class="screen" id="jobs">
-  <div class="jobs-hero">
-    <span class="jobs-label">YOUR FUTURE STARTS HERE</span>
-    <h1>FIND YOUR<br>OPPORTUNITY</h1>
-    <p>Explore career opportunities, government jobs, and skill-building resources.</p>
-  </div>
-
-  <div class="section-heading">
-    <h2>Explore Opportunities</h2>
-    <p>Discover different paths for your future</p>
-  </div>
-
-  <div class="jobs-feature-grid">
-
-    <div class="jobs-feature">
-      <div class="jobs-icon">🏛️</div>
-      <h3>Government Jobs</h3>
-      <p>Search for government recruitment and official notifications.</p>
-      <button onclick="searchGoogle('Manipur government jobs official recruitment notifications')">
-        Find Jobs →
-      </button>
-    </div>
-
-    <div class="jobs-feature">
-      <div class="jobs-icon">🪖</div>
-      <h3>Defence Jobs</h3>
-      <p>Explore defence recruitment and eligibility information.</p>
-      <button onclick="searchGoogle('Indian Army recruitment official website')">
-        Explore Defence →
-      </button>
-    </div>
-
-    <div class="jobs-feature">
-      <div class="jobs-icon">💼</div>
-      <h3>Private Jobs</h3>
-      <p>Discover private-sector career opportunities.</p>
-      <button onclick="searchGoogle('Private jobs in Manipur')">
-        Find Private Jobs →
-      </button>
-    </div>
-
-    <div class="jobs-feature">
-      <div class="jobs-icon">🎓</div>
-      <h3>Internships</h3>
-      <p>Explore internships and practical learning opportunities.</p>
-      <button onclick="searchGoogle('Internships for students in India')">
-        Find Internships →
-      </button>
-    </div>
-
-    <div class="jobs-feature">
-      <div class="jobs-icon">🧑‍💻</div>
-      <h3>Skills & Training</h3>
-      <p>Discover courses and skills that support your career.</p>
-      <button onclick="searchGoogle('Free skill development courses India official')">
-        Build Skills →
-      </button>
-    </div>
-
-    <div class="jobs-feature">
-      <div class="jobs-icon">📄</div>
-      <h3>Resume & Interview</h3>
-      <p>Learn how to prepare a resume and get ready for interviews.</p>
-      <button onclick="searchGoogle('Free resume and interview preparation guide')">
-        Prepare Now →
-      </button>
-    </div>
-
-  </div>
-
-  <div class="jobs-notice">
-    <strong>Job information</strong>
-    <p>This prototype opens Google Search. Vacancies, deadlines, eligibility, and salary details are not verified inside the app. Check official recruitment notices before applying.</p>
-  </div>
-</section>
-
-
-<section class="screen" id="services">
-  <div class="services-hero">
-    <span class="services-label">SERVICES FOR EVERYONE</span>
-    <h1>GOVERNMENT<br>SERVICES</h1>
-    <p>Find public services, official portals, and useful resources in one place.</p>
-  </div>
-
-  <div class="section-heading">
-    <h2>Explore Services</h2>
-    <p>Find the service you need</p>
-  </div>
-
-  <div class="services-feature-grid">
-
-    <div class="services-feature">
-      <div class="services-icon">🪪</div>
-      <h3>Identity Documents</h3>
-      <p>Find information about Aadhaar and other identity documents.</p>
-      <button onclick="searchGoogle('Official Aadhaar services UIDAI India')">
-        Explore Services →
-      </button>
-    </div>
-
-    <div class="services-feature">
-      <div class="services-icon">📄</div>
-      <h3>Certificates</h3>
-      <p>Search for birth, income, and other certificate services.</p>
-      <button onclick="searchGoogle('Manipur official certificate services')">
-        Find Certificates →
-      </button>
-    </div>
-
-    <div class="services-feature">
-      <div class="services-icon">🏛️</div>
-      <h3>Government Portals</h3>
-      <p>Find official government websites and online services.</p>
-      <button onclick="searchGoogle('Manipur government official portal')">
-        Open Portals →
-      </button>
-    </div>
-
-    <div class="services-feature">
-      <div class="services-icon">💳</div>
-      <h3>Public Benefits</h3>
-      <p>Explore government welfare schemes and benefit information.</p>
-      <button onclick="searchGoogle('Manipur government welfare schemes official')">
-        Find Benefits →
-      </button>
-    </div>
-
-    <div class="services-feature">
-      <div class="services-icon">🧾</div>
-      <h3>Utility Services</h3>
-      <p>Search for electricity, water, and other public utility services.</p>
-      <button onclick="searchGoogle('Manipur electricity and public utility services official')">
-        Explore Utilities →
-      </button>
-    </div>
-
-    <div class="services-feature">
-      <div class="services-icon">📞</div>
-      <h3>Public Help</h3>
-      <p>Find official public helplines and citizen support services.</p>
-      <button onclick="searchGoogle('Manipur government official public helpline')">
-        Find Help →
-      </button>
-    </div>
-
-  </div>
-
-  <div class="services-notice">
-    <strong>Important information</strong>
-    <p>This prototype opens Google Search. It does not process applications or verify eligibility, fees, deadlines, or official contact details. Use official government websites for applications.</p>
-  </div>
-</section>
-
-
-<section class="screen" id="explore">
-  <div class="explore-hero">
-    <span class="explore-label">DISCOVER SOMETHING NEW</span>
-    <h1>EXPLORE<br>MANIPUR</h1>
-    <p>Your gateway to local discoveries, culture, food, and experiences.</p>
-  </div>
-
-  <div class="section-heading">
-    <h2>Discover More</h2>
-    <p>Explore what makes Manipur special</p>
-  </div>
-
-  <div class="explore-feature-grid">
-
-    <div class="explore-feature">
-      <div class="explore-icon">🏞️</div>
-      <h3>Nature & Adventure</h3>
-      <p>Discover beautiful landscapes, lakes, and outdoor experiences.</p>
-      <button onclick="searchGoogle('Nature and adventure places in Manipur')">
-        Explore Nature →
-      </button>
-    </div>
-
-    <div class="explore-feature">
-      <div class="explore-icon">🎭</div>
-      <h3>Culture & Heritage</h3>
-      <p>Learn about local traditions, arts, and cultural heritage.</p>
-      <button onclick="searchGoogle('Culture and heritage of Manipur')">
-        Discover Culture →
-      </button>
-    </div>
-
-    <div class="explore-feature">
-      <div class="explore-icon">🍜</div>
-      <h3>Local Experiences</h3>
-      <p>Explore local food, markets, and everyday experiences.</p>
-      <button onclick="searchGoogle('Local experiences and food in Manipur')">
-        Find Experiences →
-      </button>
-    </div>
-
-    <div class="explore-feature">
-      <div class="explore-icon">🎉</div>
-      <h3>Events & Festivals</h3>
-      <p>Discover festivals, cultural events, and celebrations.</p>
-      <button onclick="searchGoogle('Events and festivals in Manipur')">
-        Explore Events →
-      </button>
-    </div>
-
-    <div class="explore-feature">
-      <div class="explore-icon">📸</div>
-      <h3>Photo Spots</h3>
-      <p>Find scenic places and memorable photography locations.</p>
-      <button onclick="searchGoogle('Best photography spots in Manipur')">
-        Find Photo Spots →
-      </button>
-    </div>
-
-    <div class="explore-feature">
-      <div class="explore-icon">🧭</div>
-      <h3>Hidden Gems</h3>
-      <p>Search for lesser-known places and local discoveries.</p>
-      <button onclick="searchGoogle('Hidden gems and lesser known places in Manipur')">
-        Discover Gems →
-      </button>
-    </div>
-
-  </div>
-
-  <div class="explore-notice">
-    <strong>Explore Manipur</strong>
-    <p>This prototype opens Google Search. Event dates, opening hours, and destination details are not verified inside the app.</p>
-  </div>
-</section>
-
-  
-<section class="screen" id="map">
-  <button class="back" onclick="showScreen('home')">← Back</button>
-  <h1 class="page-title">Map of Manipur</h1>
-  <p class="page-desc">Explore locations on Google Maps.</p>
-  <iframe class="map-frame" title="Map of Manipur" loading="lazy" src="https://maps.google.com/maps?q=Manipur%2C%20India&z=8&output=embed"></iframe>
-  <a class="primary-btn" style="text-align:center;text-decoration:none" href="https://www.google.com/maps/search/Manipur" target="_blank" rel="noopener">Open Google Maps ↗</a>
-  <div id="mapList"></div>
-</section>
-
-<section class="screen" id="profile">
-
-  <div class="profile-hero">
-    <div class="profile-avatar">M1</div>
-
-    <div class="profile-hero-text">
-      <span class="profile-label">MANIPUR 1</span>
-      <h1>Your Profile</h1>
-      <p>Your personal space inside One Manipur.</p>
-    </div>
-  </div>
-
-  <div class="section-heading">
-    <h2>Quick Access</h2>
-    <p>Useful features for your Manipur 1 journey</p>
-  </div>
-
-  <div class="profile-feature-grid">
-
-    <div class="profile-feature">
-      <div class="profile-icon">❤️</div>
-      <h3>Saved Places</h3>
-      <p>Keep your favourite destinations and places together.</p>
-      <button onclick="showScreen('tourism')">
-        Explore Places →
-      </button>
-    </div>
-
-    <div class="profile-feature">
-      <div class="profile-icon">🔎</div>
-      <h3>Search</h3>
-      <p>Find destinations, food, transport, businesses and more.</p>
-      <button onclick="document.querySelector('.search-input')?.focus()">
-        Search Manipur →
-      </button>
-    </div>
-
-    <div class="profile-feature">
-      <div class="profile-icon">⚙️</div>
-      <h3>Settings</h3>
-      <p>Personalisation and app settings will be added here.</p>
-      <button onclick="showProfileMessage('Settings are coming soon.')">
-        Coming Soon
-      </button>
-    </div>
-
-    <div class="profile-feature">
-      <div class="profile-icon">💡</div>
-      <h3>About Manipur 1</h3>
-      <p>Learn about the vision behind One App. One Manipur.</p>
-      <button onclick="showProfileMessage('Manipur 1 — One app. One Manipur.')">
-        About App →
-      </button>
-    </div>
-
-  </div>
-
-  <div class="profile-coming">
-    <span>COMING SOON</span>
-    <h2>More features are on the way.</h2>
-    <p>
-      Accounts, saved places, personalised recommendations,
-      local updates and more can be added as Manipur 1 grows.
-    </p>
-  </div>
-
-  <div class="profile-version">
-    <strong>Manipur 1</strong>
-    <span>One app. One Manipur.</span>
-  </div>
-
-</section>
-</main>
-
-<nav class="bottom-nav" aria-label="Main navigation">
-  <button class="nav-btn active" data-nav="home">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1Z"/></svg>Home
-  </button>
-  <button class="nav-btn" data-nav="explore">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m16.5 16.5 4 4M14 8l-2 5-5 2 2-5Z"/></svg>Explore
-  </button>
-  <button class="nav-btn" data-nav="map">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Map
-  </button>
-  <button class="nav-btn" data-nav="services">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v14H4zM8 7V4h8v3M8 12h8M8 16h5"/></svg>Services
-  </button>
-  <button class="nav-btn" data-nav="profile">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profile
-  </button>
-</nav>
 </div>
 
+<!-- =========================
+     HOME
+========================= -->
+
+<section id="home" class="screen active">
+
+  <div class="hero home-hero">
+    <small>MANIPUR 1</small>
+    <h2>EXPLORE.<br>CONNECT.<br>GROW.</h2>
+    <p>One place to discover Manipur, connect with local opportunities and explore what's around you.</p>
+  </div>
+
+  <div class="section-title">
+    <h3>Discover Manipur</h3>
+    <p>Everything in one place.</p>
+  </div>
+
+  <div class="option-grid">
+
+    <button class="option" onclick="showScreen('tourism')">
+      <div class="option-icon">🏞️</div>
+      <strong>Tourism</strong>
+      <span>Places & experiences</span>
+    </button>
+
+    <button class="option" onclick="showScreen('food')">
+      <div class="option-icon">🍜</div>
+      <strong>Food</strong>
+      <span>Local food & restaurants</span>
+    </button>
+
+    <button class="option" onclick="showScreen('transport')">
+      <div class="option-icon">🚕</div>
+      <strong>Transport</strong>
+      <span>Move around Manipur</span>
+    </button>
+
+    <button class="option" onclick="showScreen('businesses')">
+      <div class="option-icon">🏪</div>
+      <strong>Businesses</strong>
+      <span>Local shops & services</span>
+    </button>
+
+    <button class="option" onclick="showScreen('student')">
+      <div class="option-icon">🎓</div>
+      <strong>Student Hub</strong>
+      <span>Study & education</span>
+    </button>
+
+    <button class="option" onclick="showScreen('jobs')">
+      <div class="option-icon">💼</div>
+      <strong>Jobs</strong>
+      <span>Career opportunities</span>
+    </button>
+
+    <button class="option" onclick="showScreen('services')">
+      <div class="option-icon">🏛️</div>
+      <strong>Services</strong>
+      <span>Government services</span>
+    </button>
+
+    <button class="option" onclick="showScreen('map')">
+      <div class="option-icon">🗺️</div>
+      <strong>Map</strong>
+      <span>Find places</span>
+    </button>
+
+  </div>
+
+  <div class="note">
+    <strong>Manipur 1 is growing.</strong><br>
+    This prototype connects useful categories through search and maps. Verified local listings and live services can be added later.
+  </div>
+
+</section>
+
+<!-- =========================
+     TOURISM
+========================= -->
+
+<section id="tourism" class="screen">
+
+  <div class="hero">
+    <small>DISCOVER MANIPUR</small>
+    <h2>Beautiful places.<br>Real experiences.</h2>
+    <p>Explore nature, heritage and unforgettable destinations.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🌊</div></div>
+      <div class="feature-content">
+        <h3>Loktak Lake</h3>
+        <p>Explore the famous floating islands and natural beauty of Manipur.</p>
+        <button class="primary-btn" onclick="openMaps('Loktak Lake Manipur')">Explore on Maps</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🏯</div></div>
+      <div class="feature-content">
+        <h3>Kangla</h3>
+        <p>Discover one of Manipur's important historical and cultural places.</p>
+        <button class="primary-btn" onclick="openMaps('Kangla Fort Imphal')">Explore on Maps</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🦌</div></div>
+      <div class="feature-content">
+        <h3>Keibul Lamjao</h3>
+        <p>Discover the unique floating national park and Sangai habitat.</p>
+        <button class="primary-btn" onclick="openMaps('Keibul Lamjao National Park')">Explore on Maps</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">⛰️</div></div>
+      <div class="feature-content">
+        <h3>Nature & Adventure</h3>
+        <p>Find waterfalls, hills, trekking areas and outdoor experiences.</p>
+        <button class="primary-btn" onclick="searchGoogle('Manipur nature adventure tourist places')">Search Places</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">Tourism information is currently connected to Google Search and Maps. Opening hours and other details should be verified before visiting.</div>
+
+</section>
+
+<!-- =========================
+     FOOD
+========================= -->
+
+<section id="food" class="screen">
+
+  <div class="hero">
+    <small>TASTE OF MANIPUR</small>
+    <h2>Local food.<br>Local flavour.</h2>
+    <p>Discover Manipuri food, restaurants and cafés.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🍲</div></div>
+      <div class="feature-content">
+        <h3>Local Food</h3>
+        <p>Explore traditional Manipuri dishes and local flavours.</p>
+        <button class="primary-btn" onclick="searchGoogle('traditional Manipuri food')">Explore Food</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🍽️</div></div>
+      <div class="feature-content">
+        <h3>Restaurants</h3>
+        <p>Find restaurants and places to eat around Manipur.</p>
+        <button class="primary-btn" onclick="openMaps('restaurants in Imphal Manipur')">Find Restaurants</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">☕</div></div>
+      <div class="feature-content">
+        <h3>Cafés</h3>
+        <p>Discover cafés and casual places to meet friends.</p>
+        <button class="primary-btn" onclick="openMaps('cafes in Imphal Manipur')">Find Cafés</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">Menus, prices and opening hours are not live-verified in this prototype.</div>
+
+</section>
+
+<!-- =========================
+     TRANSPORT
+========================= -->
+
+<section id="transport" class="screen">
+
+  <div class="hero">
+    <small>GET AROUND MANIPUR</small>
+    <h2>Move easier.<br>Explore more.</h2>
+    <p>Find transport options around Manipur.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🚕</div></div>
+      <div class="feature-content">
+        <h3>Taxi & Cab</h3>
+        <p>Find local taxi and cab services.</p>
+        <button class="primary-btn" onclick="searchGoogle('taxi cab service Imphal Manipur')">Find Taxi</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🚌</div></div>
+      <div class="feature-content">
+        <h3>Bus Services</h3>
+        <p>Search for local and intercity bus information.</p>
+        <button class="primary-btn" onclick="searchGoogle('bus service Manipur Imphal')">Search Buses</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🚆</div></div>
+      <div class="feature-content">
+        <h3>Railway</h3>
+        <p>Find railway information connected to Manipur.</p>
+        <button class="primary-btn" onclick="searchGoogle('railway Manipur Jiribam Imphal')">Railway Info</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">✈️</div></div>
+      <div class="feature-content">
+        <h3>Airport</h3>
+        <p>Find flight and airport information.</p>
+        <button class="primary-btn" onclick="searchGoogle('Imphal International Airport')">Airport Info</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">Schedules, fares and availability are not live-verified in this prototype.</div>
+
+</section>
+
+<!-- =========================
+     MAP
+========================= -->
+
+<section id="map" class="screen">
+
+  <div class="hero">
+    <small>MANIPUR MAP</small>
+    <h2>Find your way<br>around Manipur.</h2>
+    <p>Search places and open them directly in Google Maps.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">📍</div></div>
+      <div class="feature-content">
+        <h3>Tourist Spots</h3>
+        <p>Find tourist destinations around Manipur.</p>
+        <button class="primary-btn" onclick="openMaps('tourist places in Manipur')">Open Maps</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🍜</div></div>
+      <div class="feature-content">
+        <h3>Food & Cafés</h3>
+        <p>Find nearby food places.</p>
+        <button class="primary-btn" onclick="openMaps('food restaurants cafes Imphal Manipur')">Open Maps</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🏪</div></div>
+      <div class="feature-content">
+        <h3>Shops & Markets</h3>
+        <p>Find markets and shopping areas.</p>
+        <button class="primary-btn" onclick="openMaps('markets shops Imphal Manipur')">Open Maps</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🧭</div></div>
+      <div class="feature-content">
+        <h3>Explore Map</h3>
+        <p>Open a wider Google Maps search for Manipur.</p>
+        <button class="primary-btn" onclick="openMaps('Manipur India')">Open Google Maps</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">The current prototype uses Google Maps rather than a built-in live map or tracking system.</div>
+
+</section>
+
+<!-- =========================
+     BUSINESSES
+========================= -->
+
+<section id="businesses" class="screen">
+
+  <div class="hero">
+    <small>LOCAL BUSINESS</small>
+    <h2>Discover local<br>businesses.</h2>
+    <p>Find shops, services and businesses around Manipur.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🏪</div></div><div class="feature-content"><h3>Shops & Stores</h3><p>Discover local shops and stores.</p><button class="primary-btn" onclick="openMaps('shops stores Imphal Manipur')">Find Shops</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">👕</div></div><div class="feature-content"><h3>Fashion & Clothing</h3><p>Find clothing and fashion businesses.</p><button class="primary-btn" onclick="openMaps('fashion clothing shops Imphal Manipur')">Find Fashion</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">📱</div></div><div class="feature-content"><h3>Electronics</h3><p>Search electronics shops and services.</p><button class="primary-btn" onclick="openMaps('electronics shops Imphal Manipur')">Find Electronics</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">💇</div></div><div class="feature-content"><h3>Beauty & Salons</h3><p>Find salons and beauty services.</p><button class="primary-btn" onclick="openMaps('beauty salons Imphal Manipur')">Find Salons</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🏥</div></div><div class="feature-content"><h3>Clinics & Healthcare</h3><p>Search healthcare services.</p><button class="primary-btn" onclick="openMaps('clinics healthcare Imphal Manipur')">Find Healthcare</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🔧</div></div><div class="feature-content"><h3>Repair Services</h3><p>Find repair and maintenance services.</p><button class="primary-btn" onclick="openMaps('repair services Imphal Manipur')">Find Services</button></div></div>
+
+  </div>
+
+  <div class="note">Business listings, phone numbers and opening hours are not verified by this prototype.</div>
+
+</section>
+
+<!-- =========================
+     STUDENT HUB
+========================= -->
+
+<section id="student" class="screen">
+
+  <div class="hero">
+    <small>STUDENT HUB</small>
+    <h2>Learn.<br>Prepare.<br>Grow.</h2>
+    <p>Useful education and career resources in one place.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">📚</div></div><div class="feature-content"><h3>Study Materials</h3><p>Search study resources and learning materials.</p><button class="primary-btn" onclick="searchGoogle('Manipur students study materials')">Study Resources</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">📝</div></div><div class="feature-content"><h3>Exam Preparation</h3><p>Find preparation resources and practice material.</p><button class="primary-btn" onclick="searchGoogle('Manipur board exam preparation')">Prepare</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🎓</div></div><div class="feature-content"><h3>Scholarships</h3><p>Search scholarship opportunities.</p><button class="primary-btn" onclick="searchGoogle('scholarships students Manipur India official')">Find Scholarships</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🏫</div></div><div class="feature-content"><h3>Colleges & Schools</h3><p>Find educational institutions.</p><button class="primary-btn" onclick="searchGoogle('schools colleges Manipur')">Find Institutions</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">💻</div></div><div class="feature-content"><h3>Online Learning</h3><p>Discover online learning platforms.</p><button class="primary-btn" onclick="searchGoogle('free online learning courses')">Learn Online</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🧭</div></div><div class="feature-content"><h3>Career Guidance</h3><p>Explore career and skill resources.</p><button class="primary-btn" onclick="searchGoogle('career guidance students India')">Explore Careers</button></div></div>
+
+  </div>
+
+  <div class="note">Education resources are currently connected to external searches and are not individually verified.</div>
+
+</section>
+
+<!-- =========================
+     JOBS
+========================= -->
+
+<section id="jobs" class="screen">
+
+  <div class="hero">
+    <small>OPPORTUNITIES</small>
+    <h2>Find your<br>opportunity.</h2>
+    <p>Explore jobs, government opportunities and skills.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🏛️</div></div><div class="feature-content"><h3>Government Jobs</h3><p>Search government recruitment opportunities.</p><button class="primary-btn" onclick="searchGoogle('government jobs Manipur official recruitment')">Search Jobs</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🛡️</div></div><div class="feature-content"><h3>Defence Jobs</h3><p>Explore defence recruitment information.</p><button class="primary-btn" onclick="searchGoogle('defence recruitment India official')">Explore</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">💼</div></div><div class="feature-content"><h3>Private Jobs</h3><p>Search private-sector opportunities.</p><button class="primary-btn" onclick="searchGoogle('private jobs Manipur Imphal')">Find Jobs</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🚀</div></div><div class="feature-content"><h3>Internships</h3><p>Discover internship opportunities.</p><button class="primary-btn" onclick="searchGoogle('internships India students')">Find Internships</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🛠️</div></div><div class="feature-content"><h3>Skills & Training</h3><p>Find courses and skill development opportunities.</p><button class="primary-btn" onclick="searchGoogle('skill development courses Manipur')">Find Training</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">📄</div></div><div class="feature-content"><h3>Resume & Interview</h3><p>Learn how to prepare for jobs.</p><button class="primary-btn" onclick="searchGoogle('resume interview preparation')">Prepare</button></div></div>
+
+  </div>
+
+  <div class="note">Job vacancies, deadlines, eligibility and salaries are not live-verified. Always check the official recruitment notice.</div>
+
+</section>
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section id="services" class="screen">
+
+  <div class="hero">
+    <small>GOVERNMENT SERVICES</small>
+    <h2>Useful services.<br>One place.</h2>
+    <p>Find government portals and public services.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🪪</div></div><div class="feature-content"><h3>Identity Documents</h3><p>Search information about important identity documents.</p><button class="primary-btn" onclick="searchGoogle('official India identity documents services')">Explore</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">📜</div></div><div class="feature-content"><h3>Certificates</h3><p>Find information about certificates and applications.</p><button class="primary-btn" onclick="searchGoogle('Manipur government certificates official')">Find Services</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🌐</div></div><div class="feature-content"><h3>Government Portals</h3><p>Find official government websites.</p><button class="primary-btn" onclick="searchGoogle('Manipur government official portal')">Open Search</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🤝</div></div><div class="feature-content"><h3>Public Benefits</h3><p>Search public welfare and benefit information.</p><button class="primary-btn" onclick="searchGoogle('Manipur government schemes official')">Explore</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">💡</div></div><div class="feature-content"><h3>Utility Services</h3><p>Search useful public utility information.</p><button class="primary-btn" onclick="searchGoogle('Manipur public utility services')">Find Services</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">☎️</div></div><div class="feature-content"><h3>Public Help</h3><p>Search official public help and contact information.</p><button class="primary-btn" onclick="searchGoogle('Manipur government helpline official')">Find Help</button></div></div>
+
+  </div>
+
+  <div class="note">Manipur 1 does not process applications or verify government records in this prototype.</div>
+
+</section>
+
+<!-- =========================
+     EXPLORE
+========================= -->
+
+<section id="explore" class="screen">
+
+  <div class="hero">
+    <small>EXPLORE MANIPUR</small>
+    <h2>More to discover.</h2>
+    <p>Nature, culture, experiences and hidden places.</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🌿</div></div><div class="feature-content"><h3>Nature & Adventure</h3><p>Discover outdoor places and experiences.</p><button class="primary-btn" onclick="searchGoogle('nature adventure Manipur')">Explore</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🏯</div></div><div class="feature-content"><h3>Culture & Heritage</h3><p>Explore Manipur's history and cultural places.</p><button class="primary-btn" onclick="searchGoogle('Manipur culture heritage places')">Discover</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🤝</div></div><div class="feature-content"><h3>Local Experiences</h3><p>Search for local experiences and activities.</p><button class="primary-btn" onclick="searchGoogle('local experiences Manipur')">Explore</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">🎉</div></div><div class="feature-content"><h3>Events & Festivals</h3><p>Discover events and cultural festivals.</p><button class="primary-btn" onclick="searchGoogle('Manipur events festivals')">Find Events</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">📸</div></div><div class="feature-content"><h3>Photo Spots</h3><p>Find beautiful places for photography.</p><button class="primary-btn" onclick="searchGoogle('photography spots Manipur')">Find Spots</button></div></div>
+
+    <div class="feature"><div class="feature-top"><div class="feature-icon">✨</div></div><div class="feature-content"><h3>Hidden Gems</h3><p>Search for lesser-known places to explore.</p><button class="primary-btn" onclick="searchGoogle('hidden gems places Manipur')">Discover</button></div></div>
+
+  </div>
+
+  <div class="note">Event dates, opening hours and destination information should be verified before travelling.</div>
+
+</section>
+
+<!-- =========================
+     PROFILE
+========================= -->
+
+<section id="profile" class="screen">
+
+  <div class="hero profile-hero">
+
+    <div class="profile-avatar">M1</div>
+
+    <small>MANIPUR 1</small>
+
+    <h2>Your Profile</h2>
+
+    <p>Your future space for saved places, preferences and personal features.</p>
+
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">❤️</div></div>
+      <div class="feature-content">
+        <h3>Saved Places</h3>
+        <p>Your saved destinations and places will appear here in a future version.</p>
+        <button class="primary-btn" onclick="showProfileMessage('Saved Places is coming soon.')">Open</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">🔍</div></div>
+      <div class="feature-content">
+        <h3>Search</h3>
+        <p>Search Manipur places, food, services and more.</p>
+        <button class="primary-btn" onclick="focusSearch()">Search</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">⚙️</div></div>
+      <div class="feature-content">
+        <h3>Settings</h3>
+        <p>App settings will be added in a future version.</p>
+        <button class="primary-btn" onclick="showProfileMessage('Settings are coming soon.')">Settings</button>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-top"><div class="feature-icon">ℹ️</div></div>
+      <div class="feature-content">
+        <h3>About Manipur 1</h3>
+        <p>One app. One Manipur.</p>
+        <button class="primary-btn" onclick="showProfileMessage('Manipur 1 is a local platform concept designed to connect people, places and opportunities across Manipur.')">About</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <strong>Coming Soon</strong><br><br>
+    Accounts • Saved Places • Local Business Profiles • Payments • Notifications • More local services
+    <br><br>
+    <strong>Manipur 1</strong><br>
+    One app. One Manipur.
+  </div>
+
+</section>
+
+<!-- =========================
+     BOTTOM NAVIGATION
+========================= -->
+
+<nav class="bottom-nav">
+
+  <button class="nav-btn active" data-screen="home" onclick="showScreen('home')">
+    <span>⌂</span>
+    Home
+  </button>
+
+  <button class="nav-btn" data-screen="tourism" onclick="showScreen('tourism')">
+    <span>🏞️</span>
+    Tourism
+  </button>
+
+  <button class="nav-btn" data-screen="map" onclick="showScreen('map')">
+    <span>🗺️</span>
+    Map
+  </button>
+
+  <button class="nav-btn" data-screen="explore" onclick="showScreen('explore')">
+    <span>✦</span>
+    Explore
+  </button>
+
+  <button class="nav-btn" data-screen="profile" onclick="showScreen('profile')">
+    <span>♙</span>
+    Profile
+  </button>
+
+</nav>
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
-const icons = {
-  tourism: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 20 7-14 4 8 3-5 4 11Z"/><path d="M2 20h20"/></svg>',
-  food: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3v7M4 3v4a3 3 0 0 0 6 0V3M7 10v11M17 3v18M17 3c-4 4-4 8 0 9"/></svg>',
-  transport: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14l1-8-2-5H6L4 9l1 8Z"/><path d="M4 12h16M7 17v3m10-3v3M7 9h10"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg>',
-  business: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h18l-2-6H5Z"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></svg>',
-  student: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m2 9 10-6 10 6-10 6Z"/><path d="M6 12v5c4 3 8 3 12 0v-5M22 9v7"/></svg>',
-  jobs: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2"/></svg>',
-  services: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 6 18 2l4 4-4 4M18 6l-8 8M8 10l6 6-8 6-4-4Z"/></svg>',
-  map: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>',
-  explore: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m16.5 16.5 4 4M14 8l-2 5-5 2 2-5Z"/></svg>',
-  profile: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>'
-};
 
-const categories = [
-  ['tourism','Tourism','Discover lakes, heritage, and nature.'],
-  ['food','Food','Local food, restaurants, and cafes.'],
-  ['transport','Transport','Explore travel options.'],
-  ['business','Businesses','Shops, hotels, and local services.'],
-  ['student','Student Hub','Study, exams, and education.'],
-  ['jobs','Jobs','Explore careers and opportunities.'],
-  ['services','Services','Useful public and local services.'],
-  ['explore','Explore','Discover more of Manipur.']
-];
+/* =========================================
+   MAIN SCREEN NAVIGATION
+   This fixes the Home button problem.
+========================================= */
 
-const tourism = [
-  ['Loktak Lake','A famous lake in Manipur.','Loktak Lake Manipur'],
-  ['Kangla Fort','A historic site in Imphal.','Kangla Fort Imphal'],
-  ['Keibul Lamjao National Park','A national park on the floating phumdis.','Keibul Lamjao National Park']
-];
-const food = [
-  ['Local Food','Explore traditional Manipuri dishes.','Manipuri traditional food'],
-  ['Restaurants','Find restaurants near you.','Restaurants in Manipur'],
-  ['Cafes','Discover cafes around Manipur.','Cafes in Manipur']
-];
-const transport = [
-  ['Taxi & Cab','Search for local taxi and cab services.','Taxi cab services in Manipur'],
-  ['Bus Services','Search for bus routes and services.','Bus services in Manipur'],
-  ['Railway','Find railway stations and information.','Railway stations in Manipur'],
-  ['Airport','Find airport information.','Imphal Airport']
-];
-const businesses = [
-  ['Shops','Find shops and local stores.','Shops in Manipur'],
-  ['Hotels','Search for hotels and stays.','Hotels in Manipur'],
-  ['Hospitals','Find hospitals and healthcare facilities.','Hospitals in Manipur'],
-  ['Services','Search for local services.','Services in Manipur'],
-  ['Restaurants','Discover nearby restaurants.','Restaurants in Manipur'],
-  ['Cafes','Find cafes and coffee shops.','Cafes in Manipur']
-];
-const students = [
-  ['Study','Study resources and learning materials.','Study resources for students'],
-  ['Notes','Find subject notes and revision materials.','Class 10 study notes'],
-  ['Scholarships','Search for scholarship opportunities.','Scholarships for students in Manipur'],
-  ['Exams','Explore exam information.','Exams in Manipur'],
-  ['Schools','Find schools and education resources.','Schools in Manipur'],
-  ['Colleges','Explore colleges and courses.','Colleges in Manipur']
-];
-const jobs = [
-  ['Government Jobs','Search for government job notifications.','Government jobs in Manipur'],
-  ['Private Jobs','Explore private-sector opportunities.','Private jobs in Manipur'],
-  ['Internships','Search for internships.','Internships in Manipur'],
-  ['Part-time','Explore part-time work opportunities.','Part time jobs in Manipur'],
-  ['Imphal Jobs','Search for jobs in Imphal.','Jobs in Imphal'],
-  ['Skills','Explore career skills and training.','Skill training in Manipur']
-];
-const careers = [
-  ['Resume','Learn how to prepare a resume.','How to make a resume'],
-  ['Interview','Explore interview preparation tips.','Job interview preparation'],
-  ['Stay Safe','Learn how to recognize job scams.','How to identify job scams']
-];
-const services = [
-  ['Emergency','Search for official emergency contacts.','official emergency numbers Manipur'],
-  ['Hospitals & Health','Find healthcare facilities.','Hospitals health services Manipur'],
-  ['Police','Find official police information.','Manipur Police official'],
-  ['Government Services','Explore government services.','Manipur government official services'],
-  ['Documents','Search for document-related services.','Manipur official document services'],
-  ['Electricity','Find electricity service information.','Manipur electricity department official'],
-  ['Water','Search for water service information.','Manipur water supply official'],
-  ['Other Services','Explore additional public services.','Manipur public services official']
-];
+function showScreen(screenId) {
 
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, ch => ({
-    '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
-  }[ch]));
-}
+  const screens = document.querySelectorAll(".screen");
 
-function cardHTML(item) {
-  const [page, name, desc] = item;
-  const icon = icons[page] || icons.explore;
-
-  return `<button class="card" onclick="showScreen('${page}')">
-    <div class="card-icon">${icon}</div>
-    <h3>${escapeHTML(name)}</h3>
-    <p>${escapeHTML(desc)}</p>
-  </button>`;
-}
-
-function listHTML(item, iconName, query) {
-  return `<button class="list-card" data-search="${escapeHTML(query)}">
-    <div class="card-icon">${icons[iconName] || icons.explore}</div>
-    <div><h3>${escapeHTML(item[0])}</h3><p>${escapeHTML(item[1])}</p></div>
-    <span class="chevron">›</span>
-  </button>`;
-}
-
-function fillGrid(id, items) {
-  document.getElementById(id).innerHTML = items.map(item => cardHTML(item)).join('');
-}
-
-function fillList(id, items, iconName) {
-  document.getElementById(id).innerHTML = items.map(item => listHTML(item, iconName, item[2])).join('');
-}
-
-function showScreen(name) {
-  const target = document.getElementById(name);
-  if (!target) return;
-  document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
-  target.classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.nav === name);
+  screens.forEach(function(screen) {
+    screen.classList.remove("active");
   });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const target = document.getElementById(screenId);
+
+  if (target) {
+    target.classList.add("active");
+  }
+
+  const navButtons = document.querySelectorAll(".nav-btn");
+
+  navButtons.forEach(function(button) {
+    button.classList.remove("active");
+
+    if (button.dataset.screen === screenId) {
+      button.classList.add("active");
+    }
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
+
+
+/* =========================================
+   GOOGLE SEARCH
+========================================= */
 
 function searchGoogle(query) {
-  const url = 'https://www.google.com/search?q=' + encodeURIComponent(query);
-  window.open(url, '_blank', 'noopener');
-}
 
-function searchMaps(query) {
-  const url = 'https://www.google.com/maps/search/' + encodeURIComponent(query);
-  window.open(url, '_blank', 'noopener');
-}
-
-fillGrid('homeGrid', categories);
-fillGrid('exploreGrid', categories);
-fillList('tourismList', tourism, 'tourism');
-fillList('foodList', food, 'food');
-fillList('transportList', transport, 'transport');
-fillList('businessList', businesses, 'business');
-fillList('studentList', students, 'student');
-fillList('jobList', jobs, 'jobs');
-fillList('careerList', careers, 'jobs');
-fillList('servicesList', services, 'services');
-fillList('mapList', tourism, 'map');
-
-document.querySelectorAll('[data-nav]').forEach(button => {
-  button.addEventListener('click', () => showScreen(button.dataset.nav));
-});
-
-document.addEventListener('click', event => {
-  const button = event.target.closest('[data-search]');
-  if (button) {
-    const query = button.dataset.search;
-    if (button.closest('#mapList')) searchMaps(query);
-    else searchGoogle(query);
+  if (!query || !query.trim()) {
+    return;
   }
-});
 
-function routeSearch(query) {
-  const q = query.toLowerCase().trim();
-  if (!q) return;
-  if (/loktak|kangla|keibul|tourism|nature|place/.test(q)) showScreen('tourism');
-  else if (/food|restaurant|cafe|eat/.test(q)) showScreen('food');
-  else if (/transport|taxi|cab|bus|airport|railway|train/.test(q)) showScreen('transport');
-  else if (/business|shop|hotel|hospital/.test(q)) showScreen('business');
-  else if (/student|study|scholarship|exam|school|college|notes/.test(q)) showScreen('student');
-  else if (/job|career|internship|part.time|government job/.test(q)) showScreen('jobs');
-  else if (/service|emergency|police|electricity|water|document/.test(q)) showScreen('services');
-  else if (/map|direction|location/.test(q)) showScreen('map');
-  else searchGoogle(query + ' Manipur');
+  const cleanQuery = query.trim();
+
+  const url =
+    "https://www.google.com/search?q=" +
+    encodeURIComponent(cleanQuery);
+
+  window.open(url, "_blank");
 }
 
-document.getElementById('homeSearch').addEventListener('submit', event => {
-  event.preventDefault();
-  routeSearch(document.getElementById('searchInput').value);
+
+/* =========================================
+   GOOGLE MAPS
+========================================= */
+
+function openMaps(query) {
+
+  if (!query || !query.trim()) {
+    return;
+  }
+
+  const cleanQuery = query.trim();
+
+  const url =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(cleanQuery);
+
+  window.open(url, "_blank");
+}
+
+
+/* =========================================
+   APP SEARCH
+========================================= */
+
+function performSearch() {
+
+  const input = document.getElementById("searchInput");
+
+  if (!input) {
+    return;
+  }
+
+  const query = input.value.trim();
+
+  if (!query) {
+    input.focus();
+    return;
+  }
+
+  searchGoogle(query + " Manipur");
+}
+
+
+/* =========================================
+   SEARCH ENTER KEY
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  const input = document.getElementById("searchInput");
+
+  if (input) {
+
+    input.addEventListener("keydown", function(event) {
+
+      if (event.key === "Enter") {
+        performSearch();
+      }
+
+    });
+
+  }
+
 });
 
-document.getElementById('studentSearch').addEventListener('submit', event => {
-  event.preventDefault();
-  const query = document.getElementById('studentInput').value.trim();
-  if (query) searchGoogle(query + ' student Manipur');
-});
 
-document.getElementById('jobSearch').addEventListener('submit', event => {
-  event.preventDefault();
-  const query = document.getElementById('jobInput').value.trim();
-  if (query) searchGoogle(query + ' jobs Manipur');
-});
+/* =========================================
+   PROFILE
+========================================= */
+
 function showProfileMessage(message) {
   alert(message);
-}  
+}
+
+
+/* =========================================
+   FOCUS SEARCH
+========================================= */
+
+function focusSearch() {
+
+  const input = document.getElementById("searchInput");
+
+  if (input) {
+
+    input.focus();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+}
+
 </script>
+
 </body>
 </html>
