@@ -906,6 +906,100 @@ main { padding: 22px 17px; }
     grid-template-columns: 1fr;
   }
 }
+
+/* PREMIUM GOVERNMENT SERVICES PAGE */
+.services-hero {
+  padding: 30px 24px;
+  border-radius: 24px;
+  color: white;
+  background: linear-gradient(135deg, #173d45, #267b80, #69aaa5);
+  margin-bottom: 26px;
+}
+
+.services-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.services-hero h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 18px 0 12px;
+  font-weight: 800;
+}
+
+.services-hero p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.services-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.services-feature {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(120, 140, 140, 0.18);
+  border-radius: 20px;
+  padding: 18px 14px;
+  min-width: 0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.services-icon {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.services-feature h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.services-feature p {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.75;
+  min-height: 40px;
+}
+
+.services-feature button {
+  width: 100%;
+  margin-top: 12px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 8px;
+  background: #267b80;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.services-notice {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(38, 123, 128, 0.09);
+  margin-top: 22px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.services-notice p {
+  margin: 8px 0 0;
+}
+
+@media (max-width: 360px) {
+  .services-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
   
   
 </style>
@@ -1374,13 +1468,83 @@ main { padding: 22px 17px; }
   </div>
 </section>
 
+
 <section class="screen" id="services">
-  <button class="back" onclick="showScreen('home')">← Back</button>
-  <h1 class="page-title">Services</h1>
-  <p class="page-desc">Find public services and useful local resources.</p>
-  <div id="servicesList"></div>
-  <div class="notice">For emergencies, contact the appropriate official emergency service directly. This app is not an emergency response service.</div>
+  <div class="services-hero">
+    <span class="services-label">SERVICES FOR EVERYONE</span>
+    <h1>GOVERNMENT<br>SERVICES</h1>
+    <p>Find public services, official portals, and useful resources in one place.</p>
+  </div>
+
+  <div class="section-heading">
+    <h2>Explore Services</h2>
+    <p>Find the service you need</p>
+  </div>
+
+  <div class="services-feature-grid">
+
+    <div class="services-feature">
+      <div class="services-icon">🪪</div>
+      <h3>Identity Documents</h3>
+      <p>Find information about Aadhaar and other identity documents.</p>
+      <button onclick="searchGoogle('Official Aadhaar services UIDAI India')">
+        Explore Services →
+      </button>
+    </div>
+
+    <div class="services-feature">
+      <div class="services-icon">📄</div>
+      <h3>Certificates</h3>
+      <p>Search for birth, income, and other certificate services.</p>
+      <button onclick="searchGoogle('Manipur official certificate services')">
+        Find Certificates →
+      </button>
+    </div>
+
+    <div class="services-feature">
+      <div class="services-icon">🏛️</div>
+      <h3>Government Portals</h3>
+      <p>Find official government websites and online services.</p>
+      <button onclick="searchGoogle('Manipur government official portal')">
+        Open Portals →
+      </button>
+    </div>
+
+    <div class="services-feature">
+      <div class="services-icon">💳</div>
+      <h3>Public Benefits</h3>
+      <p>Explore government welfare schemes and benefit information.</p>
+      <button onclick="searchGoogle('Manipur government welfare schemes official')">
+        Find Benefits →
+      </button>
+    </div>
+
+    <div class="services-feature">
+      <div class="services-icon">🧾</div>
+      <h3>Utility Services</h3>
+      <p>Search for electricity, water, and other public utility services.</p>
+      <button onclick="searchGoogle('Manipur electricity and public utility services official')">
+        Explore Utilities →
+      </button>
+    </div>
+
+    <div class="services-feature">
+      <div class="services-icon">📞</div>
+      <h3>Public Help</h3>
+      <p>Find official public helplines and citizen support services.</p>
+      <button onclick="searchGoogle('Manipur government official public helpline')">
+        Find Help →
+      </button>
+    </div>
+
+  </div>
+
+  <div class="services-notice">
+    <strong>Important information</strong>
+    <p>This prototype opens Google Search. It does not process applications or verify eligibility, fees, deadlines, or official contact details. Use official government websites for applications.</p>
+  </div>
 </section>
+
 
 <section class="screen" id="explore">
   <button class="back" onclick="showScreen('home')">← Back</button>
