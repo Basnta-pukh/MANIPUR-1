@@ -470,6 +470,39 @@ button {
     grid-template-columns: 1fr;
   }
 } 
+/* PREMIUM SEARCH RESULTS */
+
+#searchResultsContainer {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+#searchResultsContainer .feature {
+  border-radius: 20px;
+  padding: 18px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#searchResultsContainer .feature:active {
+  transform: scale(0.98);
+}
+
+#searchResultsContainer .feature h3 {
+  margin-bottom: 7px;
+}
+
+#searchResultsContainer .feature p {
+  line-height: 1.5;
+}
+
+#searchResultsContainer .primary-btn,
+#searchResultsContainer .secondary-btn {
+  margin-top: 10px;
+}  
 </style>
 </head>
 
