@@ -1245,6 +1245,219 @@ main { padding: 22px 17px; }
   .profile-feature-grid {
     grid-template-columns: 1fr;
   }
+} 
+/* PREMIUM HOME PAGE */
+
+.home-hero {
+  padding: 28px 22px;
+  border-radius: 26px;
+  color: white;
+  background:
+    linear-gradient(135deg, #102f35, #176b68, #42a88f);
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.home-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-label {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  font-weight: 800;
+  opacity: 0.82;
+}
+
+.home-badge {
+  padding: 7px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.home-hero h1 {
+  font-size: 38px;
+  line-height: 1.02;
+  letter-spacing: -1px;
+  margin: 28px 0 14px;
+  font-weight: 900;
+}
+
+.home-hero p {
+  max-width: 330px;
+  font-size: 13px;
+  line-height: 1.65;
+  opacity: 0.88;
+  margin-bottom: 20px;
+}
+
+.home-hero-actions {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.home-hero-actions button {
+  border: none;
+  border-radius: 13px;
+  padding: 12px 15px;
+  background: white;
+  color: #176b68;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.home-hero-actions .home-secondary-btn {
+  background: rgba(255,255,255,0.13);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.home-section-title {
+  margin: 8px 2px 16px;
+}
+
+.home-section-title span {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  font-weight: 800;
+  opacity: 0.55;
+}
+
+.home-section-title h2 {
+  margin: 5px 0 0;
+  font-size: 22px;
+}
+
+.home-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.home-option {
+  padding: 18px 15px;
+  border-radius: 20px;
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(120,140,140,0.17);
+  box-shadow: 0 5px 18px rgba(0,0,0,0.04);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.home-option:active {
+  transform: scale(0.97);
+}
+
+.home-option-icon {
+  font-size: 29px;
+  margin-bottom: 13px;
+}
+
+.home-option h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.home-option p {
+  margin: 0 0 13px;
+  font-size: 11px;
+  line-height: 1.45;
+  opacity: 0.65;
+}
+
+.home-option span {
+  font-size: 11px;
+  font-weight: 800;
+  color: #19766f;
+}
+
+.home-feature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: 22px;
+  color: white;
+  background: linear-gradient(135deg, #263d4b, #426579);
+  overflow: hidden;
+}
+
+.home-feature-content {
+  min-width: 0;
+}
+
+.home-feature-content > span {
+  font-size: 9px;
+  letter-spacing: 1.7px;
+  font-weight: 800;
+  opacity: 0.7;
+}
+
+.home-feature h2 {
+  font-size: 21px;
+  line-height: 1.25;
+  margin: 9px 0;
+}
+
+.home-feature p {
+  font-size: 12px;
+  line-height: 1.55;
+  opacity: 0.78;
+}
+
+.home-feature button {
+  margin-top: 8px;
+  border: none;
+  border-radius: 12px;
+  padding: 11px 13px;
+  background: white;
+  color: #315466;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.home-feature-mark {
+  font-size: 58px;
+  font-weight: 900;
+  opacity: 0.12;
+}
+
+.home-note {
+  margin: 20px 0 10px;
+  padding: 17px;
+  border-radius: 17px;
+  background: rgba(23,107,104,0.08);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.home-note p {
+  margin: 7px 0 0;
+  opacity: 0.68;
+}
+
+@media (max-width: 360px) {
+  .home-hero h1 {
+    font-size: 33px;
+  }
+
+  .home-option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-feature-mark {
+    display: none;
+  }
 }  
   
 </style>
@@ -1273,14 +1486,126 @@ main { padding: 22px 17px; }
 </header>
 
 <main>
-<section class="screen active" id="home">
-  <div class="section-head"><h2>Explore Manipur</h2><small>Discover more →</small></div>
-  <button class="featured" onclick="showScreen('tourism')">
-    <div class="eyebrow">Discover the beauty</div>
-    <h3>Tourism & Nature</h3>
-    <p>Explore lakes, heritage, and beautiful places.</p>
-    <span class="arrow">Explore places ↗</span>
-  </button>
+<section class="screen" id="home">
+
+  <div class="home-hero">
+    <div class="home-hero-top">
+      <span class="home-label">ONE APP. ONE MANIPUR.</span>
+      <span class="home-badge">MANIPUR 1</span>
+    </div>
+
+    <h1>EXPLORE.<br>CONNECT.<br>GROW.</h1>
+
+    <p>
+      Your gateway to tourism, food, transport, businesses,
+      education, jobs and services across Manipur.
+    </p>
+
+    <div class="home-hero-actions">
+      <button onclick="showScreen('tourism')">
+        Explore Manipur →
+      </button>
+
+      <button class="home-secondary-btn" onclick="showScreen('explore')">
+        Discover More
+      </button>
+    </div>
+  </div>
+
+  <div class="home-section-title">
+    <div>
+      <span>EXPLORE</span>
+      <h2>Everything in one place</h2>
+    </div>
+  </div>
+
+  <div class="home-option-grid">
+
+    <div class="home-option" onclick="showScreen('tourism')">
+      <div class="home-option-icon">🏞️</div>
+      <h3>Tourism</h3>
+      <p>Places & experiences</p>
+      <span>Explore →</span>
+    </div>
+
+    <div class="home-option" onclick="showScreen('food')">
+      <div class="home-option-icon">🍜</div>
+      <h3>Food</h3>
+      <p>Restaurants & cafes</p>
+      <span>Discover →</span>
+    </div>
+
+    <div class="home-option" onclick="showScreen('transport')">
+      <div class="home-option-icon">🚕</div>
+      <h3>Transport</h3>
+      <p>Travel around Manipur</p>
+      <span>Go →</span>
+    </div>
+
+    <div class="home-option" onclick="showScreen('businesses')">
+      <div class="home-option-icon">🏪</div>
+      <h3>Businesses</h3>
+      <p>Local shops & services</p>
+      <span>Explore →</span>
+    </div>
+
+    <div class="home-option" onclick="showScreen('students')">
+      <div class="home-option-icon">🎓</div>
+      <h3>Student Hub</h3>
+      <p>Learn & prepare</p>
+      <span>Study →</span>
+    </div>
+
+    <div class="home-option" onclick="showScreen('jobs')">
+      <div class="home-option-icon">💼</div>
+      <h3>Jobs</h3>
+      <p>Career opportunities</p>
+      <span>Find →</span>
+    </div>
+
+    <div class="home-option" onclick="showScreen('services')">
+      <div class="home-option-icon">🏛️</div>
+      <h3>Services</h3>
+      <p>Public services</p>
+      <span>Access →</span>
+    </div>
+
+    <div class="home-option" onclick="showScreen('map')">
+      <div class="home-option-icon">🗺️</div>
+      <h3>Map</h3>
+      <p>Find your way</p>
+      <span>Open →</span>
+    </div>
+
+  </div>
+
+  <div class="home-feature">
+    <div class="home-feature-content">
+      <span>DISCOVER MORE</span>
+      <h2>See what Manipur has to offer.</h2>
+      <p>
+        Explore nature, culture, food, events and hidden gems
+        from one simple place.
+      </p>
+
+      <button onclick="showScreen('explore')">
+        Start Exploring →
+      </button>
+    </div>
+
+    <div class="home-feature-mark">M1</div>
+  </div>
+
+  <div class="home-note">
+    <strong>Manipur 1 is growing.</strong>
+    <p>
+      This prototype currently connects you to useful searches
+      and maps. Verified local listings and live services can
+      be added in future versions.
+    </p>
+  </div>
+
+</section>
 
   <div class="section-head"><h2>Quick access</h2></div>
   <div class="quick-row">
