@@ -812,6 +812,100 @@ main { padding: 22px 17px; }
     grid-template-columns: 1fr;
   }
 }
+
+/* PREMIUM JOBS PAGE */
+.jobs-hero {
+  padding: 30px 24px;
+  border-radius: 24px;
+  color: white;
+  background: linear-gradient(135deg, #26344f, #425c8a, #7b91b9);
+  margin-bottom: 26px;
+}
+
+.jobs-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.jobs-hero h1 {
+  font-size: 32px;
+  line-height: 1.15;
+  margin: 18px 0 12px;
+  font-weight: 800;
+}
+
+.jobs-hero p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.jobs-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.jobs-feature {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(120, 140, 140, 0.18);
+  border-radius: 20px;
+  padding: 18px 14px;
+  min-width: 0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.jobs-icon {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.jobs-feature h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.jobs-feature p {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.75;
+  min-height: 40px;
+}
+
+.jobs-feature button {
+  width: 100%;
+  margin-top: 12px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 8px;
+  background: #425c8a;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.jobs-notice {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(66, 92, 138, 0.09);
+  margin-top: 22px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.jobs-notice p {
+  margin: 8px 0 0;
+}
+
+@media (max-width: 360px) {
+  .jobs-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
   
   
 </style>
@@ -1204,19 +1298,80 @@ main { padding: 22px 17px; }
 </section>
 
 
-
-
 <section class="screen" id="jobs">
-  <button class="back" onclick="showScreen('home')">← Back</button>
-  <h1 class="page-title">Jobs & Careers</h1>
-  <p class="page-desc">Explore job searches, internships, and career resources.</p>
-  <form class="search" id="jobSearch" style="border:1px solid var(--border);margin:0 0 17px">
-    <span>⌕</span><input id="jobInput" placeholder="Search jobs in Manipur..."><button>Go</button>
-  </form>
-  <div id="jobList"></div>
-  <div class="section-head" style="margin-top:24px"><h2>Career resources</h2></div>
-  <div id="careerList"></div>
-  <div class="notice">Check the employer and official application details before sharing personal information or paying any fee. Job listings are not verified by this app.</div>
+  <div class="jobs-hero">
+    <span class="jobs-label">YOUR FUTURE STARTS HERE</span>
+    <h1>FIND YOUR<br>OPPORTUNITY</h1>
+    <p>Explore career opportunities, government jobs, and skill-building resources.</p>
+  </div>
+
+  <div class="section-heading">
+    <h2>Explore Opportunities</h2>
+    <p>Discover different paths for your future</p>
+  </div>
+
+  <div class="jobs-feature-grid">
+
+    <div class="jobs-feature">
+      <div class="jobs-icon">🏛️</div>
+      <h3>Government Jobs</h3>
+      <p>Search for government recruitment and official notifications.</p>
+      <button onclick="searchGoogle('Manipur government jobs official recruitment notifications')">
+        Find Jobs →
+      </button>
+    </div>
+
+    <div class="jobs-feature">
+      <div class="jobs-icon">🪖</div>
+      <h3>Defence Jobs</h3>
+      <p>Explore defence recruitment and eligibility information.</p>
+      <button onclick="searchGoogle('Indian Army recruitment official website')">
+        Explore Defence →
+      </button>
+    </div>
+
+    <div class="jobs-feature">
+      <div class="jobs-icon">💼</div>
+      <h3>Private Jobs</h3>
+      <p>Discover private-sector career opportunities.</p>
+      <button onclick="searchGoogle('Private jobs in Manipur')">
+        Find Private Jobs →
+      </button>
+    </div>
+
+    <div class="jobs-feature">
+      <div class="jobs-icon">🎓</div>
+      <h3>Internships</h3>
+      <p>Explore internships and practical learning opportunities.</p>
+      <button onclick="searchGoogle('Internships for students in India')">
+        Find Internships →
+      </button>
+    </div>
+
+    <div class="jobs-feature">
+      <div class="jobs-icon">🧑‍💻</div>
+      <h3>Skills & Training</h3>
+      <p>Discover courses and skills that support your career.</p>
+      <button onclick="searchGoogle('Free skill development courses India official')">
+        Build Skills →
+      </button>
+    </div>
+
+    <div class="jobs-feature">
+      <div class="jobs-icon">📄</div>
+      <h3>Resume & Interview</h3>
+      <p>Learn how to prepare a resume and get ready for interviews.</p>
+      <button onclick="searchGoogle('Free resume and interview preparation guide')">
+        Prepare Now →
+      </button>
+    </div>
+
+  </div>
+
+  <div class="jobs-notice">
+    <strong>Job information</strong>
+    <p>This prototype opens Google Search. Vacancies, deadlines, eligibility, and salary details are not verified inside the app. Check official recruitment notices before applying.</p>
+  </div>
 </section>
 
 <section class="screen" id="services">
