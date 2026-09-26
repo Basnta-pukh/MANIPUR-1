@@ -1094,7 +1094,158 @@ main { padding: 22px 17px; }
     grid-template-columns: 1fr;
   }
 }
-  
+/* PREMIUM PROFILE PAGE */
+
+.profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 26px 22px;
+  border-radius: 24px;
+  color: white;
+  background: linear-gradient(135deg, #172f3b, #246878, #4d9b91);
+  margin-bottom: 26px;
+}
+
+.profile-avatar {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.profile-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.profile-hero h1 {
+  font-size: 27px;
+  margin: 7px 0;
+}
+
+.profile-hero p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.88;
+}
+
+.profile-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.profile-feature {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(120, 140, 140, 0.18);
+  border-radius: 20px;
+  padding: 18px 14px;
+  min-width: 0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.profile-icon {
+  font-size: 28px;
+  margin-bottom: 13px;
+}
+
+.profile-feature h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.profile-feature p {
+  font-size: 12px;
+  line-height: 1.55;
+  opacity: 0.72;
+  min-height: 54px;
+}
+
+.profile-feature button {
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+  border-radius: 12px;
+  padding: 11px 7px;
+  background: #246878;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.profile-coming {
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(36, 104, 120, 0.08);
+  border: 1px solid rgba(36, 104, 120, 0.12);
+}
+
+.profile-coming span {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  font-weight: 800;
+  opacity: 0.65;
+}
+
+.profile-coming h2 {
+  font-size: 20px;
+  margin: 10px 0 8px;
+}
+
+.profile-coming p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.72;
+}
+
+.profile-version {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 28px 0 10px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.profile-version strong {
+  font-size: 13px;
+}
+
+.profile-version span {
+  font-size: 11px;
+}
+
+@media (max-width: 360px) {
+  .profile-hero {
+    padding: 22px 16px;
+  }
+
+  .profile-avatar {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+  }
+
+  .profile-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}  
   
 </style>
 </head>
@@ -1727,14 +1878,76 @@ main { padding: 22px 17px; }
 </section>
 
 <section class="screen" id="profile">
-  <button class="back" onclick="showScreen('home')">← Back</button>
-  <h1 class="page-title">Your Profile</h1>
-  <p class="page-desc">Your personal space in Manipur 1.</p>
-  <div class="empty">
-    <div style="font-size:38px;color:var(--green);margin-bottom:12px">○</div>
-    <h3>Profile coming soon</h3>
-    <p>Personal accounts and saved places will be added in a future version.</p>
+
+  <div class="profile-hero">
+    <div class="profile-avatar">M1</div>
+
+    <div class="profile-hero-text">
+      <span class="profile-label">MANIPUR 1</span>
+      <h1>Your Profile</h1>
+      <p>Your personal space inside One Manipur.</p>
+    </div>
   </div>
+
+  <div class="section-heading">
+    <h2>Quick Access</h2>
+    <p>Useful features for your Manipur 1 journey</p>
+  </div>
+
+  <div class="profile-feature-grid">
+
+    <div class="profile-feature">
+      <div class="profile-icon">❤️</div>
+      <h3>Saved Places</h3>
+      <p>Keep your favourite destinations and places together.</p>
+      <button onclick="showScreen('tourism')">
+        Explore Places →
+      </button>
+    </div>
+
+    <div class="profile-feature">
+      <div class="profile-icon">🔎</div>
+      <h3>Search</h3>
+      <p>Find destinations, food, transport, businesses and more.</p>
+      <button onclick="document.querySelector('.search-input')?.focus()">
+        Search Manipur →
+      </button>
+    </div>
+
+    <div class="profile-feature">
+      <div class="profile-icon">⚙️</div>
+      <h3>Settings</h3>
+      <p>Personalisation and app settings will be added here.</p>
+      <button onclick="showProfileMessage('Settings are coming soon.')">
+        Coming Soon
+      </button>
+    </div>
+
+    <div class="profile-feature">
+      <div class="profile-icon">💡</div>
+      <h3>About Manipur 1</h3>
+      <p>Learn about the vision behind One App. One Manipur.</p>
+      <button onclick="showProfileMessage('Manipur 1 — One app. One Manipur.')">
+        About App →
+      </button>
+    </div>
+
+  </div>
+
+  <div class="profile-coming">
+    <span>COMING SOON</span>
+    <h2>More features are on the way.</h2>
+    <p>
+      Accounts, saved places, personalised recommendations,
+      local updates and more can be added as Manipur 1 grows.
+    </p>
+  </div>
+
+  <div class="profile-version">
+    <strong>Manipur 1</strong>
+    <span>One app. One Manipur.</span>
+  </div>
+
 </section>
 </main>
 
@@ -1947,6 +2160,9 @@ document.getElementById('jobSearch').addEventListener('submit', event => {
   const query = document.getElementById('jobInput').value.trim();
   if (query) searchGoogle(query + ' jobs Manipur');
 });
+function showProfileMessage(message) {
+  alert(message);
+}  
 </script>
 </body>
 </html>
