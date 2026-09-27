@@ -763,28 +763,39 @@ button {
 
 </div>
 
-
 <!-- KANGLA FORT -->
-<div class="feature">
+<div class="feature tourism-destination">
 
-  <div class="feature-top">
-    <div class="feature-icon">🏯</div>
-  </div>
+  <img
+    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangla%20Fort%2C%20Manipur%2C%20India.jpg"
+    alt=""
+    class="destination-image"
+  >
 
   <div class="feature-content">
 
     <h3>Kangla Fort</h3>
 
     <p>
-      Discover one of the most important historical and cultural
-      sites in Imphal.
+      Explore one of Manipur's most important historical and cultural
+      landmarks, located in the heart of Imphal.
     </p>
 
-    <button
-      class="primary-btn"
-      onclick="openMaps('Kangla Fort Imphal Manipur')">
-      📍 View on Map
-    </button>
+    <div class="destination-buttons">
+
+      <button
+        class="primary-btn"
+        onclick="showKanglaDetails()">
+        📖 Details
+      </button>
+
+      <button
+        class="secondary-btn"
+        onclick="openMaps('Kangla Fort Imphal Manipur')">
+        📍 View Map
+      </button>
+
+    </div>
 
   </div>
 
@@ -1012,6 +1023,101 @@ button {
 </div>
   </div>
 </section>
+<!-- =========================
+     KANGLA FORT DETAILS
+========================= -->
+
+<section id="kanglaDetails" class="screen">
+
+  <div class="hero">
+
+    <small>MANIPUR • IMPHAL</small>
+
+    <h2>Kangla Fort.</h2>
+
+    <p>
+      Explore the historic heart of Manipur and discover
+      the heritage of Kangla.
+    </p>
+
+  </div>
+
+
+  <div class="detail-card">
+
+    <img
+      src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangla%20Fort%2C%20Manipur%2C%20India.jpg"
+      alt=""
+      class="detail-image"
+    >
+
+    <div class="place-details">
+
+      <h2>About Kangla Fort</h2>
+
+      <p>
+        Kangla Fort is a historic fortified palace complex in
+        Imphal and one of the most important heritage sites of
+        Manipur. Kangla was the traditional seat of political
+        power of the rulers of Manipur.
+      </p>
+
+
+      <h3>📍 Location</h3>
+
+      <p>
+        Imphal, Manipur
+      </p>
+
+
+      <h3>🏯 Why it is special</h3>
+
+      <ul>
+        <li>Historic royal capital of Manipur</li>
+        <li>Important archaeological and cultural heritage site</li>
+        <li>Historic palace and fort structures</li>
+        <li>Ancient temples and sacred sites</li>
+        <li>Kangla Sha guardian statues</li>
+        <li>Located in the heart of Imphal</li>
+      </ul>
+
+
+      <h3>🌿 What you can explore</h3>
+
+      <p>
+        Visitors can explore historic structures, gardens,
+        archaeological remains, temples, museums and other
+        important parts of the Kangla complex.
+      </p>
+
+
+      <h3>📖 Historical importance</h3>
+
+      <p>
+        Kangla has played a central role in the history of
+        Manipur and served as the traditional capital and
+        seat of the state's rulers for centuries.
+      </p>
+
+
+      <button
+        class="primary-btn"
+        onclick="openMaps('Kangla Fort Imphal Manipur')">
+        📍 Open Kangla Fort in Google Maps
+      </button>
+
+
+      <button
+        class="secondary-btn"
+        onclick="showScreen('tourism')">
+        ← Back to Tourism
+      </button>
+
+    </div>
+
+  </div>
+
+</section>  
   
 <!-- =========================
      FOOD
@@ -1580,7 +1686,9 @@ function showScreen(screenId) {
 function showLoktakDetails() {
   showScreen("loktakDetails");
 }
-
+function showKanglaDetails() {
+  showScreen("kanglaDetails");
+}
 /* =========================================
    GOOGLE SEARCH
 ========================================= */
@@ -1781,10 +1889,7 @@ function focusSearch() {
     });
 
   }
-}
-function showLoktakDetails() {
-  showScreen("loktakDetails");
-}  
+} 
 
 </script>
 
