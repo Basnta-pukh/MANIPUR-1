@@ -605,6 +605,103 @@ button {
 
 .detail-card ul {
   padding-left: 20px;
+}
+/* =========================
+   PREMIUM HOME OPTIONS
+========================= */
+
+.option-grid {
+  gap: 14px;
+}
+
+.option {
+  position: relative;
+  overflow: hidden;
+  min-height: 135px;
+  padding: 19px 16px;
+  border: 1px solid rgba(255,255,255,.8);
+  background:
+    linear-gradient(145deg, #ffffff 0%, #f8fafc 55%, #eef2ff 100%);
+  box-shadow:
+    0 10px 25px rgba(15,23,42,.07),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.option::before {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  right: -35px;
+  top: -35px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,.12),
+    rgba(20,184,166,.08)
+  );
+}
+
+.option::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 45%;
+  height: 3px;
+  background: linear-gradient(90deg,#111827,#6366f1,#14b8a6);
+  border-radius: 10px;
+}
+
+.option:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 15px 32px rgba(15,23,42,.12),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.option:active {
+  transform: scale(.97);
+}
+
+.option-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 14px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,#111827,#475569);
+  color: white;
+  box-shadow: 0 8px 18px rgba(15,23,42,.15);
+  font-size: 0;
+}
+
+.option:nth-child(1) .option-icon::after { content: "✦"; font-size: 20px; }
+.option:nth-child(2) .option-icon::after { content: "•"; font-size: 28px; }
+.option:nth-child(3) .option-icon::after { content: "→"; font-size: 22px; }
+.option:nth-child(4) .option-icon::after { content: "◆"; font-size: 17px; }
+.option:nth-child(5) .option-icon::after { content: "◇"; font-size: 22px; }
+.option:nth-child(6) .option-icon::after { content: "↗"; font-size: 22px; }
+.option:nth-child(7) .option-icon::after { content: "✓"; font-size: 21px; }
+.option:nth-child(8) .option-icon::after { content: "⌖"; font-size: 22px; }
+
+.option strong,
+.option span {
+  position: relative;
+  z-index: 2;
+}
+
+.option strong {
+  font-size: 15px;
+  letter-spacing: .1px;
+}
+
+.option span {
+  margin-top: 5px;
+  font-size: 11px;
 }  
 </style>
 </head>
@@ -844,9 +941,11 @@ button {
 
 <div class="feature tourism-destination">
 
- <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/A_beautiful_scene_as_we_look_across_the_hill_at_Phangrei_%2850016291802%29.jpg" 
-   alt="Shirui Hills, Manipur" 
-   class="destination-image"> 
+<img
+  src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shirui_Lily.jpg"
+  alt="Shirui Lily, Manipur"
+  class="destination-image"
+>
 
   <div class="feature-content">
 
@@ -926,9 +1025,11 @@ button {
 
 <div class="feature tourism-destination">
 
-<img src="https://ukhrul.nic.in/wp-content/uploads/2018/07/Khangkhui-Cave.jpg" 
+<img 
+  src="https://ukhrul.nic.in/wp-content/uploads/2018/07/Khangkhui-Cave.jpg" 
   alt="Khangkhui Cave, Manipur" 
-  class="destination-image">
+  class="destination-image"
+>
 
   <div class="feature-content">
 
@@ -1008,11 +1109,11 @@ button {
 
 <div class="feature tourism-destination">
 
-  <img
-    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Visiting_Ima_Keithel_%28%22Women%27s_Market%22_in_Classical_Meitei%29_%E2%80%94_Over_100_delegates_from_23_countries_participating_in_the_B20_conferences_of_the_G20_dialogue_forum_for_the_global_business_community_in_Imphal%2C_Manipur%2C_in_2023.jpg"
-    alt="Ima Keithel, Imphal"
-    class="destination-image"
-  >
+<img
+  src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Imphal%2C_Manipur_%2862%29.jpeg"
+  alt="Ima Market exterior, Imphal"
+  class="destination-image"
+>  
 
   <div class="feature-content">
 
@@ -1043,6 +1144,8 @@ button {
 
 </div>
 
+</div> <!-- closes feature-grid -->
+</section> <!-- closes tourism -->
   <!-- =========================
      LOKTAK LAKE DETAILS
 ========================= -->
