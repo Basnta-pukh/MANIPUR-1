@@ -547,6 +547,65 @@ button {
 .tourism-buttons button {
   width: 100%;
 }  
+/* DESTINATION CARDS */
+
+.destination-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.destination-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.secondary-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #e9f2ef;
+  color: #087f5b;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.detail-card {
+  background: white;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-top: 20px;
+}
+
+.detail-card h2 {
+  margin-top: 20px;
+}
+
+.detail-card h3 {
+  margin-top: 25px;
+}
+
+.detail-card p,
+.detail-card li {
+  line-height: 1.7;
+  color: #5f6f68;
+}
+
+.detail-card ul {
+  padding-left: 20px;
+}  
 </style>
 </head>
 
@@ -676,33 +735,38 @@ button {
     class="tourism-photo"
   >
 
-  <h3>Loktak Lake</h3>
+ <div class="feature tourism-destination">
 
-  <p>
-    Explore Manipur's famous freshwater lake
-    and its unique floating phumdis.
-  </p>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Loktak_lake.jpg"
+    alt="Loktak Lake, Manipur"
+    class="destination-image"
+  >
 
-  <div class="tourism-buttons">
+  <div class="feature-content">
 
-    <details class="details-box">
-      <summary class="primary-btn">Details / Preview</summary>
+    <h3>🌊 Loktak Lake</h3>
 
-      <div class="place-details">
-        <p>
-          Loktak Lake is famous for its floating
-          phumdis and beautiful natural scenery.
-        </p>
-        <p><strong>Location:</strong> Bishnupur district, Manipur</p>
-      </div>
-    </details>
+    <p>
+      Discover Manipur's iconic freshwater lake, famous for its
+      floating phumdis, beautiful waters and unique landscape.
+    </p>
 
-    <button
-      class="secondary-btn"
-      onclick="openMaps('Loktak Lake, Manipur')"
-    >
-      🗺️ View on Map
-    </button>
+    <div class="destination-buttons">
+
+      <button
+        class="primary-btn"
+        onclick="showLoktakDetails()">
+        📖 Details
+      </button>
+
+      <button
+        class="secondary-btn"
+        onclick="openMaps('Loktak Lake Manipur')">
+        📍 View Map
+      </button>
+
+    </div>
 
   </div>
 
@@ -820,6 +884,81 @@ button {
   </div>
 
 </section>
+ <!-- LOKTAK LAKE DETAILS -->
+
+<section id="loktakDetails" class="screen">
+
+  <div class="hero">
+
+    <small>MANIPUR • BISHNUPUR</small>
+
+    <h2>Loktak<br>Lake.</h2>
+
+    <p>
+      One of Manipur's most distinctive natural destinations.
+    </p>
+
+  </div>
+
+  <div class="detail-card">
+
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Loktak_lake.jpg"
+      alt="Loktak Lake"
+      class="detail-image"
+    >
+
+    <h2>About Loktak Lake</h2>
+
+    <p>
+      Loktak Lake is located in Bishnupur District, about 48 km
+      from Imphal. It is the largest freshwater lake in
+      Northeast India.
+    </p>
+
+    <p>
+      The lake is especially known for its floating masses of
+      vegetation, soil and organic material called
+      <strong>phumdis</strong>.
+    </p>
+
+    <p>
+      Visitors can enjoy views of the lake from Sendra, while
+      boating and other water activities are available around
+      the lake.
+    </p>
+
+    <h3>📍 Location</h3>
+
+    <p>
+      Bishnupur District, Manipur
+    </p>
+
+    <h3>🌿 What makes it special?</h3>
+
+    <ul>
+      <li>Floating phumdis</li>
+      <li>Beautiful lake landscapes</li>
+      <li>Sendra viewpoint</li>
+      <li>Connection with Keibul Lamjao National Park</li>
+      <li>Boating and water activities</li>
+    </ul>
+
+    <button
+      class="primary-btn"
+      onclick="openMaps('Loktak Lake Manipur')">
+      📍 Open in Google Maps
+    </button>
+
+    <button
+      class="secondary-btn"
+      onclick="showScreen('tourism')">
+      ← Back to Tourism
+    </button>
+
+  </div>
+
+</section> 
 
 <!-- =========================
      FOOD
@@ -1588,6 +1727,9 @@ function focusSearch() {
 
   }
 }
+function showLoktakDetails() {
+  showScreen("loktakDetails");
+}  
 
 </script>
 
