@@ -1249,6 +1249,7 @@ button {
   <div class="hero">
     <small>MANIPUR 1 SEARCH</small>
     <h2 id="searchResultTitle">Search results</h2>
+    <p id="searchResultCount"></p>
     <p>Find places, services and opportunities inside Manipur 1.</p>
   </div>
 
@@ -1478,6 +1479,12 @@ function performSearch() {
         ? "Results for \"" + input.value.trim() + "\""
         : "No results found";
   }
+  const resultCount = document.getElementById("searchResultCount");
+
+if (resultCount) {
+  resultCount.textContent =
+    found + (found === 1 ? " result found" : " results found");
+}
 
 }
 
