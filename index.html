@@ -736,7 +736,7 @@ button {
 
   <div class="feature-content">
 
-    <h3>🌊 Loktak Lake</h3>
+    <h3>Loktak Lake</h3>
 
     <p>
       Discover Manipur's iconic freshwater lake, famous for its
@@ -955,6 +955,62 @@ button {
     local listings will be added as MANIPUR 1 develops.
   </div>
 
+</section>
+  <!-- =========================
+     LOKTAK LAKE DETAILS
+========================= -->
+<section id="loktakDetails" class="screen">
+  <div class="hero">
+    <small>MANIPUR • BISHNUPUR</small>
+<h2>Loktak Lake.</h2>
+<p>
+  Discover Manipur's iconic freshwater lake,
+  famous for its floating phumdis and unique landscape.
+</p>
+  </div>
+  <div class="detail-card">
+<img
+  src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Loktak_Lake_View.jpg"
+  alt=""
+  class="detail-image"
+>
+<div class="place-details">
+  <h2>About Loktak Lake</h2>
+  <p>
+    Loktak Lake is the largest freshwater lake in Northeast India
+    and one of Manipur's most remarkable natural attractions.
+    The lake is famous for its floating masses of vegetation
+    called phumdis.
+  </p>
+  <h3>📍 Location</h3>
+  <p>
+    Bishnupur District, Manipur
+  </p>
+  <h3>🌿 What makes it special?</h3>
+  <ul>
+    <li>Floating phumdis across the lake</li>
+    <li>Beautiful views and peaceful surroundings</li>
+    <li>Close to Keibul Lamjao National Park</li>
+    <li>Famous Sendra viewpoint</li>
+    <li>Boating and sightseeing opportunities</li>
+  </ul>
+  <h3>🚗 Getting there</h3>
+  <p>
+    Loktak Lake is approximately 48 km from Imphal
+    and can be reached by road.
+  </p>
+  <button
+    class="primary-btn"
+    onclick="openMaps('Loktak Lake Manipur')">
+    📍 Open Loktak Lake in Google Maps
+  </button>
+  <button
+    class="secondary-btn"
+    onclick="showScreen('tourism')">
+    ← Back to Tourism
+  </button>
+</div>
+  </div>
 </section>
   
 <!-- =========================
@@ -1521,7 +1577,9 @@ function showScreen(screenId) {
     behavior: "smooth"
   });
 }
-
+function showLoktakDetails() {
+  showScreen("loktakDetails");
+}
 
 /* =========================================
    GOOGLE SEARCH
