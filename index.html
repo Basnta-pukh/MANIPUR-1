@@ -803,26 +803,38 @@ button {
 
 
 <!-- KEIBUL LAMJAO -->
-<div class="feature">
+<div class="feature tourism-destination">
 
-  <div class="feature-top">
-    <div class="feature-icon">🦌</div>
-  </div>
+  <img
+    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Keibul_Lamjao_National_Park.jpg"
+    alt=""
+    class="destination-image"
+  >
 
   <div class="feature-content">
 
     <h3>Keibul Lamjao</h3>
 
     <p>
-      Visit the unique floating national park and learn about
-      the Sangai deer.
+      Explore the world's only floating national park and discover
+      the natural habitat of the Sangai deer.
     </p>
 
-    <button
-      class="primary-btn"
-      onclick="openMaps('Keibul Lamjao National Park Manipur')">
-      📍 View on Map
-    </button>
+    <div class="destination-buttons">
+
+      <button
+        class="primary-btn"
+        onclick="showKeibulDetails()">
+        📖 Details
+      </button>
+
+      <button
+        class="secondary-btn"
+        onclick="openMaps('Keibul Lamjao National Park Manipur')">
+        📍 View Map
+      </button>
+
+    </div>
 
   </div>
 
@@ -1104,6 +1116,100 @@ button {
         class="primary-btn"
         onclick="openMaps('Kangla Fort Imphal Manipur')">
         📍 Open Kangla Fort in Google Maps
+      </button>
+
+
+      <button
+        class="secondary-btn"
+        onclick="showScreen('tourism')">
+        ← Back to Tourism
+      </button>
+
+    </div>
+
+  </div>
+
+</section>  
+
+<!-- =========================
+     KEIBUL LAMJAO DETAILS
+========================= -->
+
+<section id="keibulDetails" class="screen">
+
+  <div class="hero">
+
+    <small>MANIPUR • BISHNUPUR</small>
+
+    <h2>Keibul Lamjao.</h2>
+
+    <p>
+      Discover the world's only floating national park and
+      the home of the endangered Sangai deer.
+    </p>
+
+  </div>
+
+
+  <div class="detail-card">
+
+    <img
+      src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Keibul_Lamjao_National_Park.jpg"
+      alt=""
+      class="detail-image"
+    >
+
+    <div class="place-details">
+
+      <h2>About Keibul Lamjao</h2>
+
+      <p>
+        Keibul Lamjao National Park is a unique protected area
+        located on Loktak Lake in Manipur. It is famous for its
+        floating landscape and is closely associated with the
+        Sangai, Manipur's brow-antlered deer.
+      </p>
+
+
+      <h3>📍 Location</h3>
+
+      <p>
+        Bishnupur District, Manipur
+      </p>
+
+
+      <h3>🦌 What makes it special?</h3>
+
+      <ul>
+        <li>Unique floating wetland ecosystem</li>
+        <li>Home of the Sangai deer</li>
+        <li>Located on Loktak Lake</li>
+        <li>Rich wetland biodiversity</li>
+        <li>One of Manipur's important natural heritage sites</li>
+      </ul>
+
+
+      <h3>🌿 What you can explore</h3>
+
+      <p>
+        Visitors can experience the unique wetland landscape,
+        observe the natural surroundings and learn about the
+        Sangai and the ecosystem of Loktak Lake.
+      </p>
+
+
+      <h3>🚗 Getting there</h3>
+
+      <p>
+        The national park is located in the Bishnupur area
+        of Manipur and can be reached by road from Imphal.
+      </p>
+
+
+      <button
+        class="primary-btn"
+        onclick="openMaps('Keibul Lamjao National Park Manipur')">
+        📍 Open Keibul Lamjao in Google Maps
       </button>
 
 
@@ -1689,6 +1795,9 @@ function showLoktakDetails() {
 function showKanglaDetails() {
   showScreen("kanglaDetails");
 }
+function showKeibulDetails() {
+  showScreen("keibulDetails");
+}  
 /* =========================================
    GOOGLE SEARCH
 ========================================= */
