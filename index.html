@@ -846,6 +846,251 @@ button {
   margin-top: 5px;
   font-size: 11px;
 }  
+/* =========================
+   MANIPUR 1 — PREMIUM HOME
+========================= */
+
+.home-dashboard {
+  margin-top: 18px;
+}
+
+/* Quick action strip */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+  margin-bottom: 22px;
+}
+
+.quick-action {
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 17px;
+  padding: 13px 7px;
+  text-align: center;
+  box-shadow: 0 7px 18px rgba(15,23,42,.05);
+  transition: transform .2s ease;
+}
+
+.quick-action:active {
+  transform: scale(.95);
+}
+
+.quick-action-icon {
+  font-size: 21px;
+  margin-bottom: 6px;
+}
+
+.quick-action strong {
+  display: block;
+  font-size: 11px;
+}
+
+.quick-action span {
+  display: block;
+  color: #6b7280;
+  font-size: 9px;
+  margin-top: 2px;
+}
+
+/* Home section headers */
+
+.home-section {
+  margin-top: 27px;
+}
+
+.home-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 11px;
+}
+
+.home-section-header h3 {
+  font-size: 18px;
+}
+
+.home-section-header p {
+  color: #6b7280;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.home-see-all {
+  border: none;
+  background: transparent;
+  color: #087f5b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Horizontal cards */
+
+.horizontal-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 2px 2px 8px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.mini-card {
+  min-width: 190px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 19px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(15,23,42,.06);
+  scroll-snap-align: start;
+}
+
+.mini-card-image {
+  width: 100%;
+  height: 115px;
+  object-fit: cover;
+  display: block;
+}
+
+.mini-card-content {
+  padding: 12px;
+}
+
+.mini-card-content h4 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.mini-card-content p {
+  color: #6b7280;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.mini-card-button {
+  margin-top: 9px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  padding: 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Opportunity cards */
+
+.opportunity-card {
+  min-width: 220px;
+  background: linear-gradient(145deg,#111827,#263449);
+  color: white;
+  border-radius: 20px;
+  padding: 17px;
+  scroll-snap-align: start;
+  box-shadow: 0 10px 25px rgba(15,23,42,.13);
+}
+
+.opportunity-card small {
+  color: #a7f3d0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.opportunity-card h4 {
+  margin: 7px 0 5px;
+  font-size: 16px;
+}
+
+.opportunity-card p {
+  color: rgba(255,255,255,.68);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.opportunity-card button {
+  margin-top: 12px;
+  border: none;
+  background: white;
+  color: #111827;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Build Manipur banner */
+
+.build-banner {
+  margin-top: 27px;
+  border-radius: 22px;
+  padding: 21px;
+  background:
+    linear-gradient(135deg,#064e3b,#047857 55%,#0f766e);
+  color: white;
+  box-shadow: 0 12px 28px rgba(4,120,87,.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.build-banner::after {
+  content: "M1";
+  position: absolute;
+  right: -10px;
+  bottom: -28px;
+  font-size: 100px;
+  font-weight: 900;
+  color: rgba(255,255,255,.06);
+}
+
+.build-banner small {
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  opacity: .75;
+}
+
+.build-banner h3 {
+  margin: 7px 0;
+  font-size: 21px;
+}
+
+.build-banner p {
+  color: rgba(255,255,255,.75);
+  font-size: 11px;
+  line-height: 1.5;
+  max-width: 500px;
+}
+
+.build-banner button {
+  margin-top: 13px;
+  border: none;
+  background: white;
+  color: #064e3b;
+  border-radius: 11px;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* Mobile adjustment */
+
+@media (max-width: 380px) {
+
+  .quick-actions {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .mini-card {
+    min-width: 175px;
+  }
+
+}  
 </style>
 </head>
 
@@ -878,415 +1123,769 @@ button {
 </div>
 
 <!-- =========================
-     HOME
+     HOME — PREMIUM DASHBOARD
 ========================= -->
 
 <section id="home" class="screen active">
 
   <div class="hero home-hero">
+
     <small>MANIPUR 1</small>
+
     <h2>EXPLORE.<br>CONNECT.<br>GROW.</h2>
-    <p>One place to discover Manipur, connect with local opportunities and explore what's around you.</p>
-  </div>
 
-  <div class="section-title">
-    <h3>Discover Manipur</h3>
-    <p>Everything in one place.</p>
-  </div>
-
-  <div class="option-grid">
-
-    <button class="option" onclick="showScreen('tourism')">
-      <div class="option-icon"> </div>
-      <strong>Tourism</strong>
-      <span>Places & experiences</span>
-    </button>
-
-    <button class="option" onclick="showScreen('food')">
-      <div class="option-icon"></div>
-      <strong>Food</strong>
-      <span>Local food & restaurants</span>
-    </button>
-
-    <button class="option" onclick="showScreen('transport')">
-      <div class="option-icon"></div>
-      <strong>Transport</strong>
-      <span>Move around Manipur</span>
-    </button>
-
-    <button class="option" onclick="showScreen('businesses')">
-      <div class="option-icon"></div>
-      <strong>Businesses</strong>
-      <span>Local shops & services</span>
-    </button>
-
-    <button class="option" onclick="showScreen('student')">
-      <div class="option-icon"></div>
-      <strong>Student Hub</strong>
-      <span>Study & education</span>
-    </button>
-
-    <button class="option" onclick="showScreen('jobs')">
-      <div class="option-icon"></div>
-      <strong>Jobs</strong>
-      <span>Career opportunities</span>
-    </button>
-
-    <button class="option" onclick="showScreen('services')">
-      <div class="option-icon"></div>
-      <strong>Services</strong>
-      <span>Government services</span>
-    </button>
-
-    <button class="option" onclick="showScreen('map')">
-      <div class="option-icon"></div>
-      <strong>Map</strong>
-      <span>Find places</span>
-    </button>
+    <p>
+      One place to discover Manipur,
+      connect with opportunities and explore what's around you.
+    </p>
 
   </div>
 
-  <div class="note">
-    <strong>Manipur 1 is growing.</strong><br>
-    This prototype connects useful categories through search and maps. Verified local listings and live services can be added later.
+
+  <div class="home-dashboard">
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="quick-actions">
+
+      <button class="quick-action" onclick="showScreen('tourism')">
+        <div class="quick-action-icon">🏞️</div>
+        <strong>Explore</strong>
+        <span>Places</span>
+      </button>
+
+      <button class="quick-action" onclick="openMaps('Manipur India')">
+        <div class="quick-action-icon">🗺️</div>
+        <strong>Map</strong>
+        <span>Find places</span>
+      </button>
+
+      <button class="quick-action" onclick="showScreen('food')">
+        <div class="quick-action-icon">🍜</div>
+        <strong>Food</strong>
+        <span>Eat local</span>
+      </button>
+
+      <button class="quick-action" onclick="showScreen('jobs')">
+        <div class="quick-action-icon">💼</div>
+        <strong>Jobs</strong>
+        <span>Opportunities</span>
+      </button>
+
+    </div>
+
+
+    <!-- MAIN CATEGORIES -->
+
+    <div class="section-title">
+      <h3>Discover Manipur</h3>
+      <p>Everything in one place.</p>
+    </div>
+
+    <div class="option-grid">
+
+      <button class="option" onclick="showScreen('tourism')">
+        <div class="option-icon"></div>
+        <strong>Tourism</strong>
+        <span>Places & experiences</span>
+      </button>
+
+      <button class="option" onclick="showScreen('food')">
+        <div class="option-icon"></div>
+        <strong>Food</strong>
+        <span>Local food & restaurants</span>
+      </button>
+
+      <button class="option" onclick="showScreen('transport')">
+        <div class="option-icon"></div>
+        <strong>Transport</strong>
+        <span>Move around Manipur</span>
+      </button>
+
+      <button class="option" onclick="showScreen('businesses')">
+        <div class="option-icon"></div>
+        <strong>Businesses</strong>
+        <span>Local shops & services</span>
+      </button>
+
+      <button class="option" onclick="showScreen('student')">
+        <div class="option-icon"></div>
+        <strong>Student Hub</strong>
+        <span>Study & education</span>
+      </button>
+
+      <button class="option" onclick="showScreen('jobs')">
+        <div class="option-icon"></div>
+        <strong>Jobs</strong>
+        <span>Career opportunities</span>
+      </button>
+
+      <button class="option" onclick="showScreen('services')">
+        <div class="option-icon"></div>
+        <strong>Services</strong>
+        <span>Government services</span>
+      </button>
+
+      <button class="option" onclick="showScreen('map')">
+        <div class="option-icon"></div>
+        <strong>Map</strong>
+        <span>Find places</span>
+      </button>
+
+    </div>
+
+
+    <!-- POPULAR PLACES -->
+
+    <div class="home-section">
+
+      <div class="home-section-header">
+        <div>
+          <h3>Popular Places</h3>
+          <p>Start exploring Manipur</p>
+        </div>
+
+        <button
+          class="home-see-all"
+          onclick="showScreen('tourism')">
+          See all →
+        </button>
+      </div>
+
+
+      <div class="horizontal-scroll">
+
+        <div class="mini-card">
+
+          <img
+            class="mini-card-image"
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Loktak_Lake_View.jpg"
+            alt="Loktak Lake"
+          >
+
+          <div class="mini-card-content">
+
+            <h4>Loktak Lake</h4>
+
+            <p>
+              Floating phumdis and one of Manipur's
+              most iconic landscapes.
+            </p>
+
+            <button
+              class="mini-card-button"
+              onclick="showLoktakDetails()">
+              Explore
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <img
+            class="mini-card-image"
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangla%20Fort%2C%20Manipur%2C%20India.jpg"
+            alt="Kangla Fort"
+          >
+
+          <div class="mini-card-content">
+
+            <h4>Kangla Fort</h4>
+
+            <p>
+              Discover one of Manipur's important
+              historic landmarks.
+            </p>
+
+            <button
+              class="mini-card-button"
+              onclick="showKanglaDetails()">
+              Explore
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <img
+            class="mini-card-image"
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shirui_Hills.jpg"
+            alt="Shirui Hills"
+          >
+
+          <div class="mini-card-content">
+
+            <h4>Shirui Hills</h4>
+
+            <p>
+              Mountain scenery and the famous
+              Shirui Lily.
+            </p>
+
+            <button
+              class="mini-card-button"
+              onclick="showShiruiDetails()">
+              Explore
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- OPPORTUNITIES -->
+
+    <div class="home-section">
+
+      <div class="home-section-header">
+
+        <div>
+          <h3>Opportunities</h3>
+          <p>Build your future</p>
+        </div>
+
+        <button
+          class="home-see-all"
+          onclick="showScreen('jobs')">
+          View jobs →
+        </button>
+
+      </div>
+
+
+      <div class="horizontal-scroll">
+
+        <div class="opportunity-card">
+
+          <small>CAREERS</small>
+
+          <h4>Government Jobs</h4>
+
+          <p>
+            Find recruitment information and
+            official opportunities.
+          </p>
+
+          <button
+            onclick="showScreen('jobs')">
+            Explore Jobs →
+          </button>
+
+        </div>
+
+
+        <div class="opportunity-card">
+
+          <small>STUDENTS</small>
+
+          <h4>Scholarships</h4>
+
+          <p>
+            Discover scholarship and education
+            opportunities.
+          </p>
+
+          <button
+            onclick="showScreen('student')">
+            Explore →
+          </button>
+
+        </div>
+
+
+        <div class="opportunity-card">
+
+          <small>SKILLS</small>
+
+          <h4>Learn New Skills</h4>
+
+          <p>
+            Explore courses and resources
+            to improve your skills.
+          </p>
+
+          <button
+            onclick="showScreen('student')">
+            Learn →
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- BUILD MANIPUR -->
+
+    <div class="build-banner">
+
+      <small>THE VISION</small>
+
+      <h3>Let's build Manipur together.</h3>
+
+      <p>
+        Manipur 1 aims to connect people, places,
+        businesses, students and opportunities
+        through one useful platform.
+      </p>
+
+      <button onclick="showScreen('explore')">
+        Explore Manipur →
+      </button>
+
+    </div>
+
+
+    <!-- INFORMATION NOTE -->
+
+    <div class="note">
+
+      <strong>Manipur 1 is growing.</strong><br>
+
+      This version is still under development.
+      Live listings, verified businesses, real-time
+      jobs, news and other services will be added
+      as the platform develops.
+
+    </div>
+
   </div>
 
 </section>
-
 <!-- =========================
      TOURISM
 ========================= -->
 <section id="tourism" class="screen">
-  
+
   <div class="hero">
-    <small>DISCOVER MANIPUR</small>
-    <h2>Places worth<br>remembering.</h2>
-    <p>Explore nature, heritage, wildlife and beautiful destinations across Manipur.</p>
-  </div>
-    <div class="feature-grid">
-
-   <!-- LOKTAK LAKE -->
-<div class="feature tourism-destination">
-
-  <img
-    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Loktak_Lake_View.jpg"
-    alt=""
-    class="destination-image"
-  >
-
-  <div class="feature-content">
-
-    <h3>Loktak Lake</h3>
-
+    <small>MANIPUR TOURISM</small>
+    <h2>Discover<br>Manipur.</h2>
     <p>
-      Discover Manipur's iconic freshwater lake, famous for its
-      floating phumdis, beautiful waters and unique landscape.
+      Explore lakes, hills, heritage sites,
+      waterfalls, caves and unique local experiences.
     </p>
+  </div>
 
-    <div class="destination-buttons">
 
-      <button
-        class="primary-btn"
-        onclick="showLoktakDetails()">
-         Details
-      </button>
+  <div class="section-title">
+    <h3>Explore by experience</h3>
+    <p>Find something that matches your adventure.</p>
+  </div>
 
-      <button
-        class="secondary-btn"
-        onclick="openMaps('Loktak Lake Manipur')">
-        📍 View Map
-      </button>
+
+  <div class="option-grid">
+
+    <button class="option" onclick="showScreen('tourism')">
+      <div class="option-icon">🏞️</div>
+      <strong>Nature</strong>
+      <span>Lakes, hills & waterfalls</span>
+    </button>
+
+    <button class="option" onclick="showScreen('tourism')">
+      <div class="option-icon">🏛️</div>
+      <strong>Heritage</strong>
+      <span>History & culture</span>
+    </button>
+
+    <button class="option" onclick="showScreen('tourism')">
+      <div class="option-icon">🥾</div>
+      <strong>Adventure</strong>
+      <span>Hiking & exploration</span>
+    </button>
+
+    <button class="option" onclick="showScreen('tourism')">
+      <div class="option-icon">📸</div>
+      <strong>Photo Spots</strong>
+      <span>Beautiful places</span>
+    </button>
+
+  </div>
+
+
+  <div class="section-title">
+    <h3>Premium Tourist Spots</h3>
+    <p>Explore Manipur's featured destinations.</p>
+  </div>
+
+
+  <div class="feature-grid">
+
+
+    <!-- LOKTAK -->
+
+    <div class="feature">
+
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Loktak_Lake_View.jpg"
+        alt="Loktak Lake"
+      >
+
+      <div class="feature-content">
+
+        <span class="badge">ICONIC</span>
+
+        <h3>Loktak Lake</h3>
+
+        <p>
+          Discover Manipur's famous freshwater lake,
+          known for its floating phumdis.
+        </p>
+
+        <div class="tourism-buttons">
+
+          <button
+            class="primary-btn"
+            onclick="showLoktakDetails()">
+            Details
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Loktak Lake, Manipur')">
+            View Map
+          </button>
+
+        </div>
+
+      </div>
 
     </div>
 
-  </div>
 
-</div>
+    <!-- KANGLA -->
 
-<!-- KANGLA FORT -->
-<div class="feature tourism-destination">
+    <div class="feature">
 
-  <img
-    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangla%20Fort%2C%20Manipur%2C%20India.jpg"
-    alt=""
-    class="destination-image"
-  >
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kangla%20Fort%2C%20Manipur%2C%20India.jpg"
+        alt="Kangla Fort"
+      >
 
-  <div class="feature-content">
+      <div class="feature-content">
 
-    <h3>Kangla Fort</h3>
+        <span class="badge">HERITAGE</span>
 
-    <p>
-      Explore one of Manipur's most important historical and cultural
-      landmarks, located in the heart of Imphal.
-    </p>
+        <h3>Kangla Fort</h3>
 
-    <div class="destination-buttons">
+        <p>
+          Explore one of Manipur's most important
+          historic and cultural landmarks.
+        </p>
 
-      <button
-        class="primary-btn"
-        onclick="showKanglaDetails()">
-         Details
-      </button>
+        <div class="tourism-buttons">
 
-      <button
-        class="secondary-btn"
-        onclick="openMaps('Kangla Fort Imphal Manipur')">
-        📍 View Map
-      </button>
+          <button
+            class="primary-btn"
+            onclick="showKanglaDetails()">
+            Details
+          </button>
 
-    </div>
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Kangla Fort, Imphal, Manipur')">
+            View Map
+          </button>
 
-  </div>
+        </div>
 
-</div>
-
-
-<!-- KEIBUL LAMJAO -->
-<div class="feature tourism-destination">
-
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Keibul_lamjao_national_park.jpeg" 
-    alt="Keibul Lamjao National Park, Manipur" 
-    class="destination-image">
-
-  <div class="feature-content">
-
-    <h3> Keibul Lamjao</h3>
-
-    <p>
-      Explore the world's only floating national park and discover
-      the natural habitat of the Sangai deer.
-    </p>
-
-    <div class="destination-buttons">
-
-      <button
-        class="primary-btn"
-        onclick="showKeibulDetails()">
-         Details
-      </button>
-
-      <button
-        class="secondary-btn"
-        onclick="openMaps('Keibul Lamjao National Park Manipur')">
-        📍 View Map
-      </button>
+      </div>
 
     </div>
 
-  </div>
 
-</div>
+    <!-- KEIBUL LAMJAO -->
 
-<!-- =========================
-     SHIRUI HILLS
-========================= -->
+    <div class="feature">
 
-<div class="feature tourism-destination">
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Keibul_Lamjao_National_Park.jpg"
+        alt="Keibul Lamjao National Park"
+      >
 
-<img 
-  src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shirui_Lily.jpg"
-     alt="Shirui Lily, Manipur"
-     class="destination-image"
-  >
+      <div class="feature-content">
 
-  <div class="feature-content">
+        <span class="badge">WILDLIFE</span>
 
-    <h3> Shirui Hills</h3>
+        <h3>Keibul Lamjao</h3>
 
-    <p>
-      Discover the beautiful hills of Ukhrul, famous for the
-      rare Shirui Lily and breathtaking mountain scenery.
-    </p>
+        <p>
+          Explore the unique floating national park
+          and its natural environment.
+        </p>
 
-    <div class="destination-buttons">
+        <div class="tourism-buttons">
 
-      <button
-        class="primary-btn"
-        onclick="showShiruiDetails()">
-         Details
-      </button>
+          <button
+            class="primary-btn"
+            onclick="showKeibulDetails()">
+            Details
+          </button>
 
-      <button
-        class="secondary-btn"
-        onclick="openMaps('Shirui Hills Manipur')">
-        📍 View Map
-      </button>
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Keibul Lamjao National Park, Manipur')">
+            View Map
+          </button>
 
-    </div>
+        </div>
 
-  </div>
-
-</div>
-
-
-<!-- =========================
-     SADU CHIRU WATERFALL
-========================= -->
-
-<div class="feature tourism-destination">
-
-  <img
-    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Leimaram_Waterfall.jpg"
-    alt="Sadu Chiru Waterfall, Manipur"
-    class="destination-image"
-  >
-
-  <div class="feature-content">
-
-    <h3> Sadu Chiru Waterfall</h3>
-
-    <p>
-      Experience a scenic waterfall surrounded by green hills,
-      forests and a beautiful natural landscape.
-    </p>
-
-    <div class="destination-buttons">
-
-      <button
-        class="primary-btn"
-        onclick="showSaduChiruDetails()">
-         Details
-      </button>
-
-      <button
-        class="secondary-btn"
-        onclick="openMaps('Sadu Chiru Waterfall Manipur')">
-        📍 View Map
-      </button>
+      </div>
 
     </div>
 
-  </div>
 
-</div>
+    <!-- SHIRUI -->
 
+    <div class="feature">
 
-<!-- =========================
-     KHANGKHUI LIME CAVES
-========================= -->
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shirui_Hills.jpg"
+        alt="Shirui Hills"
+      >
 
-<div class="feature tourism-destination">
+      <div class="feature-content">
 
-<img src="https://ukhrul.nic.in/wp-content/uploads/2018/07/Khangkhui-Cave.jpg"
-     alt="Khangkhui Lime Caves"
-     class="destination-image">
+        <span class="badge">MOUNTAINS</span>
 
-  <div class="feature-content">
+        <h3>Shirui Hills</h3>
 
-    <h3> Khangkhui Lime Caves</h3>
+        <p>
+          Experience mountain scenery and the
+          famous Shirui Lily region.
+        </p>
 
-    <p>
-      Explore a prehistoric limestone cave system in Ukhrul
-      with fascinating geological and archaeological importance.
-    </p>
+        <div class="tourism-buttons">
 
-    <div class="destination-buttons">
+          <button
+            class="primary-btn"
+            onclick="showShiruiDetails()">
+            Details
+          </button>
 
-      <button
-        class="primary-btn"
-        onclick="showKhangkhuiDetails()">
-         Details
-      </button>
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Shirui Hills, Manipur')">
+            View Map
+          </button>
 
-      <button
-        class="secondary-btn"
-        onclick="openMaps('Khangkhui Lime Caves Manipur')">
-        📍 View Map
-      </button>
+        </div>
 
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =========================
-     DZUKO VALLEY
-========================= -->
-
-<div class="feature tourism-destination">
-
-  <img
-    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Dzuko_Valley.jpg"
-    alt="Dzuko Valley, Manipur"
-    class="destination-image"
-  >
-
-  <div class="feature-content">
-
-    <h3> Dzuko Valley</h3>
-
-    <p>
-      Explore one of the most scenic valleys around Manipur,
-      famous for its green landscapes, flowers and trekking routes.
-    </p>
-
-    <div class="destination-buttons">
-
-      <button
-        class="primary-btn"
-        onclick="showDzukoDetails()">
-         Details
-      </button>
-
-      <button
-        class="secondary-btn"
-        onclick="openMaps('Dzuko Valley Manipur')">
-        📍 View Map
-      </button>
+      </div>
 
     </div>
 
-  </div>
 
-</div>
+    <!-- SADU CHIRU -->
 
+    <div class="feature">
 
-<!-- =========================
-     IMA KEITHEL
-========================= -->
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sadu_Chiru_Waterfall.jpg"
+        alt="Sadu Chiru Waterfall"
+      >
 
-<div class="feature tourism-destination">
+      <div class="feature-content">
 
-<img 
-  src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Imphal%2C_Manipur_%2862%29.jpeg"
-     alt="Ima Keithel exterior, Imphal"
-     class="destination-image"
-  >
+        <span class="badge">WATERFALL</span>
 
-  <div class="feature-content">
+        <h3>Sadu Chiru Waterfall</h3>
 
-    <h3> Ima Keithel</h3>
+        <p>
+          A scenic waterfall destination surrounded
+          by greenery and hills.
+        </p>
 
-    <p>
-      Visit Imphal's famous women-run market and experience
-      one of the city's most distinctive cultural landmarks.
-    </p>
+        <div class="tourism-buttons">
 
-    <div class="destination-buttons">
+          <button
+            class="primary-btn"
+            onclick="showSaduChiruDetails()">
+            Details
+          </button>
 
-      <button
-        class="primary-btn"
-        onclick="showImaKeithelDetails()">
-         Details
-      </button>
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Sadu Chiru Waterfall, Manipur')">
+            View Map
+          </button>
 
-      <button
-        class="secondary-btn"
-        onclick="openMaps('Ima Keithel Imphal Manipur')">
-        📍 View Map
-      </button>
+        </div>
+
+      </div>
 
     </div>
 
+
+    <!-- KHANGKHUI -->
+
+    <div class="feature">
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Khangkhui_Cave.jpg/800px-Khangkhui_Cave.jpg"
+        alt="Khangkhui Lime Caves"
+      >
+
+      <div class="feature-content">
+
+        <span class="badge">CAVES</span>
+
+        <h3>Khangkhui Lime Caves</h3>
+
+        <p>
+          Discover an underground limestone cave
+          system surrounded by natural landscapes.
+        </p>
+
+        <div class="tourism-buttons">
+
+          <button
+            class="primary-btn"
+            onclick="showKhangkhuiDetails()">
+            Details
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Khangkhui Lime Caves, Manipur')">
+            View Map
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- DZUKO -->
+
+    <div class="feature">
+
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Dzukou_Valley.jpg"
+        alt="Dzuko Valley"
+      >
+
+      <div class="feature-content">
+
+        <span class="badge">ADVENTURE</span>
+
+        <h3>Dzuko Valley</h3>
+
+        <p>
+          Explore dramatic mountain scenery,
+          trekking routes and seasonal flowers.
+        </p>
+
+        <div class="tourism-buttons">
+
+          <button
+            class="primary-btn"
+            onclick="showDzukoDetails()">
+            Details
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Dzuko Valley, Manipur')">
+            View Map
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- IMA KEITHEL -->
+
+    <div class="feature">
+
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ima_Keithel_Imphal.jpg"
+        alt="Ima Keithel"
+      >
+
+      <div class="feature-content">
+
+        <span class="badge">CULTURE</span>
+
+        <h3>Ima Keithel</h3>
+
+        <p>
+          Experience one of Manipur's distinctive
+          traditional marketplaces.
+        </p>
+
+        <div class="tourism-buttons">
+
+          <button
+            class="primary-btn"
+            onclick="showImaKeithelDetails()">
+            Details
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="openMaps('Ima Keithel, Imphal, Manipur')">
+            View Map
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
   </div>
 
-</div>
 
-</div> <!-- closes feature-grid -->
-</section> <!-- closes tourism -->
+  <!-- MORE DESTINATIONS -->
+
+  <div class="build-banner">
+
+    <small>COMING NEXT</small>
+
+    <h3>More of Manipur is waiting.</h3>
+
+    <p>
+      We're building a larger destination database
+      with more villages, lakes, temples, viewpoints,
+      cultural sites and hidden gems.
+    </p>
+
+    <button onclick="showScreen('explore')">
+      Explore More →
+    </button>
+
+  </div>
+
+
+  <div class="note">
+
+    <strong>Travel information:</strong><br>
+
+    Check local conditions, opening hours and
+    travel guidance before visiting a destination.
+    Information on this page is being expanded
+    and verified as Manipur 1 develops.
+
+  </div>
+
+</section>
   <!-- =========================
      LOKTAK LAKE DETAILS
 ========================= -->
